@@ -1,0 +1,500 @@
+========================================================================
+NTCIP 1201v0227.mib — OID 树 / 类型 / 范围
+========================================================================
+源文件: mibs/mibs_old/1201v0227.mib
+对象总数: 59
+
+说明:
+  - scalar 实例 OID = 定义 OID + .0
+  - table 列实例 OID = 表 OID + 列后缀 + 索引
+  - profilesPMPP 在 …1206.4.1.2.3（protocols.profiles），不在 devices.6
+  - 其余 global 对象在 …1206.4.2.6 下
+
+------------------------------------------------------------------------
+globalConfiguration (1.3.6.1.4.1.1206.4.2.6.1)
+------------------------------------------------------------------------
+globalConfiguration
+  OID: 1.3.6.1.4.1.1206.4.2.6.1
+  实例: 1.3.6.1.4.1.1206.4.2.6.1
+  类型: OBJECT IDENTIFIER
+  范围: (branch node)
+  ACCESS: read-only
+
+globalSetIDParameter
+  OID: 1.3.6.1.4.1.1206.4.2.6.1.1
+  实例: 1.3.6.1.4.1.1206.4.2.6.1.1.0
+  类型: INTEGER
+  范围: 0 .. 65535
+  ACCESS: read-only
+  SYNTAX: INTEGER (0..65535)
+
+globalMaxModules
+  OID: 1.3.6.1.4.1.1206.4.2.6.1.2
+  实例: 1.3.6.1.4.1.1206.4.2.6.1.2.0
+  类型: INTEGER
+  范围: 1 .. 255
+  ACCESS: read-only
+  SYNTAX: INTEGER (1..255)
+
+globalModuleTable
+  OID: 1.3.6.1.4.1.1206.4.2.6.1.3
+  实例: 1.3.6.1.4.1.1206.4.2.6.1.3
+  类型: TABLE
+  范围: SEQUENCE OF ModuleTableEntry
+  ACCESS: not-accessible
+  SYNTAX: SEQUENCE OF ModuleTableEntry
+
+  moduleNumber
+    OID: 1.3.6.1.4.1.1206.4.2.6.1.3.1.1
+    实例: 1.3.6.1.4.1.1206.4.2.6.1.3.1.1.{index...}
+    类型: INTEGER
+    范围: 1 .. 255 [INDEX]
+    ACCESS: read-only
+    SYNTAX: INTEGER (1..255)
+
+  moduleDeviceNode
+    OID: 1.3.6.1.4.1.1206.4.2.6.1.3.1.2
+    实例: 1.3.6.1.4.1.1206.4.2.6.1.3.1.2.{index...}
+    类型: OBJECT IDENTIFIER
+    范围: (any valid OID)
+    ACCESS: read-only
+    SYNTAX: OBJECT IDENTIFIER
+
+  moduleMake
+    OID: 1.3.6.1.4.1.1206.4.2.6.1.3.1.3
+    实例: 1.3.6.1.4.1.1206.4.2.6.1.3.1.3.{index...}
+    类型: OCTET STRING
+    范围: length 0 .. 65535 bytes
+    ACCESS: read-only
+    SYNTAX: OCTET STRING
+
+  moduleModel
+    OID: 1.3.6.1.4.1.1206.4.2.6.1.3.1.4
+    实例: 1.3.6.1.4.1.1206.4.2.6.1.3.1.4.{index...}
+    类型: OCTET STRING
+    范围: length 0 .. 65535 bytes
+    ACCESS: read-only
+    SYNTAX: OCTET STRING
+
+  moduleVersion
+    OID: 1.3.6.1.4.1.1206.4.2.6.1.3.1.5
+    实例: 1.3.6.1.4.1.1206.4.2.6.1.3.1.5.{index...}
+    类型: OCTET STRING
+    范围: length 0 .. 65535 bytes
+    ACCESS: read-only
+    SYNTAX: OCTET STRING
+
+  moduleType
+    OID: 1.3.6.1.4.1.1206.4.2.6.1.3.1.6
+    实例: 1.3.6.1.4.1.1206.4.2.6.1.3.1.6.{index...}
+    类型: INTEGER (enum)
+    范围: 1 .. 3  (other=1, hardware=2, software=3)
+    ACCESS: read-only
+    SYNTAX: INTEGER { other (1), hardware (2), software (3) }
+
+moduleTableEntry
+  OID: 1.3.6.1.4.1.1206.4.2.6.1.3.1
+  实例: 1.3.6.1.4.1.1206.4.2.6.1.3.1
+  类型: ROW ENTRY
+  范围: INDEX { moduleNumber }
+  ACCESS: not-accessible
+  SYNTAX: ModuleTableEntry
+
+controllerBaseStandards
+  OID: 1.3.6.1.4.1.1206.4.2.6.1.4
+  实例: 1.3.6.1.4.1.1206.4.2.6.1.4.0
+  类型: OCTET STRING
+  范围: length 0 .. 256 bytes
+  ACCESS: read-only
+  SYNTAX: OCTET STRING (SIZE (0..256))
+
+------------------------------------------------------------------------
+globalDBManagement (1.3.6.1.4.1.1206.4.2.6.2)
+------------------------------------------------------------------------
+globalDBManagement
+  OID: 1.3.6.1.4.1.1206.4.2.6.2
+  实例: 1.3.6.1.4.1.1206.4.2.6.2
+  类型: OBJECT IDENTIFIER
+  范围: (branch node)
+  ACCESS: read-only
+
+dbCreateTransaction
+  OID: 1.3.6.1.4.1.1206.4.2.6.2.1
+  实例: 1.3.6.1.4.1.1206.4.2.6.2.1.0
+  类型: INTEGER (enum)
+  范围: 1 .. 6  (normal=1, transaction=2, verify=3, done=6)
+  ACCESS: read-write
+  DEFVAL: { normal }
+  SYNTAX: INTEGER { normal (1), transaction (2), verify (3), done (6) }
+
+dbVerifyStatus
+  OID: 1.3.6.1.4.1.1206.4.2.6.2.6
+  实例: 1.3.6.1.4.1.1206.4.2.6.2.6.0
+  类型: INTEGER (enum)
+  范围: 1 .. 3  (notDone=1, doneWithError=2, doneWithNoError=3)
+  ACCESS: read-only
+  SYNTAX: INTEGER { notDone (1), doneWithError (2), doneWithNoError  (3) }
+
+dbVerifyError
+  OID: 1.3.6.1.4.1.1206.4.2.6.2.7
+  实例: 1.3.6.1.4.1.1206.4.2.6.2.7.0
+  类型: OCTET STRING
+  范围: length 0 .. 255 bytes
+  ACCESS: read-only
+  SYNTAX: OCTET STRING (SIZE (0..255))
+
+------------------------------------------------------------------------
+globalTimeManagement (1.3.6.1.4.1.1206.4.2.6.3)
+------------------------------------------------------------------------
+globalTimeManagement
+  OID: 1.3.6.1.4.1.1206.4.2.6.3
+  实例: 1.3.6.1.4.1.1206.4.2.6.3
+  类型: OBJECT IDENTIFIER
+  范围: (branch node)
+  ACCESS: read-only
+
+globalTime
+  OID: 1.3.6.1.4.1.1206.4.2.6.3.1
+  实例: 1.3.6.1.4.1.1206.4.2.6.3.1.0
+  类型: Counter32
+  范围: 0 .. 4294967295
+  ACCESS: read-write
+  DEFVAL: { 0 }
+  SYNTAX: Counter
+
+globalDaylightSaving
+  OID: 1.3.6.1.4.1.1206.4.2.6.3.2
+  实例: 1.3.6.1.4.1.1206.4.2.6.3.2.0
+  类型: INTEGER (enum)
+  范围: 1 .. 19  (other=1, disableDST=2, enableUSDST=3, enableEuropeDST=4, enableAustraliaDST=5, enableTasmaniaDST=6, enableEgyptDST=7, enableNamibiaDST=8, enableIraqDST=9, enableMangoliaDST=10, enableIranDST=11, enableFijiDST=12, enableNewZealandDST=13, enableTongaDST=14, enableCubaDST=15, enableBrazilDST=16, enableChileDST=17, enableFalklandsDST=18, enableParaguayDST=19)
+  ACCESS: read-write
+  DEFVAL: { disableDST }
+  SYNTAX: INTEGER {                 other (1), disableDST (2), enableUSDST (3), enableEuropeDST (4), enableAustraliaDST (5), enableTasmaniaDST (6), enableEgyptDST (7), enableNamibiaDST (8), enableIraqDST (9), enableMangoliaDST (10), enableIranDST (11), enableFijiDST (12), enableNewZealandDST (13), enableTongaDST (14), enableCubaDST (15), enableBrazilDST (16), enableChileDST (17), enableFalklandsDST (18), enableParaguayDST (19) }
+
+timebase
+  OID: 1.3.6.1.4.1.1206.4.2.6.3.3
+  实例: 1.3.6.1.4.1.1206.4.2.6.3.3
+  类型: OBJECT IDENTIFIER
+  范围: (branch node)
+  ACCESS: read-only
+
+maxTimeBaseScheduleEntries
+  OID: 1.3.6.1.4.1.1206.4.2.6.3.3.1
+  实例: 1.3.6.1.4.1.1206.4.2.6.3.3.1.0
+  类型: INTEGER
+  范围: 1 .. 65535
+  ACCESS: read-only
+  SYNTAX: INTEGER (1..65535)
+
+timeBaseScheduleTable
+  OID: 1.3.6.1.4.1.1206.4.2.6.3.3.2
+  实例: 1.3.6.1.4.1.1206.4.2.6.3.3.2
+  类型: TABLE
+  范围: SEQUENCE OF TimeBaseScheduleEntry
+  ACCESS: not-accessible
+  SYNTAX: SEQUENCE OF TimeBaseScheduleEntry
+
+  timeBaseScheduleNumber
+    OID: 1.3.6.1.4.1.1206.4.2.6.3.3.2.1.1
+    实例: 1.3.6.1.4.1.1206.4.2.6.3.3.2.1.1.{index...}
+    类型: INTEGER
+    范围: 1 .. 65535 [INDEX]
+    ACCESS: read-only
+    SYNTAX: INTEGER (1..65535 )
+
+  timeBaseScheduleMonth
+    OID: 1.3.6.1.4.1.1206.4.2.6.3.3.2.1.2
+    实例: 1.3.6.1.4.1.1206.4.2.6.3.3.2.1.2.{index...}
+    类型: INTEGER
+    范围: 0 .. 65535
+    ACCESS: read-write
+    SYNTAX: INTEGER (0..65535)
+
+  timeBaseScheduleDay
+    OID: 1.3.6.1.4.1.1206.4.2.6.3.3.2.1.3
+    实例: 1.3.6.1.4.1.1206.4.2.6.3.3.2.1.3.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-write
+    SYNTAX: INTEGER (0..255)
+
+  timeBaseScheduleDate
+    OID: 1.3.6.1.4.1.1206.4.2.6.3.3.2.1.4
+    实例: 1.3.6.1.4.1.1206.4.2.6.3.3.2.1.4.{index...}
+    类型: INTEGER
+    范围: 0 .. 4294967295
+    ACCESS: read-write
+    SYNTAX: INTEGER (0..4294967295)
+
+  timeBaseScheduleDayPlan
+    OID: 1.3.6.1.4.1.1206.4.2.6.3.3.2.1.5
+    实例: 1.3.6.1.4.1.1206.4.2.6.3.3.2.1.5.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-write
+    SYNTAX: INTEGER (0..255)
+
+timeBaseScheduleEntry
+  OID: 1.3.6.1.4.1.1206.4.2.6.3.3.2.1
+  实例: 1.3.6.1.4.1.1206.4.2.6.3.3.2.1
+  类型: ROW ENTRY
+  范围: INDEX { timeBaseScheduleNumber }
+  ACCESS: not-accessible
+  SYNTAX: TimeBaseScheduleEntry
+
+maxDayPlans
+  OID: 1.3.6.1.4.1.1206.4.2.6.3.3.3
+  实例: 1.3.6.1.4.1.1206.4.2.6.3.3.3.0
+  类型: INTEGER
+  范围: 1 .. 255
+  ACCESS: read-only
+  SYNTAX: INTEGER (1..255)
+
+maxDayPlanEvents
+  OID: 1.3.6.1.4.1.1206.4.2.6.3.3.4
+  实例: 1.3.6.1.4.1.1206.4.2.6.3.3.4.0
+  类型: INTEGER
+  范围: 1 .. 255
+  ACCESS: read-only
+  SYNTAX: INTEGER (1..255)
+
+timeBaseDayPlanTable
+  OID: 1.3.6.1.4.1.1206.4.2.6.3.3.5
+  实例: 1.3.6.1.4.1.1206.4.2.6.3.3.5
+  类型: TABLE
+  范围: SEQUENCE OF TimeBaseDayPlanEntry
+  ACCESS: not-accessible
+  SYNTAX: SEQUENCE OF TimeBaseDayPlanEntry
+
+  dayPlanNumber
+    OID: 1.3.6.1.4.1.1206.4.2.6.3.3.5.1.1
+    实例: 1.3.6.1.4.1.1206.4.2.6.3.3.5.1.1.{index...}
+    类型: INTEGER
+    范围: 1 .. 255 [INDEX]
+    ACCESS: read-only
+    SYNTAX: INTEGER (1..255)
+
+  dayPlanEventNumber
+    OID: 1.3.6.1.4.1.1206.4.2.6.3.3.5.1.2
+    实例: 1.3.6.1.4.1.1206.4.2.6.3.3.5.1.2.{index...}
+    类型: INTEGER
+    范围: 1 .. 255 [INDEX]
+    ACCESS: read-only
+    SYNTAX: INTEGER (1..255)
+
+  dayPlanHour
+    OID: 1.3.6.1.4.1.1206.4.2.6.3.3.5.1.3
+    实例: 1.3.6.1.4.1.1206.4.2.6.3.3.5.1.3.{index...}
+    类型: INTEGER
+    范围: 0 .. 23
+    ACCESS: read-write
+    DEFVAL: { 0 }
+    SYNTAX: INTEGER (0..23)
+
+  dayPlanMinute
+    OID: 1.3.6.1.4.1.1206.4.2.6.3.3.5.1.4
+    实例: 1.3.6.1.4.1.1206.4.2.6.3.3.5.1.4.{index...}
+    类型: INTEGER
+    范围: 0 .. 59
+    ACCESS: read-write
+    DEFVAL: { 0 }
+    SYNTAX: INTEGER (0..59)
+
+  dayPlanActionNumberOID
+    OID: 1.3.6.1.4.1.1206.4.2.6.3.3.5.1.5
+    实例: 1.3.6.1.4.1.1206.4.2.6.3.3.5.1.5.{index...}
+    类型: OBJECT IDENTIFIER
+    范围: (any valid OID)
+    ACCESS: read-write
+    DEFVAL: { null }
+    SYNTAX: OBJECT IDENTIFIER
+
+timeBaseDayPlanEntry
+  OID: 1.3.6.1.4.1.1206.4.2.6.3.3.5.1
+  实例: 1.3.6.1.4.1.1206.4.2.6.3.3.5.1
+  类型: ROW ENTRY
+  范围: INDEX { dayPlanNumber, dayPlanEventNumber }
+  ACCESS: not-accessible
+  SYNTAX: TimeBaseDayPlanEntry
+
+dayPlanStatus
+  OID: 1.3.6.1.4.1.1206.4.2.6.3.3.6
+  实例: 1.3.6.1.4.1.1206.4.2.6.3.3.6.0
+  类型: INTEGER
+  范围: 0 .. 255
+  ACCESS: read-only
+  SYNTAX: INTEGER (0..255)
+
+timeBaseScheduleTable-status
+  OID: 1.3.6.1.4.1.1206.4.2.6.3.3.7
+  实例: 1.3.6.1.4.1.1206.4.2.6.3.3.7.0
+  类型: INTEGER
+  范围: 0 .. 65535
+  ACCESS: read-only
+  SYNTAX: INTEGER (0..65535)
+
+controllerStandardTimeZone
+  OID: 1.3.6.1.4.1.1206.4.2.6.3.5
+  实例: 1.3.6.1.4.1.1206.4.2.6.3.5.0
+  类型: INTEGER
+  范围: -43200 .. 43200
+  ACCESS: read-write
+  DEFVAL: { 0 }
+  SYNTAX: INTEGER (-43200..43200)
+
+controllerLocalTime
+  OID: 1.3.6.1.4.1.1206.4.2.6.3.6
+  实例: 1.3.6.1.4.1.1206.4.2.6.3.6.0
+  类型: Counter32
+  范围: 0 .. 4294967295
+  ACCESS: read-only
+  SYNTAX: Counter
+
+------------------------------------------------------------------------
+profilesPMPP (1.3.6.1.4.1.1206.4.1.2.3)
+------------------------------------------------------------------------
+profilesPMPP
+  OID: 1.3.6.1.4.1.1206.4.1.2.3
+  实例: 1.3.6.1.4.1.1206.4.1.2.3
+  类型: OBJECT IDENTIFIER
+  范围: (branch node)
+  ACCESS: read-only
+
+maxGroupAddresses
+  OID: 1.3.6.1.4.1.1206.4.1.2.3.1
+  实例: 1.3.6.1.4.1.1206.4.1.2.3.1.0
+  类型: INTEGER
+  范围: 1 .. 255
+  ACCESS: read-only
+  SYNTAX: INTEGER (1..255)
+
+hdlcGroupAddressTable
+  OID: 1.3.6.1.4.1.1206.4.1.2.3.2
+  实例: 1.3.6.1.4.1.1206.4.1.2.3.2
+  类型: TABLE
+  范围: SEQUENCE OF HdlcGroupAddressEntry
+  ACCESS: not-accessible
+  SYNTAX: SEQUENCE OF HdlcGroupAddressEntry
+
+  hdlcGroupAddressIndex
+    OID: 1.3.6.1.4.1.1206.4.1.2.3.2.1.1
+    实例: 1.3.6.1.4.1.1206.4.1.2.3.2.1.1.{index...}
+    类型: INTEGER
+    范围: 1 .. 255 [INDEX]
+    ACCESS: read-only
+    SYNTAX: INTEGER (1..255)
+
+  hdlcGroupAddressNumber
+    OID: 1.3.6.1.4.1.1206.4.1.2.3.2.1.3
+    实例: 1.3.6.1.4.1.1206.4.1.2.3.2.1.3.{index...}
+    类型: INTEGER
+    范围: 0 .. 62
+    ACCESS: read-write
+    DEFVAL: { 0 }
+    SYNTAX: INTEGER (0..62)
+
+hdlcGroupAddressEntry
+  OID: 1.3.6.1.4.1.1206.4.1.2.3.2.1
+  实例: 1.3.6.1.4.1.1206.4.1.2.3.2.1
+  类型: ROW ENTRY
+  范围: INDEX { hdlcGroupAddressIndex }
+  ACCESS: not-accessible
+  SYNTAX: HdlcGroupAddressEntry
+
+------------------------------------------------------------------------
+auxIO (1.3.6.1.4.1.1206.4.2.6.7)
+------------------------------------------------------------------------
+auxIO
+  OID: 1.3.6.1.4.1.1206.4.2.6.7
+  实例: 1.3.6.1.4.1.1206.4.2.6.7
+  类型: OBJECT IDENTIFIER
+  范围: (branch node)
+  ACCESS: read-only
+
+auxIOTableNumDigitalPorts
+  OID: 1.3.6.1.4.1.1206.4.2.6.7.1
+  实例: 1.3.6.1.4.1.1206.4.2.6.7.1.0
+  类型: INTEGER
+  范围: 1 .. 255
+  ACCESS: read-only
+  SYNTAX: INTEGER (1..255)
+
+auxIOTableNumAnalogPorts
+  OID: 1.3.6.1.4.1.1206.4.2.6.7.2
+  实例: 1.3.6.1.4.1.1206.4.2.6.7.2.0
+  类型: INTEGER
+  范围: 1 .. 255
+  ACCESS: read-only
+  SYNTAX: INTEGER (1..255)
+
+auxIOTable
+  OID: 1.3.6.1.4.1.1206.4.2.6.7.3
+  实例: 1.3.6.1.4.1.1206.4.2.6.7.3
+  类型: TABLE
+  范围: SEQUENCE OF AuxIOEntry
+  ACCESS: not-accessible
+  SYNTAX: SEQUENCE OF AuxIOEntry
+
+  auxIOPortType
+    OID: 1.3.6.1.4.1.1206.4.2.6.7.3.1.1
+    实例: 1.3.6.1.4.1.1206.4.2.6.7.3.1.1.{index...}
+    类型: INTEGER (enum)
+    范围: 1 .. 3  (other=1, analog=2, digital=3) [INDEX]
+    ACCESS: read-only
+    SYNTAX: INTEGER{ other (1), analog (2), digital (3) }
+
+  auxIOPortNumber
+    OID: 1.3.6.1.4.1.1206.4.2.6.7.3.1.2
+    实例: 1.3.6.1.4.1.1206.4.2.6.7.3.1.2.{index...}
+    类型: INTEGER
+    范围: 1 .. 255 [INDEX]
+    ACCESS: read-only
+    SYNTAX: INTEGER (1..255)
+
+  auxIOPortDescription
+    OID: 1.3.6.1.4.1.1206.4.2.6.7.3.1.3
+    实例: 1.3.6.1.4.1.1206.4.2.6.7.3.1.3.{index...}
+    类型: DisplayString
+    范围: length 0 .. 255 bytes
+    ACCESS: read-write
+    SYNTAX: DisplayString (SIZE (0..255))
+
+  auxIOPortResolution
+    OID: 1.3.6.1.4.1.1206.4.2.6.7.3.1.4
+    实例: 1.3.6.1.4.1.1206.4.2.6.7.3.1.4.{index...}
+    类型: INTEGER
+    范围: 1 .. 32
+    ACCESS: read-only
+    SYNTAX: INTEGER (1..32)
+
+  auxIOPortValue
+    OID: 1.3.6.1.4.1.1206.4.2.6.7.3.1.5
+    实例: 1.3.6.1.4.1.1206.4.2.6.7.3.1.5.{index...}
+    类型: INTEGER
+    范围: 0 .. 4294967295
+    ACCESS: read-write
+    SYNTAX: INTEGER (0..4294967295)
+
+  auxIOPortDirection
+    OID: 1.3.6.1.4.1.1206.4.2.6.7.3.1.6
+    实例: 1.3.6.1.4.1.1206.4.2.6.7.3.1.6.{index...}
+    类型: INTEGER (enum)
+    范围: 1 .. 3  (output=1, input=2, bidirectional=3)
+    ACCESS: read-only
+    SYNTAX: INTEGER { output (1), input (2), bidirectional (3)}
+
+  auxIOPortLastCommandedState
+    OID: 1.3.6.1.4.1.1206.4.2.6.7.3.1.7
+    实例: 1.3.6.1.4.1.1206.4.2.6.7.3.1.7.{index...}
+    类型: INTEGER
+    范围: 0 .. 4294967295
+    ACCESS: read-only
+    SYNTAX: INTEGER (0..4294967295)
+
+auxIOEntry
+  OID: 1.3.6.1.4.1.1206.4.2.6.7.3.1
+  实例: 1.3.6.1.4.1.1206.4.2.6.7.3.1
+  类型: ROW ENTRY
+  范围: INDEX { auxIOPortType, auxIOPortNumber }
+  ACCESS: not-accessible
+  SYNTAX: AuxIOEntry

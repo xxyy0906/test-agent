@@ -1,0 +1,7 @@
+RFC1213-MIB DEFINITIONS ::= BEGIN
+
+IMPORTS
+    DisplayString
+        FROM RFC1158-SMI;
+
+END

@@ -1,0 +1,56 @@
+# SNMP Agent 使用说明
+
+独立 NTCIP SNMP 模拟 Agent，**默认只填充并响应** `1.3.6.1.4.1.1206.4.2`（devices 子树）。
+
+> 项目总览：[../README.md](../README.md) · 目录说明：[../docs/STRUCTURE.md](../docs/STRUCTURE.md)
+
+## 目录结构（本工程）
+
+```
+snmp-agent/
+├── agent.py              启动 Agent
+├── mib_loader.py         MIB 加载与表展开
+├── instrum.py            SNMP Get/Set 实现
+├── sim_data/             模拟数据规则
+├── scripts/
+│   ├── trap_send.py      发送 Trap/Inform
+│   └── selftest_1202.py  1202 自测
+├── tests/                单元测试
+├── deps/                 RFC 依赖 MIB
+└── default_data.yaml     可选覆盖
+```
+
+## 安装与启动
+
+```bash
+cd test-agent/snmp-agent
+py -m pip install -r requirements.txt
+py agent.py --port 1161 --dev-cap 8    # 开发模式
+py agent.py --port 1161                # 满填
+```
+
+## MIB Browser
+
+- 地址：`127.0.0.1:1161`，community `public`
+- Walk 起点：`1.3.6.1.4.1.1206.4.2`
+- 支持 Get / GetNext / GetBulk / Set / Trap / Inform（v1/v2c/v3）
+
+双击 Get 兼容：
+- **标量** `…1.1.0`：省略 `.0` 时自动补全
+- **表列** `…8.2.1.1`：自动补 **table key 第 1 行** → `…8.2.1.1.1`，响应返回完整实例 OID
+- **表节点** `…8.2.1.2`：返回该表下第一个实例
+
+## 脚本
+
+```bash
+py scripts/trap_send.py --trap-host 127.0.0.1 --type enterprise
+py scripts/selftest_1202.py
+py -m pytest tests/ -q
+```
+
+## 文档
+
+- [../docs/1201DEFAULT_DATA.md](../docs/1201DEFAULT_DATA.md) — Global (1201)
+- [../docs/1202DEFAULT_DATA.md](../docs/1202DEFAULT_DATA.md) — ASC (1202)
+- [../docs/DEFAULT_DATA.md](../docs/DEFAULT_DATA.md) — 模拟数据索引
+- [../REQUIREMENTS.md](../REQUIREMENTS.md) — 需求任务书

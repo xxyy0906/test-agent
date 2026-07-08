@@ -1,0 +1,19 @@
+# NTCIP 1201 (1201v0227.mib) — devices.6 global 模拟数据
+# 规则：INTEGER(lo..hi) 非 INDEX 列取 hi；ENUM 优先 DEFVAL 否则取最大编号；
+# Counter 有 DEFVAL 用 DEFVAL，否则见 sim_data/ntcip1201.py
+
+scalars:
+  globalSetIDParameter: 65535
+  globalMaxModules: 255
+  globalTime: 0
+  globalDaylightSaving: 2
+  dbCreateTransaction: 1
+  dbVerifyStatus: 3
+  maxTimeBaseScheduleEntries: 65535
+  maxDayPlans: 255
+  maxDayPlanEvents: 255
+  controllerStandardTimeZone: 43200
+  auxIOTableNumDigitalPorts: 255
+  auxIOTableNumAnalogPorts: 255
+
+oids: {}

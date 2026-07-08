@@ -1,0 +1,5 @@
+RFC1158-SMI DEFINITIONS ::= BEGIN
+
+DisplayString ::= OCTET STRING
+
+END

@@ -1,0 +1,2077 @@
+========================================================================
+NTCIP 1202 ASC — OID 树 / 类型 / 范围
+========================================================================
+源文件: mibs/mibs_old/1202v0218.mib
+对象总数: 253
+
+说明:
+  - scalar 实例 OID = 定义 OID + .0
+  - table 列实例 OID = 表 OID + 列后缀 + 索引
+
+------------------------------------------------------------------------
+phase (1.3.6.1.4.1.1206.4.2.1.1)
+------------------------------------------------------------------------
+phase
+  OID: 1.3.6.1.4.1.1206.4.2.1.1
+  实例: 1.3.6.1.4.1.1206.4.2.1.1
+  类型: OBJECT IDENTIFIER
+  范围: (branch node)
+  ACCESS: read-only
+
+maxPhases
+  OID: 1.3.6.1.4.1.1206.4.2.1.1.1
+  实例: 1.3.6.1.4.1.1206.4.2.1.1.1.0
+  类型: INTEGER
+  范围: 2 .. 255
+  ACCESS: read-only
+  SYNTAX: INTEGER (2..255)
+
+phaseTable
+  OID: 1.3.6.1.4.1.1206.4.2.1.1.2
+  实例: 1.3.6.1.4.1.1206.4.2.1.1.2
+  类型: TABLE
+  范围: SEQUENCE OF PhaseEntry
+  ACCESS: not-accessible
+  SYNTAX: SEQUENCE OF PhaseEntry
+
+  phaseNumber
+    OID: 1.3.6.1.4.1.1206.4.2.1.1.2.1.1
+    实例: 1.3.6.1.4.1.1206.4.2.1.1.2.1.1.{index...}
+    类型: INTEGER
+    范围: 1 .. 255 [INDEX]
+    ACCESS: read-only
+    SYNTAX: INTEGER (1..255)
+
+  phaseWalk
+    OID: 1.3.6.1.4.1.1206.4.2.1.1.2.1.2
+    实例: 1.3.6.1.4.1.1206.4.2.1.1.2.1.2.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-write
+    SYNTAX: INTEGER (0..255)
+
+  phasePedestrianClear
+    OID: 1.3.6.1.4.1.1206.4.2.1.1.2.1.3
+    实例: 1.3.6.1.4.1.1206.4.2.1.1.2.1.3.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-write
+    SYNTAX: INTEGER (0..255)
+
+  phaseMinimumGreen
+    OID: 1.3.6.1.4.1.1206.4.2.1.1.2.1.4
+    实例: 1.3.6.1.4.1.1206.4.2.1.1.2.1.4.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-write
+    SYNTAX: INTEGER (0..255)
+
+  phasePassage
+    OID: 1.3.6.1.4.1.1206.4.2.1.1.2.1.5
+    实例: 1.3.6.1.4.1.1206.4.2.1.1.2.1.5.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-write
+    SYNTAX: INTEGER (0..255)
+
+  phaseMaximum1
+    OID: 1.3.6.1.4.1.1206.4.2.1.1.2.1.6
+    实例: 1.3.6.1.4.1.1206.4.2.1.1.2.1.6.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-write
+    SYNTAX: INTEGER (0..255)
+
+  phaseMaximum2
+    OID: 1.3.6.1.4.1.1206.4.2.1.1.2.1.7
+    实例: 1.3.6.1.4.1.1206.4.2.1.1.2.1.7.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-write
+    SYNTAX: INTEGER (0..255)
+
+  phaseYellowChange
+    OID: 1.3.6.1.4.1.1206.4.2.1.1.2.1.8
+    实例: 1.3.6.1.4.1.1206.4.2.1.1.2.1.8.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-write
+    SYNTAX: INTEGER (0..255)
+
+  phaseRedClear
+    OID: 1.3.6.1.4.1.1206.4.2.1.1.2.1.9
+    实例: 1.3.6.1.4.1.1206.4.2.1.1.2.1.9.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-write
+    SYNTAX: INTEGER (0..255)
+
+  phaseRedRevert
+    OID: 1.3.6.1.4.1.1206.4.2.1.1.2.1.10
+    实例: 1.3.6.1.4.1.1206.4.2.1.1.2.1.10.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-write
+    SYNTAX: INTEGER (0..255)
+
+  phaseAddedInitial
+    OID: 1.3.6.1.4.1.1206.4.2.1.1.2.1.11
+    实例: 1.3.6.1.4.1.1206.4.2.1.1.2.1.11.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-write
+    SYNTAX: INTEGER (0..255)
+
+  phaseMaximumInitial
+    OID: 1.3.6.1.4.1.1206.4.2.1.1.2.1.12
+    实例: 1.3.6.1.4.1.1206.4.2.1.1.2.1.12.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-write
+    SYNTAX: INTEGER (0..255)
+
+  phaseTimeBeforeReduction
+    OID: 1.3.6.1.4.1.1206.4.2.1.1.2.1.13
+    实例: 1.3.6.1.4.1.1206.4.2.1.1.2.1.13.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-write
+    SYNTAX: INTEGER (0..255)
+
+  phaseCarsBeforeReduction
+    OID: 1.3.6.1.4.1.1206.4.2.1.1.2.1.14
+    实例: 1.3.6.1.4.1.1206.4.2.1.1.2.1.14.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-write
+    SYNTAX: INTEGER (0..255)
+
+  phaseTimeToReduce
+    OID: 1.3.6.1.4.1.1206.4.2.1.1.2.1.15
+    实例: 1.3.6.1.4.1.1206.4.2.1.1.2.1.15.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-write
+    SYNTAX: INTEGER (0..255)
+
+  phaseReduceBy
+    OID: 1.3.6.1.4.1.1206.4.2.1.1.2.1.16
+    实例: 1.3.6.1.4.1.1206.4.2.1.1.2.1.16.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-write
+    SYNTAX: INTEGER (0..255)
+
+  phaseMinimumGap
+    OID: 1.3.6.1.4.1.1206.4.2.1.1.2.1.17
+    实例: 1.3.6.1.4.1.1206.4.2.1.1.2.1.17.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-write
+    SYNTAX: INTEGER (0..255)
+
+  phaseDynamicMaxLimit
+    OID: 1.3.6.1.4.1.1206.4.2.1.1.2.1.18
+    实例: 1.3.6.1.4.1.1206.4.2.1.1.2.1.18.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-write
+    SYNTAX: INTEGER (0..255)
+
+  phaseDynamicMaxStep
+    OID: 1.3.6.1.4.1.1206.4.2.1.1.2.1.19
+    实例: 1.3.6.1.4.1.1206.4.2.1.1.2.1.19.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-write
+    SYNTAX: INTEGER (0..255)
+
+  phaseStartup
+    OID: 1.3.6.1.4.1.1206.4.2.1.1.2.1.20
+    实例: 1.3.6.1.4.1.1206.4.2.1.1.2.1.20.{index...}
+    类型: INTEGER (enum)
+    范围: 1 .. 6  (other=1, phaseNotOn=2, greenWalk=3, greenNoWalk=4, yellowChange=5, redClear=6)
+    ACCESS: read-write
+    SYNTAX: INTEGER { other (1), phaseNotOn (2), greenWalk (3), greenNoWalk (4), yellowChange (5), redClear (6) }
+
+  phaseOptions
+    OID: 1.3.6.1.4.1.1206.4.2.1.1.2.1.21
+    实例: 1.3.6.1.4.1.1206.4.2.1.1.2.1.21.{index...}
+    类型: INTEGER
+    范围: 0 .. 65535
+    ACCESS: read-write
+    SYNTAX: INTEGER (0..65535)
+
+  phaseRing
+    OID: 1.3.6.1.4.1.1206.4.2.1.1.2.1.22
+    实例: 1.3.6.1.4.1.1206.4.2.1.1.2.1.22.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-write
+    SYNTAX: INTEGER (0..255)
+
+  phaseConcurrency
+    OID: 1.3.6.1.4.1.1206.4.2.1.1.2.1.23
+    实例: 1.3.6.1.4.1.1206.4.2.1.1.2.1.23.{index...}
+    类型: OCTET STRING
+    范围: length 0 .. 65535 bytes
+    ACCESS: read-write
+    SYNTAX: OCTET STRING
+
+phaseEntry
+  OID: 1.3.6.1.4.1.1206.4.2.1.1.2.1
+  实例: 1.3.6.1.4.1.1206.4.2.1.1.2.1
+  类型: ROW ENTRY
+  范围: INDEX { phaseNumber }
+  ACCESS: not-accessible
+  SYNTAX: PhaseEntry
+
+maxPhaseGroups
+  OID: 1.3.6.1.4.1.1206.4.2.1.1.3
+  实例: 1.3.6.1.4.1.1206.4.2.1.1.3.0
+  类型: INTEGER
+  范围: 1 .. 255
+  ACCESS: read-only
+  SYNTAX: INTEGER (1..255)
+
+phaseStatusGroupTable
+  OID: 1.3.6.1.4.1.1206.4.2.1.1.4
+  实例: 1.3.6.1.4.1.1206.4.2.1.1.4
+  类型: TABLE
+  范围: SEQUENCE OF PhaseStatusGroupEntry
+  ACCESS: not-accessible
+  SYNTAX: SEQUENCE OF PhaseStatusGroupEntry
+
+  phaseStatusGroupNumber
+    OID: 1.3.6.1.4.1.1206.4.2.1.1.4.1.1
+    实例: 1.3.6.1.4.1.1206.4.2.1.1.4.1.1.{index...}
+    类型: INTEGER
+    范围: 1 .. 255 [INDEX]
+    ACCESS: read-only
+    SYNTAX: INTEGER (1..255)
+
+  phaseStatusGroupReds
+    OID: 1.3.6.1.4.1.1206.4.2.1.1.4.1.2
+    实例: 1.3.6.1.4.1.1206.4.2.1.1.4.1.2.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-only
+    SYNTAX: INTEGER (0..255)
+
+  phaseStatusGroupYellows
+    OID: 1.3.6.1.4.1.1206.4.2.1.1.4.1.3
+    实例: 1.3.6.1.4.1.1206.4.2.1.1.4.1.3.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-only
+    SYNTAX: INTEGER (0..255)
+
+  phaseStatusGroupGreens
+    OID: 1.3.6.1.4.1.1206.4.2.1.1.4.1.4
+    实例: 1.3.6.1.4.1.1206.4.2.1.1.4.1.4.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-only
+    SYNTAX: INTEGER (0..255)
+
+  phaseStatusGroupDontWalks
+    OID: 1.3.6.1.4.1.1206.4.2.1.1.4.1.5
+    实例: 1.3.6.1.4.1.1206.4.2.1.1.4.1.5.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-only
+    SYNTAX: INTEGER (0..255)
+
+  phaseStatusGroupPedClears
+    OID: 1.3.6.1.4.1.1206.4.2.1.1.4.1.6
+    实例: 1.3.6.1.4.1.1206.4.2.1.1.4.1.6.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-only
+    SYNTAX: INTEGER (0..255)
+
+  phaseStatusGroupWalks
+    OID: 1.3.6.1.4.1.1206.4.2.1.1.4.1.7
+    实例: 1.3.6.1.4.1.1206.4.2.1.1.4.1.7.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-only
+    SYNTAX: INTEGER (0..255)
+
+  phaseStatusGroupVehCalls
+    OID: 1.3.6.1.4.1.1206.4.2.1.1.4.1.8
+    实例: 1.3.6.1.4.1.1206.4.2.1.1.4.1.8.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-only
+    SYNTAX: INTEGER (0..255)
+
+  phaseStatusGroupPedCalls
+    OID: 1.3.6.1.4.1.1206.4.2.1.1.4.1.9
+    实例: 1.3.6.1.4.1.1206.4.2.1.1.4.1.9.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-only
+    SYNTAX: INTEGER (0..255)
+
+  phaseStatusGroupPhaseOns
+    OID: 1.3.6.1.4.1.1206.4.2.1.1.4.1.10
+    实例: 1.3.6.1.4.1.1206.4.2.1.1.4.1.10.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-only
+    SYNTAX: INTEGER (0..255)
+
+  phaseStatusGroupPhaseNexts
+    OID: 1.3.6.1.4.1.1206.4.2.1.1.4.1.11
+    实例: 1.3.6.1.4.1.1206.4.2.1.1.4.1.11.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-only
+    SYNTAX: INTEGER (0..255)
+
+phaseStatusGroupEntry
+  OID: 1.3.6.1.4.1.1206.4.2.1.1.4.1
+  实例: 1.3.6.1.4.1.1206.4.2.1.1.4.1
+  类型: ROW ENTRY
+  范围: INDEX { phaseStatusGroupNumber }
+  ACCESS: not-accessible
+  SYNTAX: PhaseStatusGroupEntry
+
+phaseControlGroupTable
+  OID: 1.3.6.1.4.1.1206.4.2.1.1.5
+  实例: 1.3.6.1.4.1.1206.4.2.1.1.5
+  类型: TABLE
+  范围: SEQUENCE OF PhaseControlGroupEntry
+  ACCESS: not-accessible
+  SYNTAX: SEQUENCE OF PhaseControlGroupEntry
+
+  phaseControlGroupNumber
+    OID: 1.3.6.1.4.1.1206.4.2.1.1.5.1.1
+    实例: 1.3.6.1.4.1.1206.4.2.1.1.5.1.1.{index...}
+    类型: INTEGER
+    范围: 1 .. 255 [INDEX]
+    ACCESS: read-only
+    SYNTAX: INTEGER (1..255)
+
+  phaseControlGroupPhaseOmit
+    OID: 1.3.6.1.4.1.1206.4.2.1.1.5.1.2
+    实例: 1.3.6.1.4.1.1206.4.2.1.1.5.1.2.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-write
+    SYNTAX: INTEGER (0..255)
+
+  phaseControlGroupPedOmit
+    OID: 1.3.6.1.4.1.1206.4.2.1.1.5.1.3
+    实例: 1.3.6.1.4.1.1206.4.2.1.1.5.1.3.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-write
+    SYNTAX: INTEGER (0..255)
+
+  phaseControlGroupHold
+    OID: 1.3.6.1.4.1.1206.4.2.1.1.5.1.4
+    实例: 1.3.6.1.4.1.1206.4.2.1.1.5.1.4.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-write
+    SYNTAX: INTEGER (0..255)
+
+  phaseControlGroupForceOff
+    OID: 1.3.6.1.4.1.1206.4.2.1.1.5.1.5
+    实例: 1.3.6.1.4.1.1206.4.2.1.1.5.1.5.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-write
+    SYNTAX: INTEGER (0..255)
+
+  phaseControlGroupVehCall
+    OID: 1.3.6.1.4.1.1206.4.2.1.1.5.1.6
+    实例: 1.3.6.1.4.1.1206.4.2.1.1.5.1.6.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-write
+    SYNTAX: INTEGER (0..255)
+
+  phaseControlGroupPedCall
+    OID: 1.3.6.1.4.1.1206.4.2.1.1.5.1.7
+    实例: 1.3.6.1.4.1.1206.4.2.1.1.5.1.7.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-write
+    SYNTAX: INTEGER (0..255)
+
+phaseControlGroupEntry
+  OID: 1.3.6.1.4.1.1206.4.2.1.1.5.1
+  实例: 1.3.6.1.4.1.1206.4.2.1.1.5.1
+  类型: ROW ENTRY
+  范围: INDEX { phaseControlGroupNumber }
+  ACCESS: not-accessible
+  SYNTAX: PhaseControlGroupEntry
+
+------------------------------------------------------------------------
+detector (1.3.6.1.4.1.1206.4.2.1.2)
+------------------------------------------------------------------------
+detector
+  OID: 1.3.6.1.4.1.1206.4.2.1.2
+  实例: 1.3.6.1.4.1.1206.4.2.1.2
+  类型: OBJECT IDENTIFIER
+  范围: (branch node)
+  ACCESS: read-only
+
+maxVehicleDetectors
+  OID: 1.3.6.1.4.1.1206.4.2.1.2.1
+  实例: 1.3.6.1.4.1.1206.4.2.1.2.1.0
+  类型: INTEGER
+  范围: 1 .. 255
+  ACCESS: read-only
+  SYNTAX: INTEGER (1..255)
+
+vehicleDetectorTable
+  OID: 1.3.6.1.4.1.1206.4.2.1.2.2
+  实例: 1.3.6.1.4.1.1206.4.2.1.2.2
+  类型: TABLE
+  范围: SEQUENCE OF VehicleDetectorEntry
+  ACCESS: not-accessible
+  SYNTAX: SEQUENCE OF VehicleDetectorEntry
+
+  vehicleDetectorNumber
+    OID: 1.3.6.1.4.1.1206.4.2.1.2.2.1.1
+    实例: 1.3.6.1.4.1.1206.4.2.1.2.2.1.1.{index...}
+    类型: INTEGER
+    范围: 1 .. 255 [INDEX]
+    ACCESS: read-only
+    SYNTAX: INTEGER (1..255)
+
+  vehicleDetectorOptions
+    OID: 1.3.6.1.4.1.1206.4.2.1.2.2.1.2
+    实例: 1.3.6.1.4.1.1206.4.2.1.2.2.1.2.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-write
+    SYNTAX: INTEGER (0..255)
+
+  vehicleDetectorCallPhase
+    OID: 1.3.6.1.4.1.1206.4.2.1.2.2.1.4
+    实例: 1.3.6.1.4.1.1206.4.2.1.2.2.1.4.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-write
+    SYNTAX: INTEGER (0..255)
+
+  vehicleDetectorSwitchPhase
+    OID: 1.3.6.1.4.1.1206.4.2.1.2.2.1.5
+    实例: 1.3.6.1.4.1.1206.4.2.1.2.2.1.5.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-write
+    SYNTAX: INTEGER (0..255)
+
+  vehicleDetectorDelay
+    OID: 1.3.6.1.4.1.1206.4.2.1.2.2.1.6
+    实例: 1.3.6.1.4.1.1206.4.2.1.2.2.1.6.{index...}
+    类型: INTEGER
+    范围: 0 .. 65535
+    ACCESS: read-write
+    SYNTAX: INTEGER (0..65535)
+
+  vehicleDetectorExtend
+    OID: 1.3.6.1.4.1.1206.4.2.1.2.2.1.7
+    实例: 1.3.6.1.4.1.1206.4.2.1.2.2.1.7.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-write
+    SYNTAX: INTEGER (0..255)
+
+  vehicleDetectorQueueLimit
+    OID: 1.3.6.1.4.1.1206.4.2.1.2.2.1.8
+    实例: 1.3.6.1.4.1.1206.4.2.1.2.2.1.8.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-write
+    SYNTAX: INTEGER (0..255)
+
+  vehicleDetectorNoActivity
+    OID: 1.3.6.1.4.1.1206.4.2.1.2.2.1.9
+    实例: 1.3.6.1.4.1.1206.4.2.1.2.2.1.9.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-write
+    SYNTAX: INTEGER (0..255)
+
+  vehicleDetectorMaxPresence
+    OID: 1.3.6.1.4.1.1206.4.2.1.2.2.1.10
+    实例: 1.3.6.1.4.1.1206.4.2.1.2.2.1.10.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-write
+    SYNTAX: INTEGER (0..255)
+
+  vehicleDetectorErraticCounts
+    OID: 1.3.6.1.4.1.1206.4.2.1.2.2.1.11
+    实例: 1.3.6.1.4.1.1206.4.2.1.2.2.1.11.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-write
+    SYNTAX: INTEGER (0..255)
+
+  vehicleDetectorFailTime
+    OID: 1.3.6.1.4.1.1206.4.2.1.2.2.1.12
+    实例: 1.3.6.1.4.1.1206.4.2.1.2.2.1.12.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-write
+    SYNTAX: INTEGER (0..255)
+
+  vehicleDetectorAlarms
+    OID: 1.3.6.1.4.1.1206.4.2.1.2.2.1.13
+    实例: 1.3.6.1.4.1.1206.4.2.1.2.2.1.13.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-only
+    SYNTAX: INTEGER (0..255)
+
+  vehicleDetectorReportedAlarms
+    OID: 1.3.6.1.4.1.1206.4.2.1.2.2.1.14
+    实例: 1.3.6.1.4.1.1206.4.2.1.2.2.1.14.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-only
+    SYNTAX: INTEGER (0..255)
+
+  vehicleDetectorReset
+    OID: 1.3.6.1.4.1.1206.4.2.1.2.2.1.15
+    实例: 1.3.6.1.4.1.1206.4.2.1.2.2.1.15.{index...}
+    类型: INTEGER
+    范围: 0 .. 1
+    ACCESS: read-write
+    SYNTAX: INTEGER (0..1)
+
+vehicleDetectorEntry
+  OID: 1.3.6.1.4.1.1206.4.2.1.2.2.1
+  实例: 1.3.6.1.4.1.1206.4.2.1.2.2.1
+  类型: ROW ENTRY
+  范围: INDEX { vehicleDetectorNumber }
+  ACCESS: not-accessible
+  SYNTAX: VehicleDetectorEntry
+
+maxVehicleDetectorStatusGroups
+  OID: 1.3.6.1.4.1.1206.4.2.1.2.3
+  实例: 1.3.6.1.4.1.1206.4.2.1.2.3.0
+  类型: INTEGER
+  范围: 1 .. 255
+  ACCESS: read-only
+  SYNTAX: INTEGER (1..255)
+
+vehicleDetectorStatusGroupTable
+  OID: 1.3.6.1.4.1.1206.4.2.1.2.4
+  实例: 1.3.6.1.4.1.1206.4.2.1.2.4
+  类型: TABLE
+  范围: SEQUENCE OF VehicleDetectorStatusGroupEntry
+  ACCESS: not-accessible
+  SYNTAX: SEQUENCE OF VehicleDetectorStatusGroupEntry
+
+  vehicleDetectorStatusGroupNumber
+    OID: 1.3.6.1.4.1.1206.4.2.1.2.4.1.1
+    实例: 1.3.6.1.4.1.1206.4.2.1.2.4.1.1.{index...}
+    类型: INTEGER
+    范围: 1 .. 255 [INDEX]
+    ACCESS: read-only
+    SYNTAX: INTEGER (1..255)
+
+  vehicleDetectorStatusGroupActive
+    OID: 1.3.6.1.4.1.1206.4.2.1.2.4.1.2
+    实例: 1.3.6.1.4.1.1206.4.2.1.2.4.1.2.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-only
+    SYNTAX: INTEGER (0..255)
+
+  vehicleDetectorStatusGroupAlarms
+    OID: 1.3.6.1.4.1.1206.4.2.1.2.4.1.3
+    实例: 1.3.6.1.4.1.1206.4.2.1.2.4.1.3.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-only
+    SYNTAX: INTEGER (0..255)
+
+vehicleDetectorStatusGroupEntry
+  OID: 1.3.6.1.4.1.1206.4.2.1.2.4.1
+  实例: 1.3.6.1.4.1.1206.4.2.1.2.4.1
+  类型: ROW ENTRY
+  范围: INDEX { vehicleDetectorStatusGroupNumber }
+  ACCESS: not-accessible
+  SYNTAX: VehicleDetectorStatusGroupEntry
+
+volumeOccupancyReport
+  OID: 1.3.6.1.4.1.1206.4.2.1.2.5
+  实例: 1.3.6.1.4.1.1206.4.2.1.2.5
+  类型: OBJECT IDENTIFIER
+  范围: (branch node)
+  ACCESS: read-only
+
+volumeOccupancySequence
+  OID: 1.3.6.1.4.1.1206.4.2.1.2.5.1
+  实例: 1.3.6.1.4.1.1206.4.2.1.2.5.1.0
+  类型: INTEGER
+  范围: 0 .. 255
+  ACCESS: read-only
+  SYNTAX: INTEGER (0..255)
+
+volumeOccupancyPeriod
+  OID: 1.3.6.1.4.1.1206.4.2.1.2.5.2
+  实例: 1.3.6.1.4.1.1206.4.2.1.2.5.2.0
+  类型: INTEGER
+  范围: 0 .. 255
+  ACCESS: read-write
+  SYNTAX: INTEGER (0..255)
+
+activeVolumeOccupancyDetectors
+  OID: 1.3.6.1.4.1.1206.4.2.1.2.5.3
+  实例: 1.3.6.1.4.1.1206.4.2.1.2.5.3.0
+  类型: INTEGER
+  范围: 0 .. 255
+  ACCESS: read-only
+  SYNTAX: INTEGER (0..255)
+
+volumeOccupancyTable
+  OID: 1.3.6.1.4.1.1206.4.2.1.2.5.4
+  实例: 1.3.6.1.4.1.1206.4.2.1.2.5.4
+  类型: TABLE
+  范围: SEQUENCE OF VolumeOccupancyEntry
+  ACCESS: not-accessible
+  SYNTAX: SEQUENCE OF VolumeOccupancyEntry
+
+  detectorVolume
+    OID: 1.3.6.1.4.1.1206.4.2.1.2.5.4.1.1
+    实例: 1.3.6.1.4.1.1206.4.2.1.2.5.4.1.1.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-only
+    SYNTAX: INTEGER (0..255)
+
+  detectorOccupancy
+    OID: 1.3.6.1.4.1.1206.4.2.1.2.5.4.1.2
+    实例: 1.3.6.1.4.1.1206.4.2.1.2.5.4.1.2.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-only
+    SYNTAX: INTEGER (0..255)
+
+volumeOccupancyEntry
+  OID: 1.3.6.1.4.1.1206.4.2.1.2.5.4.1
+  实例: 1.3.6.1.4.1.1206.4.2.1.2.5.4.1
+  类型: ROW ENTRY
+  范围: INDEX { vehicleDetectorNumber }
+  ACCESS: not-accessible
+  SYNTAX: VolumeOccupancyEntry
+
+maxPedestrianDetectors
+  OID: 1.3.6.1.4.1.1206.4.2.1.2.6
+  实例: 1.3.6.1.4.1.1206.4.2.1.2.6.0
+  类型: INTEGER
+  范围: 1 .. 255
+  ACCESS: read-only
+  SYNTAX: INTEGER (1..255)
+
+pedestrianDetectorTable
+  OID: 1.3.6.1.4.1.1206.4.2.1.2.7
+  实例: 1.3.6.1.4.1.1206.4.2.1.2.7
+  类型: TABLE
+  范围: SEQUENCE OF PedestrianDetectorEntry
+  ACCESS: not-accessible
+  SYNTAX: SEQUENCE OF PedestrianDetectorEntry
+
+  pedestrianDetectorNumber
+    OID: 1.3.6.1.4.1.1206.4.2.1.2.7.1.1
+    实例: 1.3.6.1.4.1.1206.4.2.1.2.7.1.1.{index...}
+    类型: INTEGER
+    范围: 1 .. 255 [INDEX]
+    ACCESS: read-only
+    SYNTAX: INTEGER (1..255)
+
+  pedestrianDetectorCallPhase
+    OID: 1.3.6.1.4.1.1206.4.2.1.2.7.1.2
+    实例: 1.3.6.1.4.1.1206.4.2.1.2.7.1.2.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-write
+    SYNTAX: INTEGER (0..255)
+
+  pedestrianDetectorNoActivity
+    OID: 1.3.6.1.4.1.1206.4.2.1.2.7.1.3
+    实例: 1.3.6.1.4.1.1206.4.2.1.2.7.1.3.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-write
+    SYNTAX: INTEGER (0..255)
+
+  pedestrianDetectorMaxPresence
+    OID: 1.3.6.1.4.1.1206.4.2.1.2.7.1.4
+    实例: 1.3.6.1.4.1.1206.4.2.1.2.7.1.4.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-write
+    SYNTAX: INTEGER (0..255)
+
+  pedestrianDetectorErraticCounts
+    OID: 1.3.6.1.4.1.1206.4.2.1.2.7.1.5
+    实例: 1.3.6.1.4.1.1206.4.2.1.2.7.1.5.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-write
+    SYNTAX: INTEGER (0..255)
+
+  pedestrianDetectorAlarms
+    OID: 1.3.6.1.4.1.1206.4.2.1.2.7.1.6
+    实例: 1.3.6.1.4.1.1206.4.2.1.2.7.1.6.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-only
+    SYNTAX: INTEGER (0..255)
+
+pedestrianDetectorEntry
+  OID: 1.3.6.1.4.1.1206.4.2.1.2.7.1
+  实例: 1.3.6.1.4.1.1206.4.2.1.2.7.1
+  类型: ROW ENTRY
+  范围: INDEX { pedestrianDetectorNumber }
+  ACCESS: not-accessible
+  SYNTAX: PedestrianDetectorEntry
+
+------------------------------------------------------------------------
+unit (1.3.6.1.4.1.1206.4.2.1.3)
+------------------------------------------------------------------------
+unit
+  OID: 1.3.6.1.4.1.1206.4.2.1.3
+  实例: 1.3.6.1.4.1.1206.4.2.1.3
+  类型: OBJECT IDENTIFIER
+  范围: (branch node)
+  ACCESS: read-only
+
+unitStartUpFlash
+  OID: 1.3.6.1.4.1.1206.4.2.1.3.1
+  实例: 1.3.6.1.4.1.1206.4.2.1.3.1.0
+  类型: INTEGER
+  范围: 0 .. 255
+  ACCESS: read-write
+  SYNTAX: INTEGER (0..255)
+
+unitAutoPedestrianClear
+  OID: 1.3.6.1.4.1.1206.4.2.1.3.2
+  实例: 1.3.6.1.4.1.1206.4.2.1.3.2.0
+  类型: INTEGER (enum)
+  范围: 1 .. 2  (disable=1, enable=2)
+  ACCESS: read-write
+  SYNTAX: INTEGER { disable(1), enable (2) }
+
+unitBackupTime
+  OID: 1.3.6.1.4.1.1206.4.2.1.3.3
+  实例: 1.3.6.1.4.1.1206.4.2.1.3.3.0
+  类型: INTEGER
+  范围: 0 .. 65535
+  ACCESS: read-write
+  SYNTAX: INTEGER (0..65535)
+
+unitRedRevert
+  OID: 1.3.6.1.4.1.1206.4.2.1.3.4
+  实例: 1.3.6.1.4.1.1206.4.2.1.3.4.0
+  类型: INTEGER
+  范围: 0 .. 255
+  ACCESS: read-write
+  SYNTAX: INTEGER (0..255)
+
+unitControlStatus
+  OID: 1.3.6.1.4.1.1206.4.2.1.3.5
+  实例: 1.3.6.1.4.1.1206.4.2.1.3.5.0
+  类型: INTEGER (enum)
+  范围: 1 .. 8  (other=1, systemControl=2, systemStandby=3, backupMode=4, manual=5, timebase=6, interconnect=7, interconnectBackup=8)
+  ACCESS: read-only
+  SYNTAX: INTEGER { other (1), systemControl (2), systemStandby (3), backupMode(4), manual (5), timebase (6), interconnect (7), interconnectBackup (8)}
+
+unitFlashStatus
+  OID: 1.3.6.1.4.1.1206.4.2.1.3.6
+  实例: 1.3.6.1.4.1.1206.4.2.1.3.6.0
+  类型: INTEGER (enum)
+  范围: 1 .. 8  (other=1, notFlash=2, automatic=3, localManual=4, faultMonitor=5, mmu=6, startup=7, preempt=8)
+  ACCESS: read-only
+  SYNTAX: INTEGER { other(1), notFlash(2), automatic(3), localManual(4), faultMonitor(5), mmu(6), startup(7), preempt (8)}
+
+unitAlarmStatus2
+  OID: 1.3.6.1.4.1.1206.4.2.1.3.7
+  实例: 1.3.6.1.4.1.1206.4.2.1.3.7.0
+  类型: INTEGER
+  范围: 0 .. 255
+  ACCESS: read-only
+  SYNTAX: INTEGER (0..255)
+
+unitAlarmStatus1
+  OID: 1.3.6.1.4.1.1206.4.2.1.3.8
+  实例: 1.3.6.1.4.1.1206.4.2.1.3.8.0
+  类型: INTEGER
+  范围: 0 .. 255
+  ACCESS: read-only
+  SYNTAX: INTEGER (0..255)
+
+shortAlarmStatus
+  OID: 1.3.6.1.4.1.1206.4.2.1.3.9
+  实例: 1.3.6.1.4.1.1206.4.2.1.3.9.0
+  类型: INTEGER
+  范围: 0 .. 255
+  ACCESS: read-only
+  SYNTAX: INTEGER (0..255)
+
+unitControl
+  OID: 1.3.6.1.4.1.1206.4.2.1.3.10
+  实例: 1.3.6.1.4.1.1206.4.2.1.3.10.0
+  类型: INTEGER
+  范围: 0 .. 255
+  ACCESS: read-write
+  SYNTAX: INTEGER (0..255)
+
+maxAlarmGroups
+  OID: 1.3.6.1.4.1.1206.4.2.1.3.11
+  实例: 1.3.6.1.4.1.1206.4.2.1.3.11.0
+  类型: INTEGER
+  范围: 1 .. 255
+  ACCESS: read-only
+  SYNTAX: INTEGER(1..255)
+
+alarmGroupTable
+  OID: 1.3.6.1.4.1.1206.4.2.1.3.12
+  实例: 1.3.6.1.4.1.1206.4.2.1.3.12
+  类型: TABLE
+  范围: SEQUENCE OF AlarmGroupEntry
+  ACCESS: not-accessible
+  SYNTAX: SEQUENCE OF AlarmGroupEntry
+
+  alarmGroupNumber
+    OID: 1.3.6.1.4.1.1206.4.2.1.3.12.1.1
+    实例: 1.3.6.1.4.1.1206.4.2.1.3.12.1.1.{index...}
+    类型: INTEGER
+    范围: 1 .. 255 [INDEX]
+    ACCESS: read-only
+    SYNTAX: INTEGER (1..255)
+
+  alarmGroupState
+    OID: 1.3.6.1.4.1.1206.4.2.1.3.12.1.2
+    实例: 1.3.6.1.4.1.1206.4.2.1.3.12.1.2.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-only
+    SYNTAX: INTEGER (0..255)
+
+alarmGroupEntry
+  OID: 1.3.6.1.4.1.1206.4.2.1.3.12.1
+  实例: 1.3.6.1.4.1.1206.4.2.1.3.12.1
+  类型: ROW ENTRY
+  范围: INDEX { alarmGroupNumber }
+  ACCESS: not-accessible
+  SYNTAX: AlarmGroupEntry
+
+maxSpecialFunctionOutputs
+  OID: 1.3.6.1.4.1.1206.4.2.1.3.13
+  实例: 1.3.6.1.4.1.1206.4.2.1.3.13.0
+  类型: INTEGER
+  范围: 1 .. 255
+  ACCESS: read-only
+  SYNTAX: INTEGER (1..255)
+
+specialFunctionOutputTable
+  OID: 1.3.6.1.4.1.1206.4.2.1.3.14
+  实例: 1.3.6.1.4.1.1206.4.2.1.3.14
+  类型: TABLE
+  范围: SEQUENCE OF SpecialFunctionOutputEntry
+  ACCESS: not-accessible
+  SYNTAX: SEQUENCE OF SpecialFunctionOutputEntry
+
+  specialFunctionOutputNumber
+    OID: 1.3.6.1.4.1.1206.4.2.1.3.14.1.1
+    实例: 1.3.6.1.4.1.1206.4.2.1.3.14.1.1.{index...}
+    类型: INTEGER
+    范围: 1 .. 255 [INDEX]
+    ACCESS: read-only
+    SYNTAX: INTEGER (1..255)
+
+  specialFunctionOutputControl
+    OID: 1.3.6.1.4.1.1206.4.2.1.3.14.1.3
+    实例: 1.3.6.1.4.1.1206.4.2.1.3.14.1.3.{index...}
+    类型: INTEGER
+    范围: 0 .. 1
+    ACCESS: read-write
+    SYNTAX: INTEGER (0..1)
+
+  specialFunctionOutputStatus
+    OID: 1.3.6.1.4.1.1206.4.2.1.3.14.1.4
+    实例: 1.3.6.1.4.1.1206.4.2.1.3.14.1.4.{index...}
+    类型: INTEGER
+    范围: 0 .. 1
+    ACCESS: read-only
+    SYNTAX: INTEGER (0..1)
+
+specialFunctionOutputEntry
+  OID: 1.3.6.1.4.1.1206.4.2.1.3.14.1
+  实例: 1.3.6.1.4.1.1206.4.2.1.3.14.1
+  类型: ROW ENTRY
+  范围: INDEX { specialFunctionOutputNumber }
+  ACCESS: not-accessible
+  SYNTAX: SpecialFunctionOutputEntry
+
+------------------------------------------------------------------------
+coord (1.3.6.1.4.1.1206.4.2.1.4)
+------------------------------------------------------------------------
+coord
+  OID: 1.3.6.1.4.1.1206.4.2.1.4
+  实例: 1.3.6.1.4.1.1206.4.2.1.4
+  类型: OBJECT IDENTIFIER
+  范围: (branch node)
+  ACCESS: read-only
+
+coordOperationalMode
+  OID: 1.3.6.1.4.1.1206.4.2.1.4.1
+  实例: 1.3.6.1.4.1.1206.4.2.1.4.1.0
+  类型: INTEGER
+  范围: 0 .. 255
+  ACCESS: read-write
+  SYNTAX: INTEGER (0..255)
+
+coordCorrectionMode
+  OID: 1.3.6.1.4.1.1206.4.2.1.4.2
+  实例: 1.3.6.1.4.1.1206.4.2.1.4.2.0
+  类型: INTEGER (enum)
+  范围: 1 .. 4  (other=1, dwell=2, shortway=3, addOnly=4)
+  ACCESS: read-write
+  SYNTAX: INTEGER { other (1), dwell (2), shortway (3), addOnly (4) }
+
+coordMaximumMode
+  OID: 1.3.6.1.4.1.1206.4.2.1.4.3
+  实例: 1.3.6.1.4.1.1206.4.2.1.4.3.0
+  类型: INTEGER (enum)
+  范围: 1 .. 4  (other=1, maximum1=2, maximum2=3, maxInhibit=4)
+  ACCESS: read-write
+  SYNTAX: INTEGER { other (1), maximum1 (2), maximum2 (3), maxInhibit (4) }
+
+coordForceMode
+  OID: 1.3.6.1.4.1.1206.4.2.1.4.4
+  实例: 1.3.6.1.4.1.1206.4.2.1.4.4.0
+  类型: INTEGER (enum)
+  范围: 1 .. 3  (other=1, floating=2, fixed=3)
+  ACCESS: read-write
+  SYNTAX: INTEGER { other(1), floating (2), fixed (3) }
+
+maxPatterns
+  OID: 1.3.6.1.4.1.1206.4.2.1.4.5
+  实例: 1.3.6.1.4.1.1206.4.2.1.4.5.0
+  类型: INTEGER
+  范围: 1 .. 253
+  ACCESS: read-only
+  SYNTAX: INTEGER (1..253)
+
+patternTableType
+  OID: 1.3.6.1.4.1.1206.4.2.1.4.6
+  实例: 1.3.6.1.4.1.1206.4.2.1.4.6.0
+  类型: INTEGER (enum)
+  范围: 1 .. 4  (other=1, patterns=2, offset3=3, offset5=4)
+  ACCESS: read-only
+  SYNTAX: INTEGER { other (1), patterns (2), offset3 (3), offset5 (4) }
+
+patternTable
+  OID: 1.3.6.1.4.1.1206.4.2.1.4.7
+  实例: 1.3.6.1.4.1.1206.4.2.1.4.7
+  类型: TABLE
+  范围: SEQUENCE OF PatternEntry
+  ACCESS: not-accessible
+  SYNTAX: SEQUENCE OF PatternEntry
+
+  patternNumber
+    OID: 1.3.6.1.4.1.1206.4.2.1.4.7.1.1
+    实例: 1.3.6.1.4.1.1206.4.2.1.4.7.1.1.{index...}
+    类型: INTEGER
+    范围: 1 .. 253 [INDEX]
+    ACCESS: read-only
+    SYNTAX: INTEGER (1..253)
+
+  patternCycleTime
+    OID: 1.3.6.1.4.1.1206.4.2.1.4.7.1.2
+    实例: 1.3.6.1.4.1.1206.4.2.1.4.7.1.2.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-write
+    SYNTAX: INTEGER (0..255)
+
+  patternOffsetTime
+    OID: 1.3.6.1.4.1.1206.4.2.1.4.7.1.3
+    实例: 1.3.6.1.4.1.1206.4.2.1.4.7.1.3.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-write
+    SYNTAX: INTEGER (0..255)
+
+  patternSplitNumber
+    OID: 1.3.6.1.4.1.1206.4.2.1.4.7.1.4
+    实例: 1.3.6.1.4.1.1206.4.2.1.4.7.1.4.{index...}
+    类型: INTEGER
+    范围: 1 .. 255
+    ACCESS: read-only
+    SYNTAX: INTEGER (1..255)
+
+  patternSequenceNumber
+    OID: 1.3.6.1.4.1.1206.4.2.1.4.7.1.5
+    实例: 1.3.6.1.4.1.1206.4.2.1.4.7.1.5.{index...}
+    类型: INTEGER
+    范围: 1 .. 255
+    ACCESS: read-write
+    SYNTAX: INTEGER (1..255)
+
+patternEntry
+  OID: 1.3.6.1.4.1.1206.4.2.1.4.7.1
+  实例: 1.3.6.1.4.1.1206.4.2.1.4.7.1
+  类型: ROW ENTRY
+  范围: INDEX { patternNumber }
+  ACCESS: not-accessible
+  SYNTAX: PatternEntry
+
+maxSplits
+  OID: 1.3.6.1.4.1.1206.4.2.1.4.8
+  实例: 1.3.6.1.4.1.1206.4.2.1.4.8.0
+  类型: INTEGER
+  范围: 1 .. 255
+  ACCESS: read-only
+  SYNTAX: INTEGER (1..255)
+
+splitTable
+  OID: 1.3.6.1.4.1.1206.4.2.1.4.9
+  实例: 1.3.6.1.4.1.1206.4.2.1.4.9
+  类型: TABLE
+  范围: SEQUENCE OF SplitEntry
+  ACCESS: not-accessible
+  SYNTAX: SEQUENCE OF SplitEntry
+
+  splitNumber
+    OID: 1.3.6.1.4.1.1206.4.2.1.4.9.1.1
+    实例: 1.3.6.1.4.1.1206.4.2.1.4.9.1.1.{index...}
+    类型: INTEGER
+    范围: 1 .. 255 [INDEX]
+    ACCESS: read-only
+    SYNTAX: INTEGER (1..255)
+
+  splitPhase
+    OID: 1.3.6.1.4.1.1206.4.2.1.4.9.1.2
+    实例: 1.3.6.1.4.1.1206.4.2.1.4.9.1.2.{index...}
+    类型: INTEGER
+    范围: 1 .. 255 [INDEX]
+    ACCESS: read-only
+    SYNTAX: INTEGER (1..255)
+
+  splitTime
+    OID: 1.3.6.1.4.1.1206.4.2.1.4.9.1.3
+    实例: 1.3.6.1.4.1.1206.4.2.1.4.9.1.3.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-write
+    SYNTAX: INTEGER (0..255)
+
+  splitMode
+    OID: 1.3.6.1.4.1.1206.4.2.1.4.9.1.4
+    实例: 1.3.6.1.4.1.1206.4.2.1.4.9.1.4.{index...}
+    类型: INTEGER (enum)
+    范围: 1 .. 7  (other=1, none=2, minimumVehicleRecall=3, maximumVehicleRecall=4, pedestrianRecall=5, maximumVehicleAndPedestrianRecall=6, phaseOmitted=7)
+    ACCESS: read-write
+    SYNTAX: INTEGER { other(1), none (2), minimumVehicleRecall (3), maximumVehicleRecall (4), pedestrianRecall (5), maximumVehicleAndPedestrianRecall (6), phaseOmitted (7) }
+
+  splitCoordPhase
+    OID: 1.3.6.1.4.1.1206.4.2.1.4.9.1.5
+    实例: 1.3.6.1.4.1.1206.4.2.1.4.9.1.5.{index...}
+    类型: INTEGER
+    范围: 0 .. 1
+    ACCESS: read-write
+    SYNTAX: INTEGER (0..1)
+
+splitEntry
+  OID: 1.3.6.1.4.1.1206.4.2.1.4.9.1
+  实例: 1.3.6.1.4.1.1206.4.2.1.4.9.1
+  类型: ROW ENTRY
+  范围: INDEX { splitNumber, splitPhase }
+  ACCESS: not-accessible
+  SYNTAX: SplitEntry
+
+coordPatternStatus
+  OID: 1.3.6.1.4.1.1206.4.2.1.4.10
+  实例: 1.3.6.1.4.1.1206.4.2.1.4.10.0
+  类型: INTEGER
+  范围: 0 .. 255
+  ACCESS: read-only
+  SYNTAX: INTEGER (0..255)
+
+localFreeStatus
+  OID: 1.3.6.1.4.1.1206.4.2.1.4.11
+  实例: 1.3.6.1.4.1.1206.4.2.1.4.11.0
+  类型: INTEGER (enum)
+  范围: 1 .. 11  (other=1, notFree=2, commandFree=3, transitionFree=4, inputFree=5, coordFree=6, badPlan=7, badCycleTime=8, splitOverrun=9, invalidOffset=10, failed=11)
+  ACCESS: read-only
+  SYNTAX: INTEGER { other(1), notFree(2), commandFree(3), transitionFree(4), inputFree(5), coordFree(6), badPlan(7), badCycleTime(8), splitOverrun (9), invalidOffset (10), failed(11) }
+
+coordCycleStatus
+  OID: 1.3.6.1.4.1.1206.4.2.1.4.12
+  实例: 1.3.6.1.4.1.1206.4.2.1.4.12.0
+  类型: INTEGER
+  范围: 0 .. 510
+  ACCESS: read-only
+  SYNTAX: INTEGER (0..510)
+
+coordSyncStatus
+  OID: 1.3.6.1.4.1.1206.4.2.1.4.13
+  实例: 1.3.6.1.4.1.1206.4.2.1.4.13.0
+  类型: INTEGER
+  范围: 0 .. 510
+  ACCESS: read-only
+  SYNTAX: INTEGER (0..510)
+
+systemPatternControl
+  OID: 1.3.6.1.4.1.1206.4.2.1.4.14
+  实例: 1.3.6.1.4.1.1206.4.2.1.4.14.0
+  类型: INTEGER
+  范围: 0 .. 255
+  ACCESS: read-write
+  SYNTAX: INTEGER (0..255)
+
+systemSyncControl
+  OID: 1.3.6.1.4.1.1206.4.2.1.4.15
+  实例: 1.3.6.1.4.1.1206.4.2.1.4.15.0
+  类型: INTEGER
+  范围: 0 .. 255
+  ACCESS: read-write
+  SYNTAX: INTEGER (0..255)
+
+------------------------------------------------------------------------
+timebaseAsc (1.3.6.1.4.1.1206.4.2.1.5)
+------------------------------------------------------------------------
+timebaseAsc
+  OID: 1.3.6.1.4.1.1206.4.2.1.5
+  实例: 1.3.6.1.4.1.1206.4.2.1.5
+  类型: OBJECT IDENTIFIER
+  范围: (branch node)
+  ACCESS: read-only
+
+timebaseAscPatternSync
+  OID: 1.3.6.1.4.1.1206.4.2.1.5.1
+  实例: 1.3.6.1.4.1.1206.4.2.1.5.1.0
+  类型: INTEGER
+  范围: 0 .. 65535
+  ACCESS: read-write
+  SYNTAX: INTEGER (0..65535)
+
+maxTimebaseAscActions
+  OID: 1.3.6.1.4.1.1206.4.2.1.5.2
+  实例: 1.3.6.1.4.1.1206.4.2.1.5.2.0
+  类型: INTEGER
+  范围: 1 .. 255
+  ACCESS: read-only
+  SYNTAX: INTEGER (1..255)
+
+timebaseAscActionTable
+  OID: 1.3.6.1.4.1.1206.4.2.1.5.3
+  实例: 1.3.6.1.4.1.1206.4.2.1.5.3
+  类型: TABLE
+  范围: SEQUENCE OF TimebaseAscActionEntry
+  ACCESS: not-accessible
+  SYNTAX: SEQUENCE OF TimebaseAscActionEntry
+
+  timebaseAscActionNumber
+    OID: 1.3.6.1.4.1.1206.4.2.1.5.3.1.1
+    实例: 1.3.6.1.4.1.1206.4.2.1.5.3.1.1.{index...}
+    类型: INTEGER
+    范围: 1 .. 255 [INDEX]
+    ACCESS: read-only
+    SYNTAX: INTEGER (1..255)
+
+  timebaseAscPattern
+    OID: 1.3.6.1.4.1.1206.4.2.1.5.3.1.2
+    实例: 1.3.6.1.4.1.1206.4.2.1.5.3.1.2.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-write
+    SYNTAX: INTEGER (0..255)
+
+  timebaseAscAuxillaryFunction
+    OID: 1.3.6.1.4.1.1206.4.2.1.5.3.1.3
+    实例: 1.3.6.1.4.1.1206.4.2.1.5.3.1.3.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-write
+    SYNTAX: INTEGER (0..255)
+
+  timebaseAscSpecialFunction
+    OID: 1.3.6.1.4.1.1206.4.2.1.5.3.1.4
+    实例: 1.3.6.1.4.1.1206.4.2.1.5.3.1.4.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-write
+    SYNTAX: INTEGER (0..255)
+
+timebaseAscActionEntry
+  OID: 1.3.6.1.4.1.1206.4.2.1.5.3.1
+  实例: 1.3.6.1.4.1.1206.4.2.1.5.3.1
+  类型: ROW ENTRY
+  范围: INDEX { timebaseAscActionNumber }
+  ACCESS: not-accessible
+  SYNTAX: TimebaseAscActionEntry
+
+timebaseAscActionStatus
+  OID: 1.3.6.1.4.1.1206.4.2.1.5.4
+  实例: 1.3.6.1.4.1.1206.4.2.1.5.4.0
+  类型: INTEGER
+  范围: 0 .. 255
+  ACCESS: read-only
+  SYNTAX: INTEGER(0..255)
+
+------------------------------------------------------------------------
+preempt (1.3.6.1.4.1.1206.4.2.1.6)
+------------------------------------------------------------------------
+preempt
+  OID: 1.3.6.1.4.1.1206.4.2.1.6
+  实例: 1.3.6.1.4.1.1206.4.2.1.6
+  类型: OBJECT IDENTIFIER
+  范围: (branch node)
+  ACCESS: read-only
+
+maxPreempts
+  OID: 1.3.6.1.4.1.1206.4.2.1.6.1
+  实例: 1.3.6.1.4.1.1206.4.2.1.6.1.0
+  类型: INTEGER
+  范围: 1 .. 255
+  ACCESS: read-only
+  SYNTAX: INTEGER (1..255)
+
+preemptTable
+  OID: 1.3.6.1.4.1.1206.4.2.1.6.2
+  实例: 1.3.6.1.4.1.1206.4.2.1.6.2
+  类型: TABLE
+  范围: SEQUENCE OF PreemptEntry
+  ACCESS: not-accessible
+  SYNTAX: SEQUENCE OF PreemptEntry
+
+  preemptNumber
+    OID: 1.3.6.1.4.1.1206.4.2.1.6.2.1.1
+    实例: 1.3.6.1.4.1.1206.4.2.1.6.2.1.1.{index...}
+    类型: INTEGER
+    范围: 1 .. 255 [INDEX]
+    ACCESS: read-only
+    SYNTAX: INTEGER (1..255)
+
+  preemptControl
+    OID: 1.3.6.1.4.1.1206.4.2.1.6.2.1.2
+    实例: 1.3.6.1.4.1.1206.4.2.1.6.2.1.2.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-write
+    DEFVAL: { 0 }
+    SYNTAX: INTEGER (0..255)
+
+  preemptLink
+    OID: 1.3.6.1.4.1.1206.4.2.1.6.2.1.3
+    实例: 1.3.6.1.4.1.1206.4.2.1.6.2.1.3.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-write
+    DEFVAL: { 0 }
+    SYNTAX: INTEGER (0..255)
+
+  preemptDelay
+    OID: 1.3.6.1.4.1.1206.4.2.1.6.2.1.4
+    实例: 1.3.6.1.4.1.1206.4.2.1.6.2.1.4.{index...}
+    类型: INTEGER
+    范围: 0 .. 65535
+    ACCESS: read-write
+    DEFVAL: { 0 }
+    SYNTAX: INTEGER (0..65535)
+
+  preemptMinimumDuration
+    OID: 1.3.6.1.4.1.1206.4.2.1.6.2.1.5
+    实例: 1.3.6.1.4.1.1206.4.2.1.6.2.1.5.{index...}
+    类型: INTEGER
+    范围: 0 .. 65535
+    ACCESS: read-write
+    DEFVAL: { 0 }
+    SYNTAX: INTEGER (0..65535)
+
+  preemptMinimumGreen
+    OID: 1.3.6.1.4.1.1206.4.2.1.6.2.1.6
+    实例: 1.3.6.1.4.1.1206.4.2.1.6.2.1.6.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-write
+    DEFVAL: { 255 }
+    SYNTAX: INTEGER (0..255)
+
+  preemptMinimumWalk
+    OID: 1.3.6.1.4.1.1206.4.2.1.6.2.1.7
+    实例: 1.3.6.1.4.1.1206.4.2.1.6.2.1.7.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-write
+    DEFVAL: { 255 }
+    SYNTAX: INTEGER (0..255)
+
+  preemptEnterPedClear
+    OID: 1.3.6.1.4.1.1206.4.2.1.6.2.1.8
+    实例: 1.3.6.1.4.1.1206.4.2.1.6.2.1.8.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-write
+    DEFVAL: { 255 }
+    SYNTAX: INTEGER (0..255)
+
+  preemptTrackGreen
+    OID: 1.3.6.1.4.1.1206.4.2.1.6.2.1.9
+    实例: 1.3.6.1.4.1.1206.4.2.1.6.2.1.9.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-write
+    DEFVAL: { 0 }
+    SYNTAX: INTEGER (0..255)
+
+  preemptDwellGreen
+    OID: 1.3.6.1.4.1.1206.4.2.1.6.2.1.10
+    实例: 1.3.6.1.4.1.1206.4.2.1.6.2.1.10.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-write
+    DEFVAL: { 10 }
+    SYNTAX: INTEGER (0..255)
+
+  preemptMaximumPresence
+    OID: 1.3.6.1.4.1.1206.4.2.1.6.2.1.11
+    实例: 1.3.6.1.4.1.1206.4.2.1.6.2.1.11.{index...}
+    类型: INTEGER
+    范围: 0 .. 65535
+    ACCESS: read-write
+    DEFVAL: { 0 }
+    SYNTAX: INTEGER (0..65535)
+
+  preemptTrackPhase
+    OID: 1.3.6.1.4.1.1206.4.2.1.6.2.1.12
+    实例: 1.3.6.1.4.1.1206.4.2.1.6.2.1.12.{index...}
+    类型: OCTET STRING
+    范围: length 0 .. 65535 bytes
+    ACCESS: read-write
+    DEFVAL: { "" }
+    SYNTAX: OCTET STRING
+
+  preemptDwellPhase
+    OID: 1.3.6.1.4.1.1206.4.2.1.6.2.1.13
+    实例: 1.3.6.1.4.1.1206.4.2.1.6.2.1.13.{index...}
+    类型: OCTET STRING
+    范围: length 0 .. 65535 bytes
+    ACCESS: read-write
+    DEFVAL: { "" }
+    SYNTAX: OCTET STRING
+
+  preemptDwellPed
+    OID: 1.3.6.1.4.1.1206.4.2.1.6.2.1.14
+    实例: 1.3.6.1.4.1.1206.4.2.1.6.2.1.14.{index...}
+    类型: OCTET STRING
+    范围: length 0 .. 65535 bytes
+    ACCESS: read-write
+    DEFVAL: { "" }
+    SYNTAX: OCTET STRING
+
+  preemptExitPhase
+    OID: 1.3.6.1.4.1.1206.4.2.1.6.2.1.15
+    实例: 1.3.6.1.4.1.1206.4.2.1.6.2.1.15.{index...}
+    类型: OCTET STRING
+    范围: length 0 .. 65535 bytes
+    ACCESS: read-write
+    DEFVAL: { "" }
+    SYNTAX: OCTET STRING
+
+  preemptState
+    OID: 1.3.6.1.4.1.1206.4.2.1.6.2.1.16
+    实例: 1.3.6.1.4.1.1206.4.2.1.6.2.1.16.{index...}
+    类型: INTEGER (enum)
+    范围: 1 .. 9  (other=1, notActive=2, notActiveWithCall=3, entryStarted=4, trackService=5, dwell=6, linkActive=7, exitStarted=8, maxPresence=9)
+    ACCESS: read-only
+    SYNTAX: INTEGER { other (1), notActive (2), notActiveWithCall (3), entryStarted (4), trackService (5), dwell (6), linkActive (7), exitStarted (8), maxPresence (9) }
+
+  preemptTrackOverlap
+    OID: 1.3.6.1.4.1.1206.4.2.1.6.2.1.17
+    实例: 1.3.6.1.4.1.1206.4.2.1.6.2.1.17.{index...}
+    类型: OCTET STRING
+    范围: length 0 .. 65535 bytes
+    ACCESS: read-write
+    DEFVAL: { "" }
+    SYNTAX: OCTET STRING
+
+  preemptDwellOverlap
+    OID: 1.3.6.1.4.1.1206.4.2.1.6.2.1.18
+    实例: 1.3.6.1.4.1.1206.4.2.1.6.2.1.18.{index...}
+    类型: OCTET STRING
+    范围: length 0 .. 65535 bytes
+    ACCESS: read-write
+    DEFVAL: { "" }
+    SYNTAX: OCTET STRING
+
+  preemptCyclingPhase
+    OID: 1.3.6.1.4.1.1206.4.2.1.6.2.1.19
+    实例: 1.3.6.1.4.1.1206.4.2.1.6.2.1.19.{index...}
+    类型: OCTET STRING
+    范围: length 0 .. 65535 bytes
+    ACCESS: read-write
+    DEFVAL: { "" }
+    SYNTAX: OCTET STRING
+
+  preemptCyclingPed
+    OID: 1.3.6.1.4.1.1206.4.2.1.6.2.1.20
+    实例: 1.3.6.1.4.1.1206.4.2.1.6.2.1.20.{index...}
+    类型: OCTET STRING
+    范围: length 0 .. 65535 bytes
+    ACCESS: read-write
+    DEFVAL: { "" }
+    SYNTAX: OCTET STRING
+
+  preemptCyclingOverlap
+    OID: 1.3.6.1.4.1.1206.4.2.1.6.2.1.21
+    实例: 1.3.6.1.4.1.1206.4.2.1.6.2.1.21.{index...}
+    类型: OCTET STRING
+    范围: length 0 .. 65535 bytes
+    ACCESS: read-write
+    DEFVAL: { "" }
+    SYNTAX: OCTET STRING
+
+  preemptEnterYellowChange
+    OID: 1.3.6.1.4.1.1206.4.2.1.6.2.1.22
+    实例: 1.3.6.1.4.1.1206.4.2.1.6.2.1.22.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-write
+    DEFVAL: { 255 }
+    SYNTAX: INTEGER (0..255)
+
+  preemptEnterRedClear
+    OID: 1.3.6.1.4.1.1206.4.2.1.6.2.1.23
+    实例: 1.3.6.1.4.1.1206.4.2.1.6.2.1.23.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-write
+    DEFVAL: { 255 }
+    SYNTAX: INTEGER (0..255)
+
+  preemptTrackYellowChange
+    OID: 1.3.6.1.4.1.1206.4.2.1.6.2.1.24
+    实例: 1.3.6.1.4.1.1206.4.2.1.6.2.1.24.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-write
+    DEFVAL: { 255 }
+    SYNTAX: INTEGER (0..255)
+
+  preemptTrackRedClear
+    OID: 1.3.6.1.4.1.1206.4.2.1.6.2.1.25
+    实例: 1.3.6.1.4.1.1206.4.2.1.6.2.1.25.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-write
+    DEFVAL: { 255 }
+    SYNTAX: INTEGER (0..255)
+
+preemptEntry
+  OID: 1.3.6.1.4.1.1206.4.2.1.6.2.1
+  实例: 1.3.6.1.4.1.1206.4.2.1.6.2.1
+  类型: ROW ENTRY
+  范围: INDEX { preemptNumber }
+  ACCESS: not-accessible
+  SYNTAX: PreemptEntry
+
+preemptControlTable
+  OID: 1.3.6.1.4.1.1206.4.2.1.6.3
+  实例: 1.3.6.1.4.1.1206.4.2.1.6.3
+  类型: TABLE
+  范围: SEQUENCE OF PreemptControlEntry
+  ACCESS: not-accessible
+  SYNTAX: SEQUENCE OF PreemptControlEntry
+
+  preemptControlNumber
+    OID: 1.3.6.1.4.1.1206.4.2.1.6.3.1.1
+    实例: 1.3.6.1.4.1.1206.4.2.1.6.3.1.1.{index...}
+    类型: INTEGER
+    范围: 1 .. 255 [INDEX]
+    ACCESS: read-only
+    SYNTAX: INTEGER (1..255)
+
+  preemptControlState
+    OID: 1.3.6.1.4.1.1206.4.2.1.6.3.1.2
+    实例: 1.3.6.1.4.1.1206.4.2.1.6.3.1.2.{index...}
+    类型: INTEGER
+    范围: 0 .. 1
+    ACCESS: read-write
+    SYNTAX: INTEGER (0..1)
+
+preemptControlEntry
+  OID: 1.3.6.1.4.1.1206.4.2.1.6.3.1
+  实例: 1.3.6.1.4.1.1206.4.2.1.6.3.1
+  类型: ROW ENTRY
+  范围: INDEX { preemptControlNumber }
+  ACCESS: not-accessible
+  SYNTAX: PreemptControlEntry
+
+------------------------------------------------------------------------
+ring (1.3.6.1.4.1.1206.4.2.1.7)
+------------------------------------------------------------------------
+ring
+  OID: 1.3.6.1.4.1.1206.4.2.1.7
+  实例: 1.3.6.1.4.1.1206.4.2.1.7
+  类型: OBJECT IDENTIFIER
+  范围: (branch node)
+  ACCESS: read-only
+
+maxRings
+  OID: 1.3.6.1.4.1.1206.4.2.1.7.1
+  实例: 1.3.6.1.4.1.1206.4.2.1.7.1.0
+  类型: INTEGER
+  范围: 1 .. 255
+  ACCESS: read-only
+  SYNTAX: INTEGER (1..255)
+
+maxSequences
+  OID: 1.3.6.1.4.1.1206.4.2.1.7.2
+  实例: 1.3.6.1.4.1.1206.4.2.1.7.2.0
+  类型: INTEGER
+  范围: 1 .. 255
+  ACCESS: read-only
+  SYNTAX: INTEGER (1..255)
+
+sequenceTable
+  OID: 1.3.6.1.4.1.1206.4.2.1.7.3
+  实例: 1.3.6.1.4.1.1206.4.2.1.7.3
+  类型: TABLE
+  范围: SEQUENCE OF SequenceEntry
+  ACCESS: not-accessible
+  SYNTAX: SEQUENCE OF SequenceEntry
+
+  sequenceNumber
+    OID: 1.3.6.1.4.1.1206.4.2.1.7.3.1.1
+    实例: 1.3.6.1.4.1.1206.4.2.1.7.3.1.1.{index...}
+    类型: INTEGER
+    范围: 1 .. 255 [INDEX]
+    ACCESS: read-only
+    SYNTAX: INTEGER (1..255)
+
+  sequenceRingNumber
+    OID: 1.3.6.1.4.1.1206.4.2.1.7.3.1.2
+    实例: 1.3.6.1.4.1.1206.4.2.1.7.3.1.2.{index...}
+    类型: INTEGER
+    范围: 1 .. 255 [INDEX]
+    ACCESS: read-only
+    SYNTAX: INTEGER (1..255)
+
+  sequenceData
+    OID: 1.3.6.1.4.1.1206.4.2.1.7.3.1.3
+    实例: 1.3.6.1.4.1.1206.4.2.1.7.3.1.3.{index...}
+    类型: OCTET STRING
+    范围: length 0 .. 65535 bytes
+    ACCESS: read-write
+    SYNTAX: OCTET STRING
+
+sequenceEntry
+  OID: 1.3.6.1.4.1.1206.4.2.1.7.3.1
+  实例: 1.3.6.1.4.1.1206.4.2.1.7.3.1
+  类型: ROW ENTRY
+  范围: INDEX { sequenceNumber, sequenceRingNumber }
+  ACCESS: not-accessible
+  SYNTAX: SequenceEntry
+
+maxRingControlGroups
+  OID: 1.3.6.1.4.1.1206.4.2.1.7.4
+  实例: 1.3.6.1.4.1.1206.4.2.1.7.4.0
+  类型: INTEGER
+  范围: 1 .. 255
+  ACCESS: read-only
+  SYNTAX: INTEGER (1..255)
+
+ringControlGroupTable
+  OID: 1.3.6.1.4.1.1206.4.2.1.7.5
+  实例: 1.3.6.1.4.1.1206.4.2.1.7.5
+  类型: TABLE
+  范围: SEQUENCE OF RingControlGroupEntry
+  ACCESS: not-accessible
+  SYNTAX: SEQUENCE OF RingControlGroupEntry
+
+  ringControlGroupNumber
+    OID: 1.3.6.1.4.1.1206.4.2.1.7.5.1.1
+    实例: 1.3.6.1.4.1.1206.4.2.1.7.5.1.1.{index...}
+    类型: INTEGER
+    范围: 1 .. 255 [INDEX]
+    ACCESS: read-only
+    SYNTAX: INTEGER (1..255)
+
+  ringControlGroupStopTime
+    OID: 1.3.6.1.4.1.1206.4.2.1.7.5.1.2
+    实例: 1.3.6.1.4.1.1206.4.2.1.7.5.1.2.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-write
+    SYNTAX: INTEGER (0..255)
+
+  ringControlGroupForceOff
+    OID: 1.3.6.1.4.1.1206.4.2.1.7.5.1.3
+    实例: 1.3.6.1.4.1.1206.4.2.1.7.5.1.3.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-write
+    SYNTAX: INTEGER (0..255)
+
+  ringControlGroupMax2
+    OID: 1.3.6.1.4.1.1206.4.2.1.7.5.1.4
+    实例: 1.3.6.1.4.1.1206.4.2.1.7.5.1.4.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-write
+    SYNTAX: INTEGER (0..255)
+
+  ringControlGroupMaxInhibit
+    OID: 1.3.6.1.4.1.1206.4.2.1.7.5.1.5
+    实例: 1.3.6.1.4.1.1206.4.2.1.7.5.1.5.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-write
+    SYNTAX: INTEGER (0..255)
+
+  ringControlGroupPedRecycle
+    OID: 1.3.6.1.4.1.1206.4.2.1.7.5.1.6
+    实例: 1.3.6.1.4.1.1206.4.2.1.7.5.1.6.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-write
+    SYNTAX: INTEGER (0..255)
+
+  ringControlGroupRedRest
+    OID: 1.3.6.1.4.1.1206.4.2.1.7.5.1.7
+    实例: 1.3.6.1.4.1.1206.4.2.1.7.5.1.7.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-write
+    SYNTAX: INTEGER (0..255)
+
+  ringControlGroupOmitRedClear
+    OID: 1.3.6.1.4.1.1206.4.2.1.7.5.1.8
+    实例: 1.3.6.1.4.1.1206.4.2.1.7.5.1.8.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-write
+    SYNTAX: INTEGER (0..255)
+
+ringControlGroupEntry
+  OID: 1.3.6.1.4.1.1206.4.2.1.7.5.1
+  实例: 1.3.6.1.4.1.1206.4.2.1.7.5.1
+  类型: ROW ENTRY
+  范围: INDEX { ringControlGroupNumber }
+  ACCESS: not-accessible
+  SYNTAX: RingControlGroupEntry
+
+ringStatusTable
+  OID: 1.3.6.1.4.1.1206.4.2.1.7.6
+  实例: 1.3.6.1.4.1.1206.4.2.1.7.6
+  类型: TABLE
+  范围: SEQUENCE OF RingStatusEntry
+  ACCESS: not-accessible
+  SYNTAX: SEQUENCE OF RingStatusEntry
+
+  ringStatus
+    OID: 1.3.6.1.4.1.1206.4.2.1.7.6.1.1
+    实例: 1.3.6.1.4.1.1206.4.2.1.7.6.1.1.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-only
+    SYNTAX: INTEGER (0..255)
+
+ringStatusEntry
+  OID: 1.3.6.1.4.1.1206.4.2.1.7.6.1
+  实例: 1.3.6.1.4.1.1206.4.2.1.7.6.1
+  类型: ROW ENTRY
+  范围: INDEX { sequenceRingNumber }
+  ACCESS: not-accessible
+  SYNTAX: RingStatusEntry
+
+------------------------------------------------------------------------
+channel (1.3.6.1.4.1.1206.4.2.1.8)
+------------------------------------------------------------------------
+channel
+  OID: 1.3.6.1.4.1.1206.4.2.1.8
+  实例: 1.3.6.1.4.1.1206.4.2.1.8
+  类型: OBJECT IDENTIFIER
+  范围: (branch node)
+  ACCESS: read-only
+
+maxChannels
+  OID: 1.3.6.1.4.1.1206.4.2.1.8.1
+  实例: 1.3.6.1.4.1.1206.4.2.1.8.1.0
+  类型: INTEGER
+  范围: 1 .. 255
+  ACCESS: read-only
+  SYNTAX: INTEGER (1..255)
+
+channelTable
+  OID: 1.3.6.1.4.1.1206.4.2.1.8.2
+  实例: 1.3.6.1.4.1.1206.4.2.1.8.2
+  类型: TABLE
+  范围: SEQUENCE OF ChannelEntry
+  ACCESS: not-accessible
+  SYNTAX: SEQUENCE OF ChannelEntry
+
+  channelNumber
+    OID: 1.3.6.1.4.1.1206.4.2.1.8.2.1.1
+    实例: 1.3.6.1.4.1.1206.4.2.1.8.2.1.1.{index...}
+    类型: INTEGER
+    范围: 1 .. 255 [INDEX]
+    ACCESS: read-only
+    SYNTAX: INTEGER (1..255)
+
+  channelControlSource
+    OID: 1.3.6.1.4.1.1206.4.2.1.8.2.1.2
+    实例: 1.3.6.1.4.1.1206.4.2.1.8.2.1.2.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-write
+    SYNTAX: INTEGER (0..255)
+
+  channelControlType
+    OID: 1.3.6.1.4.1.1206.4.2.1.8.2.1.3
+    实例: 1.3.6.1.4.1.1206.4.2.1.8.2.1.3.{index...}
+    类型: INTEGER (enum)
+    范围: 1 .. 4  (other=1, phaseVehicle=2, phasePedestrian=3, overlap=4)
+    ACCESS: read-write
+    SYNTAX: INTEGER { other (1), phaseVehicle (2), phasePedestrian (3), overlap (4) }
+
+  channelFlash
+    OID: 1.3.6.1.4.1.1206.4.2.1.8.2.1.4
+    实例: 1.3.6.1.4.1.1206.4.2.1.8.2.1.4.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-write
+    SYNTAX: INTEGER (0..255)
+
+  channelDim
+    OID: 1.3.6.1.4.1.1206.4.2.1.8.2.1.5
+    实例: 1.3.6.1.4.1.1206.4.2.1.8.2.1.5.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-write
+    SYNTAX: INTEGER (0..255)
+
+channelEntry
+  OID: 1.3.6.1.4.1.1206.4.2.1.8.2.1
+  实例: 1.3.6.1.4.1.1206.4.2.1.8.2.1
+  类型: ROW ENTRY
+  范围: INDEX { channelNumber }
+  ACCESS: not-accessible
+  SYNTAX: ChannelEntry
+
+maxChannelStatusGroups
+  OID: 1.3.6.1.4.1.1206.4.2.1.8.3
+  实例: 1.3.6.1.4.1.1206.4.2.1.8.3.0
+  类型: INTEGER
+  范围: 1 .. 255
+  ACCESS: read-only
+  SYNTAX: INTEGER (1..255)
+
+channelStatusGroupTable
+  OID: 1.3.6.1.4.1.1206.4.2.1.8.4
+  实例: 1.3.6.1.4.1.1206.4.2.1.8.4
+  类型: TABLE
+  范围: SEQUENCE OF ChannelStatusGroupEntry
+  ACCESS: not-accessible
+  SYNTAX: SEQUENCE OF ChannelStatusGroupEntry
+
+  channelStatusGroupNumber
+    OID: 1.3.6.1.4.1.1206.4.2.1.8.4.1.1
+    实例: 1.3.6.1.4.1.1206.4.2.1.8.4.1.1.{index...}
+    类型: INTEGER
+    范围: 1 .. 255 [INDEX]
+    ACCESS: read-only
+    SYNTAX: INTEGER (1..255)
+
+  channelStatusGroupReds
+    OID: 1.3.6.1.4.1.1206.4.2.1.8.4.1.2
+    实例: 1.3.6.1.4.1.1206.4.2.1.8.4.1.2.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-only
+    SYNTAX: INTEGER (0..255)
+
+  channelStatusGroupYellows
+    OID: 1.3.6.1.4.1.1206.4.2.1.8.4.1.3
+    实例: 1.3.6.1.4.1.1206.4.2.1.8.4.1.3.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-only
+    SYNTAX: INTEGER (0..255)
+
+  channelStatusGroupGreens
+    OID: 1.3.6.1.4.1.1206.4.2.1.8.4.1.4
+    实例: 1.3.6.1.4.1.1206.4.2.1.8.4.1.4.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-only
+    SYNTAX: INTEGER (0..255)
+
+channelStatusGroupEntry
+  OID: 1.3.6.1.4.1.1206.4.2.1.8.4.1
+  实例: 1.3.6.1.4.1.1206.4.2.1.8.4.1
+  类型: ROW ENTRY
+  范围: INDEX { channelStatusGroupNumber }
+  ACCESS: not-accessible
+  SYNTAX: ChannelStatusGroupEntry
+
+------------------------------------------------------------------------
+overlap (1.3.6.1.4.1.1206.4.2.1.9)
+------------------------------------------------------------------------
+overlap
+  OID: 1.3.6.1.4.1.1206.4.2.1.9
+  实例: 1.3.6.1.4.1.1206.4.2.1.9
+  类型: OBJECT IDENTIFIER
+  范围: (branch node)
+  ACCESS: read-only
+
+maxOverlaps
+  OID: 1.3.6.1.4.1.1206.4.2.1.9.1
+  实例: 1.3.6.1.4.1.1206.4.2.1.9.1.0
+  类型: INTEGER
+  范围: 1 .. 255
+  ACCESS: read-only
+  SYNTAX: INTEGER (1..255)
+
+overlapTable
+  OID: 1.3.6.1.4.1.1206.4.2.1.9.2
+  实例: 1.3.6.1.4.1.1206.4.2.1.9.2
+  类型: TABLE
+  范围: SEQUENCE OF OverlapEntry
+  ACCESS: not-accessible
+  SYNTAX: SEQUENCE OF OverlapEntry
+
+  overlapNumber
+    OID: 1.3.6.1.4.1.1206.4.2.1.9.2.1.1
+    实例: 1.3.6.1.4.1.1206.4.2.1.9.2.1.1.{index...}
+    类型: INTEGER
+    范围: 1 .. 255 [INDEX]
+    ACCESS: read-only
+    SYNTAX: INTEGER (1..255)
+
+  overlapType
+    OID: 1.3.6.1.4.1.1206.4.2.1.9.2.1.2
+    实例: 1.3.6.1.4.1.1206.4.2.1.9.2.1.2.{index...}
+    类型: INTEGER (enum)
+    范围: 1 .. 3  (other=1, normal=2, minusGreenYellow=3)
+    ACCESS: read-only
+    SYNTAX: INTEGER { other(1), normal (2), minusGreenYellow (3) }
+
+  overlapIncludedPhases
+    OID: 1.3.6.1.4.1.1206.4.2.1.9.2.1.3
+    实例: 1.3.6.1.4.1.1206.4.2.1.9.2.1.3.{index...}
+    类型: OCTET STRING
+    范围: length 0 .. 65535 bytes
+    ACCESS: read-write
+    SYNTAX: OCTET STRING
+
+  overlapModifierPhases
+    OID: 1.3.6.1.4.1.1206.4.2.1.9.2.1.4
+    实例: 1.3.6.1.4.1.1206.4.2.1.9.2.1.4.{index...}
+    类型: OCTET STRING
+    范围: length 0 .. 65535 bytes
+    ACCESS: read-write
+    SYNTAX: OCTET STRING
+
+  overlapTrailGreen
+    OID: 1.3.6.1.4.1.1206.4.2.1.9.2.1.5
+    实例: 1.3.6.1.4.1.1206.4.2.1.9.2.1.5.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-write
+    SYNTAX: INTEGER (0..255)
+
+  overlapTrailYellow
+    OID: 1.3.6.1.4.1.1206.4.2.1.9.2.1.6
+    实例: 1.3.6.1.4.1.1206.4.2.1.9.2.1.6.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-write
+    SYNTAX: INTEGER (0..255)
+
+  overlapTrailRed
+    OID: 1.3.6.1.4.1.1206.4.2.1.9.2.1.7
+    实例: 1.3.6.1.4.1.1206.4.2.1.9.2.1.7.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-write
+    SYNTAX: INTEGER (0..255)
+
+overlapEntry
+  OID: 1.3.6.1.4.1.1206.4.2.1.9.2.1
+  实例: 1.3.6.1.4.1.1206.4.2.1.9.2.1
+  类型: ROW ENTRY
+  范围: INDEX { overlapNumber }
+  ACCESS: not-accessible
+  SYNTAX: OverlapEntry
+
+maxOverlapStatusGroups
+  OID: 1.3.6.1.4.1.1206.4.2.1.9.3
+  实例: 1.3.6.1.4.1.1206.4.2.1.9.3.0
+  类型: INTEGER
+  范围: 1 .. 255
+  ACCESS: read-only
+  SYNTAX: INTEGER (1..255)
+
+overlapStatusGroupTable
+  OID: 1.3.6.1.4.1.1206.4.2.1.9.4
+  实例: 1.3.6.1.4.1.1206.4.2.1.9.4
+  类型: TABLE
+  范围: SEQUENCE OF OverlapStatusGroupEntry
+  ACCESS: not-accessible
+  SYNTAX: SEQUENCE OF OverlapStatusGroupEntry
+
+  overlapStatusGroupNumber
+    OID: 1.3.6.1.4.1.1206.4.2.1.9.4.1.1
+    实例: 1.3.6.1.4.1.1206.4.2.1.9.4.1.1.{index...}
+    类型: INTEGER
+    范围: 1 .. 255 [INDEX]
+    ACCESS: read-only
+    SYNTAX: INTEGER (1..255)
+
+  overlapStatusGroupReds
+    OID: 1.3.6.1.4.1.1206.4.2.1.9.4.1.2
+    实例: 1.3.6.1.4.1.1206.4.2.1.9.4.1.2.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-only
+    SYNTAX: INTEGER (0..255)
+
+  overlapStatusGroupYellows
+    OID: 1.3.6.1.4.1.1206.4.2.1.9.4.1.3
+    实例: 1.3.6.1.4.1.1206.4.2.1.9.4.1.3.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-only
+    SYNTAX: INTEGER (0..255)
+
+  overlapStatusGroupGreens
+    OID: 1.3.6.1.4.1.1206.4.2.1.9.4.1.4
+    实例: 1.3.6.1.4.1.1206.4.2.1.9.4.1.4.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-only
+    SYNTAX: INTEGER (0..255)
+
+overlapStatusGroupEntry
+  OID: 1.3.6.1.4.1.1206.4.2.1.9.4.1
+  实例: 1.3.6.1.4.1.1206.4.2.1.9.4.1
+  类型: ROW ENTRY
+  范围: INDEX { overlapStatusGroupNumber }
+  ACCESS: not-accessible
+  SYNTAX: OverlapStatusGroupEntry
+
+------------------------------------------------------------------------
+ts2port1 (1.3.6.1.4.1.1206.4.2.1.10)
+------------------------------------------------------------------------
+ts2port1
+  OID: 1.3.6.1.4.1.1206.4.2.1.10
+  实例: 1.3.6.1.4.1.1206.4.2.1.10
+  类型: OBJECT IDENTIFIER
+  范围: (branch node)
+  ACCESS: read-only
+
+maxPort1Addresses
+  OID: 1.3.6.1.4.1.1206.4.2.1.10.1
+  实例: 1.3.6.1.4.1.1206.4.2.1.10.1.0
+  类型: INTEGER
+  范围: 1 .. 255
+  ACCESS: read-only
+  SYNTAX: INTEGER (1..255)
+
+port1Table
+  OID: 1.3.6.1.4.1.1206.4.2.1.10.2
+  实例: 1.3.6.1.4.1.1206.4.2.1.10.2
+  类型: TABLE
+  范围: SEQUENCE OF Port1Entry
+  ACCESS: not-accessible
+  SYNTAX: SEQUENCE OF Port1Entry
+
+  port1Number
+    OID: 1.3.6.1.4.1.1206.4.2.1.10.2.1.1
+    实例: 1.3.6.1.4.1.1206.4.2.1.10.2.1.1.{index...}
+    类型: INTEGER
+    范围: 1 .. 255 [INDEX]
+    ACCESS: read-only
+    SYNTAX: INTEGER (1..255)
+
+  port1DevicePresent
+    OID: 1.3.6.1.4.1.1206.4.2.1.10.2.1.2
+    实例: 1.3.6.1.4.1.1206.4.2.1.10.2.1.2.{index...}
+    类型: INTEGER
+    范围: 0 .. 1
+    ACCESS: read-write
+    SYNTAX: INTEGER (0..1)
+
+  port1Frame40Enable
+    OID: 1.3.6.1.4.1.1206.4.2.1.10.2.1.3
+    实例: 1.3.6.1.4.1.1206.4.2.1.10.2.1.3.{index...}
+    类型: INTEGER
+    范围: 0 .. 1
+    ACCESS: read-write
+    SYNTAX: INTEGER (0..1)
+
+  port1Status
+    OID: 1.3.6.1.4.1.1206.4.2.1.10.2.1.4
+    实例: 1.3.6.1.4.1.1206.4.2.1.10.2.1.4.{index...}
+    类型: INTEGER (enum)
+    范围: 1 .. 3  (other=1, online=2, responseFault=3)
+    ACCESS: read-only
+    SYNTAX: INTEGER { other (1), online (2), responseFault (3) }
+
+  port1FaultFrame
+    OID: 1.3.6.1.4.1.1206.4.2.1.10.2.1.5
+    实例: 1.3.6.1.4.1.1206.4.2.1.10.2.1.5.{index...}
+    类型: INTEGER
+    范围: 0 .. 255
+    ACCESS: read-only
+    SYNTAX: INTEGER  (0..255)
+
+port1Entry
+  OID: 1.3.6.1.4.1.1206.4.2.1.10.2.1
+  实例: 1.3.6.1.4.1.1206.4.2.1.10.2.1
+  类型: ROW ENTRY
+  范围: INDEX { port1Number }
+  ACCESS: not-accessible
+  SYNTAX: Port1Entry
+
+------------------------------------------------------------------------
+ascBlock (1.3.6.1.4.1.1206.4.2.1.11)
+------------------------------------------------------------------------
+ascBlock
+  OID: 1.3.6.1.4.1.1206.4.2.1.11
+  实例: 1.3.6.1.4.1.1206.4.2.1.11
+  类型: OBJECT IDENTIFIER
+  范围: (branch node)
+  ACCESS: read-only
+
+ascBlockGetControl
+  OID: 1.3.6.1.4.1.1206.4.2.1.11.1
+  实例: 1.3.6.1.4.1.1206.4.2.1.11.1.0
+  类型: OCTET STRING
+  范围: length 2 .. 12 bytes
+  ACCESS: read-write
+  SYNTAX: OCTET STRING (SIZE(2..12))
+
+ascBlockData
+  OID: 1.3.6.1.4.1.1206.4.2.1.11.2
+  实例: 1.3.6.1.4.1.1206.4.2.1.11.2.0
+  类型: OCTET STRING
+  范围: length 2 .. 484 bytes
+  ACCESS: read-write
+  SYNTAX: OCTET STRING (SIZE(2..484))
+
+ascBlockErrorStatus
+  OID: 1.3.6.1.4.1.1206.4.2.1.11.3
+  实例: 1.3.6.1.4.1.1206.4.2.1.11.3.0
+  类型: INTEGER
+  范围: 0 .. 65535
+  ACCESS: read-only
+  SYNTAX: INTEGER (0..65535)

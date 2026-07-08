@@ -1,0 +1,254 @@
+name,kind,def_oid,inst_oid,access,syntax,default
+phase,branch,1.3.6.1.4.1.1206.4.2.1.1,—,read-only,,—
+maxPhases,scalar,1.3.6.1.4.1.1206.4.2.1.1.1,1.3.6.1.4.1.1206.4.2.1.1.1.0,read-only,INTEGER (2..255),255
+phaseTable,table,1.3.6.1.4.1.1206.4.2.1.1.2,—,not-accessible,SEQUENCE OF PhaseEntry,—
+phaseEntry,entry,1.3.6.1.4.1.1206.4.2.1.1.2.1,—,not-accessible,PhaseEntry,—
+phaseNumber,column,1.3.6.1.4.1.1206.4.2.1.1.2.1.1,1.3.6.1.4.1.1206.4.2.1.1.2.1.1.1,read-only,INTEGER (1..255),1
+phaseRedRevert,column,1.3.6.1.4.1.1206.4.2.1.1.2.1.10,1.3.6.1.4.1.1206.4.2.1.1.2.1.10.1,read-write,INTEGER (0..255),255
+phaseAddedInitial,column,1.3.6.1.4.1.1206.4.2.1.1.2.1.11,1.3.6.1.4.1.1206.4.2.1.1.2.1.11.1,read-write,INTEGER (0..255),255
+phaseMaximumInitial,column,1.3.6.1.4.1.1206.4.2.1.1.2.1.12,1.3.6.1.4.1.1206.4.2.1.1.2.1.12.1,read-write,INTEGER (0..255),255
+phaseTimeBeforeReduction,column,1.3.6.1.4.1.1206.4.2.1.1.2.1.13,1.3.6.1.4.1.1206.4.2.1.1.2.1.13.1,read-write,INTEGER (0..255),255
+phaseCarsBeforeReduction,column,1.3.6.1.4.1.1206.4.2.1.1.2.1.14,1.3.6.1.4.1.1206.4.2.1.1.2.1.14.1,read-write,INTEGER (0..255),255
+phaseTimeToReduce,column,1.3.6.1.4.1.1206.4.2.1.1.2.1.15,1.3.6.1.4.1.1206.4.2.1.1.2.1.15.1,read-write,INTEGER (0..255),255
+phaseReduceBy,column,1.3.6.1.4.1.1206.4.2.1.1.2.1.16,1.3.6.1.4.1.1206.4.2.1.1.2.1.16.1,read-write,INTEGER (0..255),255
+phaseMinimumGap,column,1.3.6.1.4.1.1206.4.2.1.1.2.1.17,1.3.6.1.4.1.1206.4.2.1.1.2.1.17.1,read-write,INTEGER (0..255),255
+phaseDynamicMaxLimit,column,1.3.6.1.4.1.1206.4.2.1.1.2.1.18,1.3.6.1.4.1.1206.4.2.1.1.2.1.18.1,read-write,INTEGER (0..255),255
+phaseDynamicMaxStep,column,1.3.6.1.4.1.1206.4.2.1.1.2.1.19,1.3.6.1.4.1.1206.4.2.1.1.2.1.19.1,read-write,INTEGER (0..255),255
+phaseWalk,column,1.3.6.1.4.1.1206.4.2.1.1.2.1.2,1.3.6.1.4.1.1206.4.2.1.1.2.1.2.1,read-write,INTEGER (0..255),255
+phaseStartup,column,1.3.6.1.4.1.1206.4.2.1.1.2.1.20,1.3.6.1.4.1.1206.4.2.1.1.2.1.20.1,read-write,"INTEGER { other (1), phaseNotOn (2), greenWalk (3), greenNoWalk (4), yellowChange (5), redClear (6) }",6
+phaseOptions,column,1.3.6.1.4.1.1206.4.2.1.1.2.1.21,1.3.6.1.4.1.1206.4.2.1.1.2.1.21.1,read-write,INTEGER (0..65535),65535
+phaseRing,column,1.3.6.1.4.1.1206.4.2.1.1.2.1.22,1.3.6.1.4.1.1206.4.2.1.1.2.1.22.1,read-write,INTEGER (0..255),255
+phaseConcurrency,column,1.3.6.1.4.1.1206.4.2.1.1.2.1.23,1.3.6.1.4.1.1206.4.2.1.1.2.1.23.1,read-write,OCTET STRING,'ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ... (255 bytes)
+phasePedestrianClear,column,1.3.6.1.4.1.1206.4.2.1.1.2.1.3,1.3.6.1.4.1.1206.4.2.1.1.2.1.3.1,read-write,INTEGER (0..255),255
+phaseMinimumGreen,column,1.3.6.1.4.1.1206.4.2.1.1.2.1.4,1.3.6.1.4.1.1206.4.2.1.1.2.1.4.1,read-write,INTEGER (0..255),255
+phasePassage,column,1.3.6.1.4.1.1206.4.2.1.1.2.1.5,1.3.6.1.4.1.1206.4.2.1.1.2.1.5.1,read-write,INTEGER (0..255),255
+phaseMaximum1,column,1.3.6.1.4.1.1206.4.2.1.1.2.1.6,1.3.6.1.4.1.1206.4.2.1.1.2.1.6.1,read-write,INTEGER (0..255),255
+phaseMaximum2,column,1.3.6.1.4.1.1206.4.2.1.1.2.1.7,1.3.6.1.4.1.1206.4.2.1.1.2.1.7.1,read-write,INTEGER (0..255),255
+phaseYellowChange,column,1.3.6.1.4.1.1206.4.2.1.1.2.1.8,1.3.6.1.4.1.1206.4.2.1.1.2.1.8.1,read-write,INTEGER (0..255),255
+phaseRedClear,column,1.3.6.1.4.1.1206.4.2.1.1.2.1.9,1.3.6.1.4.1.1206.4.2.1.1.2.1.9.1,read-write,INTEGER (0..255),255
+maxPhaseGroups,scalar,1.3.6.1.4.1.1206.4.2.1.1.3,1.3.6.1.4.1.1206.4.2.1.1.3.0,read-only,INTEGER (1..255),255
+phaseStatusGroupTable,table,1.3.6.1.4.1.1206.4.2.1.1.4,—,not-accessible,SEQUENCE OF PhaseStatusGroupEntry,—
+phaseStatusGroupEntry,entry,1.3.6.1.4.1.1206.4.2.1.1.4.1,—,not-accessible,PhaseStatusGroupEntry,—
+phaseStatusGroupNumber,column,1.3.6.1.4.1.1206.4.2.1.1.4.1.1,1.3.6.1.4.1.1206.4.2.1.1.4.1.1.1,read-only,INTEGER (1..255),1
+phaseStatusGroupPhaseOns,column,1.3.6.1.4.1.1206.4.2.1.1.4.1.10,1.3.6.1.4.1.1206.4.2.1.1.4.1.10.1,read-only,INTEGER (0..255),255
+phaseStatusGroupPhaseNexts,column,1.3.6.1.4.1.1206.4.2.1.1.4.1.11,1.3.6.1.4.1.1206.4.2.1.1.4.1.11.1,read-only,INTEGER (0..255),255
+phaseStatusGroupReds,column,1.3.6.1.4.1.1206.4.2.1.1.4.1.2,1.3.6.1.4.1.1206.4.2.1.1.4.1.2.1,read-only,INTEGER (0..255),255
+phaseStatusGroupYellows,column,1.3.6.1.4.1.1206.4.2.1.1.4.1.3,1.3.6.1.4.1.1206.4.2.1.1.4.1.3.1,read-only,INTEGER (0..255),255
+phaseStatusGroupGreens,column,1.3.6.1.4.1.1206.4.2.1.1.4.1.4,1.3.6.1.4.1.1206.4.2.1.1.4.1.4.1,read-only,INTEGER (0..255),255
+phaseStatusGroupDontWalks,column,1.3.6.1.4.1.1206.4.2.1.1.4.1.5,1.3.6.1.4.1.1206.4.2.1.1.4.1.5.1,read-only,INTEGER (0..255),255
+phaseStatusGroupPedClears,column,1.3.6.1.4.1.1206.4.2.1.1.4.1.6,1.3.6.1.4.1.1206.4.2.1.1.4.1.6.1,read-only,INTEGER (0..255),255
+phaseStatusGroupWalks,column,1.3.6.1.4.1.1206.4.2.1.1.4.1.7,1.3.6.1.4.1.1206.4.2.1.1.4.1.7.1,read-only,INTEGER (0..255),255
+phaseStatusGroupVehCalls,column,1.3.6.1.4.1.1206.4.2.1.1.4.1.8,1.3.6.1.4.1.1206.4.2.1.1.4.1.8.1,read-only,INTEGER (0..255),255
+phaseStatusGroupPedCalls,column,1.3.6.1.4.1.1206.4.2.1.1.4.1.9,1.3.6.1.4.1.1206.4.2.1.1.4.1.9.1,read-only,INTEGER (0..255),255
+phaseControlGroupTable,table,1.3.6.1.4.1.1206.4.2.1.1.5,—,not-accessible,SEQUENCE OF PhaseControlGroupEntry,—
+phaseControlGroupEntry,entry,1.3.6.1.4.1.1206.4.2.1.1.5.1,—,not-accessible,PhaseControlGroupEntry,—
+phaseControlGroupNumber,column,1.3.6.1.4.1.1206.4.2.1.1.5.1.1,1.3.6.1.4.1.1206.4.2.1.1.5.1.1.1,read-only,INTEGER (1..255),1
+phaseControlGroupPhaseOmit,column,1.3.6.1.4.1.1206.4.2.1.1.5.1.2,1.3.6.1.4.1.1206.4.2.1.1.5.1.2.1,read-write,INTEGER (0..255),255
+phaseControlGroupPedOmit,column,1.3.6.1.4.1.1206.4.2.1.1.5.1.3,1.3.6.1.4.1.1206.4.2.1.1.5.1.3.1,read-write,INTEGER (0..255),255
+phaseControlGroupHold,column,1.3.6.1.4.1.1206.4.2.1.1.5.1.4,1.3.6.1.4.1.1206.4.2.1.1.5.1.4.1,read-write,INTEGER (0..255),255
+phaseControlGroupForceOff,column,1.3.6.1.4.1.1206.4.2.1.1.5.1.5,1.3.6.1.4.1.1206.4.2.1.1.5.1.5.1,read-write,INTEGER (0..255),255
+phaseControlGroupVehCall,column,1.3.6.1.4.1.1206.4.2.1.1.5.1.6,1.3.6.1.4.1.1206.4.2.1.1.5.1.6.1,read-write,INTEGER (0..255),255
+phaseControlGroupPedCall,column,1.3.6.1.4.1.1206.4.2.1.1.5.1.7,1.3.6.1.4.1.1206.4.2.1.1.5.1.7.1,read-write,INTEGER (0..255),255
+ts2port1,branch,1.3.6.1.4.1.1206.4.2.1.10,—,read-only,,—
+maxPort1Addresses,scalar,1.3.6.1.4.1.1206.4.2.1.10.1,1.3.6.1.4.1.1206.4.2.1.10.1.0,read-only,INTEGER (1..255),255
+port1Table,table,1.3.6.1.4.1.1206.4.2.1.10.2,—,not-accessible,SEQUENCE OF Port1Entry,—
+port1Entry,entry,1.3.6.1.4.1.1206.4.2.1.10.2.1,—,not-accessible,Port1Entry,—
+port1Number,column,1.3.6.1.4.1.1206.4.2.1.10.2.1.1,1.3.6.1.4.1.1206.4.2.1.10.2.1.1.1,read-only,INTEGER (1..255),1
+port1DevicePresent,column,1.3.6.1.4.1.1206.4.2.1.10.2.1.2,1.3.6.1.4.1.1206.4.2.1.10.2.1.2.1,read-write,INTEGER (0..1),1
+port1Frame40Enable,column,1.3.6.1.4.1.1206.4.2.1.10.2.1.3,1.3.6.1.4.1.1206.4.2.1.10.2.1.3.1,read-write,INTEGER (0..1),1
+port1Status,column,1.3.6.1.4.1.1206.4.2.1.10.2.1.4,1.3.6.1.4.1.1206.4.2.1.10.2.1.4.1,read-only,"INTEGER { other (1), online (2), responseFault (3) }",3
+port1FaultFrame,column,1.3.6.1.4.1.1206.4.2.1.10.2.1.5,1.3.6.1.4.1.1206.4.2.1.10.2.1.5.1,read-only,INTEGER (0..255),255
+ascBlock,branch,1.3.6.1.4.1.1206.4.2.1.11,—,read-only,,—
+ascBlockGetControl,scalar,1.3.6.1.4.1.1206.4.2.1.11.1,1.3.6.1.4.1.1206.4.2.1.11.1.0,read-write,OCTET STRING (SIZE(2..12)),'ZZZZZZZZZZZZ'
+ascBlockData,scalar,1.3.6.1.4.1.1206.4.2.1.11.2,1.3.6.1.4.1.1206.4.2.1.11.2.0,read-write,OCTET STRING (SIZE(2..484)),'ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ... (255 bytes)
+ascBlockErrorStatus,scalar,1.3.6.1.4.1.1206.4.2.1.11.3,1.3.6.1.4.1.1206.4.2.1.11.3.0,read-only,INTEGER (0..65535),65535
+detector,branch,1.3.6.1.4.1.1206.4.2.1.2,—,read-only,,—
+maxVehicleDetectors,scalar,1.3.6.1.4.1.1206.4.2.1.2.1,1.3.6.1.4.1.1206.4.2.1.2.1.0,read-only,INTEGER (1..255),255
+vehicleDetectorTable,table,1.3.6.1.4.1.1206.4.2.1.2.2,—,not-accessible,SEQUENCE OF VehicleDetectorEntry,—
+vehicleDetectorEntry,entry,1.3.6.1.4.1.1206.4.2.1.2.2.1,—,not-accessible,VehicleDetectorEntry,—
+vehicleDetectorNumber,column,1.3.6.1.4.1.1206.4.2.1.2.2.1.1,1.3.6.1.4.1.1206.4.2.1.2.2.1.1.1,read-only,INTEGER (1..255),1
+vehicleDetectorMaxPresence,column,1.3.6.1.4.1.1206.4.2.1.2.2.1.10,1.3.6.1.4.1.1206.4.2.1.2.2.1.10.1,read-write,INTEGER (0..255),255
+vehicleDetectorErraticCounts,column,1.3.6.1.4.1.1206.4.2.1.2.2.1.11,1.3.6.1.4.1.1206.4.2.1.2.2.1.11.1,read-write,INTEGER (0..255),255
+vehicleDetectorFailTime,column,1.3.6.1.4.1.1206.4.2.1.2.2.1.12,1.3.6.1.4.1.1206.4.2.1.2.2.1.12.1,read-write,INTEGER (0..255),255
+vehicleDetectorAlarms,column,1.3.6.1.4.1.1206.4.2.1.2.2.1.13,1.3.6.1.4.1.1206.4.2.1.2.2.1.13.1,read-only,INTEGER (0..255),255
+vehicleDetectorReportedAlarms,column,1.3.6.1.4.1.1206.4.2.1.2.2.1.14,1.3.6.1.4.1.1206.4.2.1.2.2.1.14.1,read-only,INTEGER (0..255),255
+vehicleDetectorReset,column,1.3.6.1.4.1.1206.4.2.1.2.2.1.15,1.3.6.1.4.1.1206.4.2.1.2.2.1.15.1,read-write,INTEGER (0..1),1
+vehicleDetectorOptions,column,1.3.6.1.4.1.1206.4.2.1.2.2.1.2,1.3.6.1.4.1.1206.4.2.1.2.2.1.2.1,read-write,INTEGER (0..255),255
+vehicleDetectorCallPhase,column,1.3.6.1.4.1.1206.4.2.1.2.2.1.4,1.3.6.1.4.1.1206.4.2.1.2.2.1.4.1,read-write,INTEGER (0..255),255
+vehicleDetectorSwitchPhase,column,1.3.6.1.4.1.1206.4.2.1.2.2.1.5,1.3.6.1.4.1.1206.4.2.1.2.2.1.5.1,read-write,INTEGER (0..255),255
+vehicleDetectorDelay,column,1.3.6.1.4.1.1206.4.2.1.2.2.1.6,1.3.6.1.4.1.1206.4.2.1.2.2.1.6.1,read-write,INTEGER (0..65535),65535
+vehicleDetectorExtend,column,1.3.6.1.4.1.1206.4.2.1.2.2.1.7,1.3.6.1.4.1.1206.4.2.1.2.2.1.7.1,read-write,INTEGER (0..255),255
+vehicleDetectorQueueLimit,column,1.3.6.1.4.1.1206.4.2.1.2.2.1.8,1.3.6.1.4.1.1206.4.2.1.2.2.1.8.1,read-write,INTEGER (0..255),255
+vehicleDetectorNoActivity,column,1.3.6.1.4.1.1206.4.2.1.2.2.1.9,1.3.6.1.4.1.1206.4.2.1.2.2.1.9.1,read-write,INTEGER (0..255),255
+maxVehicleDetectorStatusGroups,scalar,1.3.6.1.4.1.1206.4.2.1.2.3,1.3.6.1.4.1.1206.4.2.1.2.3.0,read-only,INTEGER (1..255),255
+vehicleDetectorStatusGroupTable,table,1.3.6.1.4.1.1206.4.2.1.2.4,—,not-accessible,SEQUENCE OF VehicleDetectorStatusGroupEntry,—
+vehicleDetectorStatusGroupEntry,entry,1.3.6.1.4.1.1206.4.2.1.2.4.1,—,not-accessible,VehicleDetectorStatusGroupEntry,—
+vehicleDetectorStatusGroupNumber,column,1.3.6.1.4.1.1206.4.2.1.2.4.1.1,1.3.6.1.4.1.1206.4.2.1.2.4.1.1.1,read-only,INTEGER (1..255),1
+vehicleDetectorStatusGroupActive,column,1.3.6.1.4.1.1206.4.2.1.2.4.1.2,1.3.6.1.4.1.1206.4.2.1.2.4.1.2.1,read-only,INTEGER (0..255),255
+vehicleDetectorStatusGroupAlarms,column,1.3.6.1.4.1.1206.4.2.1.2.4.1.3,1.3.6.1.4.1.1206.4.2.1.2.4.1.3.1,read-only,INTEGER (0..255),255
+volumeOccupancyReport,branch,1.3.6.1.4.1.1206.4.2.1.2.5,—,read-only,,—
+volumeOccupancySequence,scalar,1.3.6.1.4.1.1206.4.2.1.2.5.1,1.3.6.1.4.1.1206.4.2.1.2.5.1.0,read-only,INTEGER (0..255),255
+volumeOccupancyPeriod,scalar,1.3.6.1.4.1.1206.4.2.1.2.5.2,1.3.6.1.4.1.1206.4.2.1.2.5.2.0,read-write,INTEGER (0..255),255
+activeVolumeOccupancyDetectors,scalar,1.3.6.1.4.1.1206.4.2.1.2.5.3,1.3.6.1.4.1.1206.4.2.1.2.5.3.0,read-only,INTEGER (0..255),255
+volumeOccupancyTable,table,1.3.6.1.4.1.1206.4.2.1.2.5.4,—,not-accessible,SEQUENCE OF VolumeOccupancyEntry,—
+volumeOccupancyEntry,entry,1.3.6.1.4.1.1206.4.2.1.2.5.4.1,—,not-accessible,VolumeOccupancyEntry,—
+detectorVolume,column,1.3.6.1.4.1.1206.4.2.1.2.5.4.1.1,1.3.6.1.4.1.1206.4.2.1.2.5.4.1.1.1,read-only,INTEGER (0..255),255
+detectorOccupancy,column,1.3.6.1.4.1.1206.4.2.1.2.5.4.1.2,1.3.6.1.4.1.1206.4.2.1.2.5.4.1.2.1,read-only,INTEGER (0..255),255
+maxPedestrianDetectors,scalar,1.3.6.1.4.1.1206.4.2.1.2.6,1.3.6.1.4.1.1206.4.2.1.2.6.0,read-only,INTEGER (1..255),255
+pedestrianDetectorTable,table,1.3.6.1.4.1.1206.4.2.1.2.7,—,not-accessible,SEQUENCE OF PedestrianDetectorEntry,—
+pedestrianDetectorEntry,entry,1.3.6.1.4.1.1206.4.2.1.2.7.1,—,not-accessible,PedestrianDetectorEntry,—
+pedestrianDetectorNumber,column,1.3.6.1.4.1.1206.4.2.1.2.7.1.1,1.3.6.1.4.1.1206.4.2.1.2.7.1.1.1,read-only,INTEGER (1..255),1
+pedestrianDetectorCallPhase,column,1.3.6.1.4.1.1206.4.2.1.2.7.1.2,1.3.6.1.4.1.1206.4.2.1.2.7.1.2.1,read-write,INTEGER (0..255),255
+pedestrianDetectorNoActivity,column,1.3.6.1.4.1.1206.4.2.1.2.7.1.3,1.3.6.1.4.1.1206.4.2.1.2.7.1.3.1,read-write,INTEGER (0..255),255
+pedestrianDetectorMaxPresence,column,1.3.6.1.4.1.1206.4.2.1.2.7.1.4,1.3.6.1.4.1.1206.4.2.1.2.7.1.4.1,read-write,INTEGER (0..255),255
+pedestrianDetectorErraticCounts,column,1.3.6.1.4.1.1206.4.2.1.2.7.1.5,1.3.6.1.4.1.1206.4.2.1.2.7.1.5.1,read-write,INTEGER (0..255),255
+pedestrianDetectorAlarms,column,1.3.6.1.4.1.1206.4.2.1.2.7.1.6,1.3.6.1.4.1.1206.4.2.1.2.7.1.6.1,read-only,INTEGER (0..255),255
+unit,branch,1.3.6.1.4.1.1206.4.2.1.3,—,read-only,,—
+unitStartUpFlash,scalar,1.3.6.1.4.1.1206.4.2.1.3.1,1.3.6.1.4.1.1206.4.2.1.3.1.0,read-write,INTEGER (0..255),255
+unitControl,scalar,1.3.6.1.4.1.1206.4.2.1.3.10,1.3.6.1.4.1.1206.4.2.1.3.10.0,read-write,INTEGER (0..255),255
+maxAlarmGroups,scalar,1.3.6.1.4.1.1206.4.2.1.3.11,1.3.6.1.4.1.1206.4.2.1.3.11.0,read-only,INTEGER(1..255),255
+alarmGroupTable,table,1.3.6.1.4.1.1206.4.2.1.3.12,—,not-accessible,SEQUENCE OF AlarmGroupEntry,—
+alarmGroupEntry,entry,1.3.6.1.4.1.1206.4.2.1.3.12.1,—,not-accessible,AlarmGroupEntry,—
+alarmGroupNumber,column,1.3.6.1.4.1.1206.4.2.1.3.12.1.1,1.3.6.1.4.1.1206.4.2.1.3.12.1.1.1,read-only,INTEGER (1..255),1
+alarmGroupState,column,1.3.6.1.4.1.1206.4.2.1.3.12.1.2,1.3.6.1.4.1.1206.4.2.1.3.12.1.2.1,read-only,INTEGER (0..255),255
+maxSpecialFunctionOutputs,scalar,1.3.6.1.4.1.1206.4.2.1.3.13,1.3.6.1.4.1.1206.4.2.1.3.13.0,read-only,INTEGER (1..255),255
+specialFunctionOutputTable,table,1.3.6.1.4.1.1206.4.2.1.3.14,—,not-accessible,SEQUENCE OF SpecialFunctionOutputEntry,—
+specialFunctionOutputEntry,entry,1.3.6.1.4.1.1206.4.2.1.3.14.1,—,not-accessible,SpecialFunctionOutputEntry,—
+specialFunctionOutputNumber,column,1.3.6.1.4.1.1206.4.2.1.3.14.1.1,1.3.6.1.4.1.1206.4.2.1.3.14.1.1.1,read-only,INTEGER (1..255),1
+specialFunctionOutputControl,column,1.3.6.1.4.1.1206.4.2.1.3.14.1.3,1.3.6.1.4.1.1206.4.2.1.3.14.1.3.1,read-write,INTEGER (0..1),1
+specialFunctionOutputStatus,column,1.3.6.1.4.1.1206.4.2.1.3.14.1.4,1.3.6.1.4.1.1206.4.2.1.3.14.1.4.1,read-only,INTEGER (0..1),1
+unitAutoPedestrianClear,scalar,1.3.6.1.4.1.1206.4.2.1.3.2,1.3.6.1.4.1.1206.4.2.1.3.2.0,read-write,"INTEGER { disable(1), enable (2) }",2
+unitBackupTime,scalar,1.3.6.1.4.1.1206.4.2.1.3.3,1.3.6.1.4.1.1206.4.2.1.3.3.0,read-write,INTEGER (0..65535),65535
+unitRedRevert,scalar,1.3.6.1.4.1.1206.4.2.1.3.4,1.3.6.1.4.1.1206.4.2.1.3.4.0,read-write,INTEGER (0..255),255
+unitControlStatus,scalar,1.3.6.1.4.1.1206.4.2.1.3.5,1.3.6.1.4.1.1206.4.2.1.3.5.0,read-only,"INTEGER { other (1), systemControl (2), systemStandby (3), backupMode(4), manual (5), timebase (6), interconnect (7), in",8
+unitFlashStatus,scalar,1.3.6.1.4.1.1206.4.2.1.3.6,1.3.6.1.4.1.1206.4.2.1.3.6.0,read-only,"INTEGER { other(1), notFlash(2), automatic(3), localManual(4), faultMonitor(5), mmu(6), startup(7), preempt (8)}",8
+unitAlarmStatus2,scalar,1.3.6.1.4.1.1206.4.2.1.3.7,1.3.6.1.4.1.1206.4.2.1.3.7.0,read-only,INTEGER (0..255),255
+unitAlarmStatus1,scalar,1.3.6.1.4.1.1206.4.2.1.3.8,1.3.6.1.4.1.1206.4.2.1.3.8.0,read-only,INTEGER (0..255),255
+shortAlarmStatus,scalar,1.3.6.1.4.1.1206.4.2.1.3.9,1.3.6.1.4.1.1206.4.2.1.3.9.0,read-only,INTEGER (0..255),255
+coord,branch,1.3.6.1.4.1.1206.4.2.1.4,—,read-only,,—
+coordOperationalMode,scalar,1.3.6.1.4.1.1206.4.2.1.4.1,1.3.6.1.4.1.1206.4.2.1.4.1.0,read-write,INTEGER (0..255),255
+coordPatternStatus,scalar,1.3.6.1.4.1.1206.4.2.1.4.10,1.3.6.1.4.1.1206.4.2.1.4.10.0,read-only,INTEGER (0..255),255
+localFreeStatus,scalar,1.3.6.1.4.1.1206.4.2.1.4.11,1.3.6.1.4.1.1206.4.2.1.4.11.0,read-only,"INTEGER { other(1), notFree(2), commandFree(3), transitionFree(4), inputFree(5), coordFree(6), badPlan(7), badCycleTime(",11
+coordCycleStatus,scalar,1.3.6.1.4.1.1206.4.2.1.4.12,1.3.6.1.4.1.1206.4.2.1.4.12.0,read-only,INTEGER (0..510),510
+coordSyncStatus,scalar,1.3.6.1.4.1.1206.4.2.1.4.13,1.3.6.1.4.1.1206.4.2.1.4.13.0,read-only,INTEGER (0..510),510
+systemPatternControl,scalar,1.3.6.1.4.1.1206.4.2.1.4.14,1.3.6.1.4.1.1206.4.2.1.4.14.0,read-write,INTEGER (0..255),255
+systemSyncControl,scalar,1.3.6.1.4.1.1206.4.2.1.4.15,1.3.6.1.4.1.1206.4.2.1.4.15.0,read-write,INTEGER (0..255),255
+coordCorrectionMode,scalar,1.3.6.1.4.1.1206.4.2.1.4.2,1.3.6.1.4.1.1206.4.2.1.4.2.0,read-write,"INTEGER { other (1), dwell (2), shortway (3), addOnly (4) }",4
+coordMaximumMode,scalar,1.3.6.1.4.1.1206.4.2.1.4.3,1.3.6.1.4.1.1206.4.2.1.4.3.0,read-write,"INTEGER { other (1), maximum1 (2), maximum2 (3), maxInhibit (4) }",4
+coordForceMode,scalar,1.3.6.1.4.1.1206.4.2.1.4.4,1.3.6.1.4.1.1206.4.2.1.4.4.0,read-write,"INTEGER { other(1), floating (2), fixed (3) }",3
+maxPatterns,scalar,1.3.6.1.4.1.1206.4.2.1.4.5,1.3.6.1.4.1.1206.4.2.1.4.5.0,read-only,INTEGER (1..253),253
+patternTableType,scalar,1.3.6.1.4.1.1206.4.2.1.4.6,1.3.6.1.4.1.1206.4.2.1.4.6.0,read-only,"INTEGER { other (1), patterns (2), offset3 (3), offset5 (4) }",4
+patternTable,table,1.3.6.1.4.1.1206.4.2.1.4.7,—,not-accessible,SEQUENCE OF PatternEntry,—
+patternEntry,entry,1.3.6.1.4.1.1206.4.2.1.4.7.1,—,not-accessible,PatternEntry,—
+patternNumber,column,1.3.6.1.4.1.1206.4.2.1.4.7.1.1,1.3.6.1.4.1.1206.4.2.1.4.7.1.1.1,read-only,INTEGER (1..253),1
+patternCycleTime,column,1.3.6.1.4.1.1206.4.2.1.4.7.1.2,1.3.6.1.4.1.1206.4.2.1.4.7.1.2.1,read-write,INTEGER (0..255),255
+patternOffsetTime,column,1.3.6.1.4.1.1206.4.2.1.4.7.1.3,1.3.6.1.4.1.1206.4.2.1.4.7.1.3.1,read-write,INTEGER (0..255),255
+patternSplitNumber,column,1.3.6.1.4.1.1206.4.2.1.4.7.1.4,1.3.6.1.4.1.1206.4.2.1.4.7.1.4.1,read-only,INTEGER (1..255),255
+patternSequenceNumber,column,1.3.6.1.4.1.1206.4.2.1.4.7.1.5,1.3.6.1.4.1.1206.4.2.1.4.7.1.5.1,read-write,INTEGER (1..255),255
+maxSplits,scalar,1.3.6.1.4.1.1206.4.2.1.4.8,1.3.6.1.4.1.1206.4.2.1.4.8.0,read-only,INTEGER (1..255),255
+splitTable,table,1.3.6.1.4.1.1206.4.2.1.4.9,—,not-accessible,SEQUENCE OF SplitEntry,—
+splitEntry,entry,1.3.6.1.4.1.1206.4.2.1.4.9.1,—,not-accessible,SplitEntry,—
+splitNumber,column,1.3.6.1.4.1.1206.4.2.1.4.9.1.1,1.3.6.1.4.1.1206.4.2.1.4.9.1.1.1.1,read-only,INTEGER (1..255),1
+splitPhase,column,1.3.6.1.4.1.1206.4.2.1.4.9.1.2,1.3.6.1.4.1.1206.4.2.1.4.9.1.2.1.1,read-only,INTEGER (1..255),1
+splitTime,column,1.3.6.1.4.1.1206.4.2.1.4.9.1.3,1.3.6.1.4.1.1206.4.2.1.4.9.1.3.1.1,read-write,INTEGER (0..255),255
+splitMode,column,1.3.6.1.4.1.1206.4.2.1.4.9.1.4,1.3.6.1.4.1.1206.4.2.1.4.9.1.4.1.1,read-write,"INTEGER { other(1), none (2), minimumVehicleRecall (3), maximumVehicleRecall (4), pedestrianRecall (5), maximumVehicleAn",7
+splitCoordPhase,column,1.3.6.1.4.1.1206.4.2.1.4.9.1.5,1.3.6.1.4.1.1206.4.2.1.4.9.1.5.1.1,read-write,INTEGER (0..1),1
+timebaseAsc,branch,1.3.6.1.4.1.1206.4.2.1.5,—,read-only,,—
+timebaseAscPatternSync,scalar,1.3.6.1.4.1.1206.4.2.1.5.1,1.3.6.1.4.1.1206.4.2.1.5.1.0,read-write,INTEGER (0..65535),65535
+maxTimebaseAscActions,scalar,1.3.6.1.4.1.1206.4.2.1.5.2,1.3.6.1.4.1.1206.4.2.1.5.2.0,read-only,INTEGER (1..255),255
+timebaseAscActionTable,table,1.3.6.1.4.1.1206.4.2.1.5.3,—,not-accessible,SEQUENCE OF TimebaseAscActionEntry,—
+timebaseAscActionEntry,entry,1.3.6.1.4.1.1206.4.2.1.5.3.1,—,not-accessible,TimebaseAscActionEntry,—
+timebaseAscActionNumber,column,1.3.6.1.4.1.1206.4.2.1.5.3.1.1,1.3.6.1.4.1.1206.4.2.1.5.3.1.1.1,read-only,INTEGER (1..255),1
+timebaseAscPattern,column,1.3.6.1.4.1.1206.4.2.1.5.3.1.2,1.3.6.1.4.1.1206.4.2.1.5.3.1.2.1,read-write,INTEGER (0..255),255
+timebaseAscAuxillaryFunction,column,1.3.6.1.4.1.1206.4.2.1.5.3.1.3,1.3.6.1.4.1.1206.4.2.1.5.3.1.3.1,read-write,INTEGER (0..255),255
+timebaseAscSpecialFunction,column,1.3.6.1.4.1.1206.4.2.1.5.3.1.4,1.3.6.1.4.1.1206.4.2.1.5.3.1.4.1,read-write,INTEGER (0..255),255
+timebaseAscActionStatus,scalar,1.3.6.1.4.1.1206.4.2.1.5.4,1.3.6.1.4.1.1206.4.2.1.5.4.0,read-only,INTEGER(0..255),255
+preempt,branch,1.3.6.1.4.1.1206.4.2.1.6,—,read-only,,—
+maxPreempts,scalar,1.3.6.1.4.1.1206.4.2.1.6.1,1.3.6.1.4.1.1206.4.2.1.6.1.0,read-only,INTEGER (1..255),255
+preemptTable,table,1.3.6.1.4.1.1206.4.2.1.6.2,—,not-accessible,SEQUENCE OF PreemptEntry,—
+preemptEntry,entry,1.3.6.1.4.1.1206.4.2.1.6.2.1,—,not-accessible,PreemptEntry,—
+preemptNumber,column,1.3.6.1.4.1.1206.4.2.1.6.2.1.1,1.3.6.1.4.1.1206.4.2.1.6.2.1.1.1,read-only,INTEGER (1..255),1
+preemptDwellGreen,column,1.3.6.1.4.1.1206.4.2.1.6.2.1.10,1.3.6.1.4.1.1206.4.2.1.6.2.1.10.1,read-write,INTEGER (0..255),10
+preemptMaximumPresence,column,1.3.6.1.4.1.1206.4.2.1.6.2.1.11,1.3.6.1.4.1.1206.4.2.1.6.2.1.11.1,read-write,INTEGER (0..65535),0
+preemptTrackPhase,column,1.3.6.1.4.1.1206.4.2.1.6.2.1.12,1.3.6.1.4.1.1206.4.2.1.6.2.1.12.1,read-write,OCTET STRING,""""""
+preemptDwellPhase,column,1.3.6.1.4.1.1206.4.2.1.6.2.1.13,1.3.6.1.4.1.1206.4.2.1.6.2.1.13.1,read-write,OCTET STRING,""""""
+preemptDwellPed,column,1.3.6.1.4.1.1206.4.2.1.6.2.1.14,1.3.6.1.4.1.1206.4.2.1.6.2.1.14.1,read-write,OCTET STRING,""""""
+preemptExitPhase,column,1.3.6.1.4.1.1206.4.2.1.6.2.1.15,1.3.6.1.4.1.1206.4.2.1.6.2.1.15.1,read-write,OCTET STRING,""""""
+preemptState,column,1.3.6.1.4.1.1206.4.2.1.6.2.1.16,1.3.6.1.4.1.1206.4.2.1.6.2.1.16.1,read-only,"INTEGER { other (1), notActive (2), notActiveWithCall (3), entryStarted (4), trackService (5), dwell (6), linkActive (7)",9
+preemptTrackOverlap,column,1.3.6.1.4.1.1206.4.2.1.6.2.1.17,1.3.6.1.4.1.1206.4.2.1.6.2.1.17.1,read-write,OCTET STRING,""""""
+preemptDwellOverlap,column,1.3.6.1.4.1.1206.4.2.1.6.2.1.18,1.3.6.1.4.1.1206.4.2.1.6.2.1.18.1,read-write,OCTET STRING,""""""
+preemptCyclingPhase,column,1.3.6.1.4.1.1206.4.2.1.6.2.1.19,1.3.6.1.4.1.1206.4.2.1.6.2.1.19.1,read-write,OCTET STRING,""""""
+preemptControl,column,1.3.6.1.4.1.1206.4.2.1.6.2.1.2,1.3.6.1.4.1.1206.4.2.1.6.2.1.2.1,read-write,INTEGER (0..255),0
+preemptCyclingPed,column,1.3.6.1.4.1.1206.4.2.1.6.2.1.20,1.3.6.1.4.1.1206.4.2.1.6.2.1.20.1,read-write,OCTET STRING,""""""
+preemptCyclingOverlap,column,1.3.6.1.4.1.1206.4.2.1.6.2.1.21,1.3.6.1.4.1.1206.4.2.1.6.2.1.21.1,read-write,OCTET STRING,""""""
+preemptEnterYellowChange,column,1.3.6.1.4.1.1206.4.2.1.6.2.1.22,1.3.6.1.4.1.1206.4.2.1.6.2.1.22.1,read-write,INTEGER (0..255),255
+preemptEnterRedClear,column,1.3.6.1.4.1.1206.4.2.1.6.2.1.23,1.3.6.1.4.1.1206.4.2.1.6.2.1.23.1,read-write,INTEGER (0..255),255
+preemptTrackYellowChange,column,1.3.6.1.4.1.1206.4.2.1.6.2.1.24,1.3.6.1.4.1.1206.4.2.1.6.2.1.24.1,read-write,INTEGER (0..255),255
+preemptTrackRedClear,column,1.3.6.1.4.1.1206.4.2.1.6.2.1.25,1.3.6.1.4.1.1206.4.2.1.6.2.1.25.1,read-write,INTEGER (0..255),255
+preemptLink,column,1.3.6.1.4.1.1206.4.2.1.6.2.1.3,1.3.6.1.4.1.1206.4.2.1.6.2.1.3.1,read-write,INTEGER (0..255),0
+preemptDelay,column,1.3.6.1.4.1.1206.4.2.1.6.2.1.4,1.3.6.1.4.1.1206.4.2.1.6.2.1.4.1,read-write,INTEGER (0..65535),0
+preemptMinimumDuration,column,1.3.6.1.4.1.1206.4.2.1.6.2.1.5,1.3.6.1.4.1.1206.4.2.1.6.2.1.5.1,read-write,INTEGER (0..65535),0
+preemptMinimumGreen,column,1.3.6.1.4.1.1206.4.2.1.6.2.1.6,1.3.6.1.4.1.1206.4.2.1.6.2.1.6.1,read-write,INTEGER (0..255),255
+preemptMinimumWalk,column,1.3.6.1.4.1.1206.4.2.1.6.2.1.7,1.3.6.1.4.1.1206.4.2.1.6.2.1.7.1,read-write,INTEGER (0..255),255
+preemptEnterPedClear,column,1.3.6.1.4.1.1206.4.2.1.6.2.1.8,1.3.6.1.4.1.1206.4.2.1.6.2.1.8.1,read-write,INTEGER (0..255),255
+preemptTrackGreen,column,1.3.6.1.4.1.1206.4.2.1.6.2.1.9,1.3.6.1.4.1.1206.4.2.1.6.2.1.9.1,read-write,INTEGER (0..255),0
+preemptControlTable,table,1.3.6.1.4.1.1206.4.2.1.6.3,—,not-accessible,SEQUENCE OF PreemptControlEntry,—
+preemptControlEntry,entry,1.3.6.1.4.1.1206.4.2.1.6.3.1,—,not-accessible,PreemptControlEntry,—
+preemptControlNumber,column,1.3.6.1.4.1.1206.4.2.1.6.3.1.1,1.3.6.1.4.1.1206.4.2.1.6.3.1.1.1,read-only,INTEGER (1..255),1
+preemptControlState,column,1.3.6.1.4.1.1206.4.2.1.6.3.1.2,1.3.6.1.4.1.1206.4.2.1.6.3.1.2.1,read-write,INTEGER (0..1),1
+ring,branch,1.3.6.1.4.1.1206.4.2.1.7,—,read-only,,—
+maxRings,scalar,1.3.6.1.4.1.1206.4.2.1.7.1,1.3.6.1.4.1.1206.4.2.1.7.1.0,read-only,INTEGER (1..255),255
+maxSequences,scalar,1.3.6.1.4.1.1206.4.2.1.7.2,1.3.6.1.4.1.1206.4.2.1.7.2.0,read-only,INTEGER (1..255),255
+sequenceTable,table,1.3.6.1.4.1.1206.4.2.1.7.3,—,not-accessible,SEQUENCE OF SequenceEntry,—
+sequenceEntry,entry,1.3.6.1.4.1.1206.4.2.1.7.3.1,—,not-accessible,SequenceEntry,—
+sequenceNumber,column,1.3.6.1.4.1.1206.4.2.1.7.3.1.1,1.3.6.1.4.1.1206.4.2.1.7.3.1.1.1.1,read-only,INTEGER (1..255),1
+sequenceRingNumber,column,1.3.6.1.4.1.1206.4.2.1.7.3.1.2,1.3.6.1.4.1.1206.4.2.1.7.3.1.2.1.1,read-only,INTEGER (1..255),1
+sequenceData,column,1.3.6.1.4.1.1206.4.2.1.7.3.1.3,1.3.6.1.4.1.1206.4.2.1.7.3.1.3.1.1,read-write,OCTET STRING,'ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ... (255 bytes)
+maxRingControlGroups,scalar,1.3.6.1.4.1.1206.4.2.1.7.4,1.3.6.1.4.1.1206.4.2.1.7.4.0,read-only,INTEGER (1..255),255
+ringControlGroupTable,table,1.3.6.1.4.1.1206.4.2.1.7.5,—,not-accessible,SEQUENCE OF RingControlGroupEntry,—
+ringControlGroupEntry,entry,1.3.6.1.4.1.1206.4.2.1.7.5.1,—,not-accessible,RingControlGroupEntry,—
+ringControlGroupNumber,column,1.3.6.1.4.1.1206.4.2.1.7.5.1.1,1.3.6.1.4.1.1206.4.2.1.7.5.1.1.1,read-only,INTEGER (1..255),1
+ringControlGroupStopTime,column,1.3.6.1.4.1.1206.4.2.1.7.5.1.2,1.3.6.1.4.1.1206.4.2.1.7.5.1.2.1,read-write,INTEGER (0..255),255
+ringControlGroupForceOff,column,1.3.6.1.4.1.1206.4.2.1.7.5.1.3,1.3.6.1.4.1.1206.4.2.1.7.5.1.3.1,read-write,INTEGER (0..255),255
+ringControlGroupMax2,column,1.3.6.1.4.1.1206.4.2.1.7.5.1.4,1.3.6.1.4.1.1206.4.2.1.7.5.1.4.1,read-write,INTEGER (0..255),255
+ringControlGroupMaxInhibit,column,1.3.6.1.4.1.1206.4.2.1.7.5.1.5,1.3.6.1.4.1.1206.4.2.1.7.5.1.5.1,read-write,INTEGER (0..255),255
+ringControlGroupPedRecycle,column,1.3.6.1.4.1.1206.4.2.1.7.5.1.6,1.3.6.1.4.1.1206.4.2.1.7.5.1.6.1,read-write,INTEGER (0..255),255
+ringControlGroupRedRest,column,1.3.6.1.4.1.1206.4.2.1.7.5.1.7,1.3.6.1.4.1.1206.4.2.1.7.5.1.7.1,read-write,INTEGER (0..255),255
+ringControlGroupOmitRedClear,column,1.3.6.1.4.1.1206.4.2.1.7.5.1.8,1.3.6.1.4.1.1206.4.2.1.7.5.1.8.1,read-write,INTEGER (0..255),255
+ringStatusTable,table,1.3.6.1.4.1.1206.4.2.1.7.6,—,not-accessible,SEQUENCE OF RingStatusEntry,—
+ringStatusEntry,entry,1.3.6.1.4.1.1206.4.2.1.7.6.1,—,not-accessible,RingStatusEntry,—
+ringStatus,column,1.3.6.1.4.1.1206.4.2.1.7.6.1.1,1.3.6.1.4.1.1206.4.2.1.7.6.1.1.1,read-only,INTEGER (0..255),255
+channel,branch,1.3.6.1.4.1.1206.4.2.1.8,—,read-only,,—
+maxChannels,scalar,1.3.6.1.4.1.1206.4.2.1.8.1,1.3.6.1.4.1.1206.4.2.1.8.1.0,read-only,INTEGER (1..255),255
+channelTable,table,1.3.6.1.4.1.1206.4.2.1.8.2,—,not-accessible,SEQUENCE OF ChannelEntry,—
+channelEntry,entry,1.3.6.1.4.1.1206.4.2.1.8.2.1,—,not-accessible,ChannelEntry,—
+channelNumber,column,1.3.6.1.4.1.1206.4.2.1.8.2.1.1,1.3.6.1.4.1.1206.4.2.1.8.2.1.1.1,read-only,INTEGER (1..255),1
+channelControlSource,column,1.3.6.1.4.1.1206.4.2.1.8.2.1.2,1.3.6.1.4.1.1206.4.2.1.8.2.1.2.1,read-write,INTEGER (0..255),255
+channelControlType,column,1.3.6.1.4.1.1206.4.2.1.8.2.1.3,1.3.6.1.4.1.1206.4.2.1.8.2.1.3.1,read-write,"INTEGER { other (1), phaseVehicle (2), phasePedestrian (3), overlap (4) }",4
+channelFlash,column,1.3.6.1.4.1.1206.4.2.1.8.2.1.4,1.3.6.1.4.1.1206.4.2.1.8.2.1.4.1,read-write,INTEGER (0..255),255
+channelDim,column,1.3.6.1.4.1.1206.4.2.1.8.2.1.5,1.3.6.1.4.1.1206.4.2.1.8.2.1.5.1,read-write,INTEGER (0..255),255
+maxChannelStatusGroups,scalar,1.3.6.1.4.1.1206.4.2.1.8.3,1.3.6.1.4.1.1206.4.2.1.8.3.0,read-only,INTEGER (1..255),255
+channelStatusGroupTable,table,1.3.6.1.4.1.1206.4.2.1.8.4,—,not-accessible,SEQUENCE OF ChannelStatusGroupEntry,—
+channelStatusGroupEntry,entry,1.3.6.1.4.1.1206.4.2.1.8.4.1,—,not-accessible,ChannelStatusGroupEntry,—
+channelStatusGroupNumber,column,1.3.6.1.4.1.1206.4.2.1.8.4.1.1,1.3.6.1.4.1.1206.4.2.1.8.4.1.1.1,read-only,INTEGER (1..255),1
+channelStatusGroupReds,column,1.3.6.1.4.1.1206.4.2.1.8.4.1.2,1.3.6.1.4.1.1206.4.2.1.8.4.1.2.1,read-only,INTEGER (0..255),255
+channelStatusGroupYellows,column,1.3.6.1.4.1.1206.4.2.1.8.4.1.3,1.3.6.1.4.1.1206.4.2.1.8.4.1.3.1,read-only,INTEGER (0..255),255
+channelStatusGroupGreens,column,1.3.6.1.4.1.1206.4.2.1.8.4.1.4,1.3.6.1.4.1.1206.4.2.1.8.4.1.4.1,read-only,INTEGER (0..255),255
+overlap,branch,1.3.6.1.4.1.1206.4.2.1.9,—,read-only,,—
+maxOverlaps,scalar,1.3.6.1.4.1.1206.4.2.1.9.1,1.3.6.1.4.1.1206.4.2.1.9.1.0,read-only,INTEGER (1..255),255
+overlapTable,table,1.3.6.1.4.1.1206.4.2.1.9.2,—,not-accessible,SEQUENCE OF OverlapEntry,—
+overlapEntry,entry,1.3.6.1.4.1.1206.4.2.1.9.2.1,—,not-accessible,OverlapEntry,—
+overlapNumber,column,1.3.6.1.4.1.1206.4.2.1.9.2.1.1,1.3.6.1.4.1.1206.4.2.1.9.2.1.1.1,read-only,INTEGER (1..255),1
+overlapType,column,1.3.6.1.4.1.1206.4.2.1.9.2.1.2,1.3.6.1.4.1.1206.4.2.1.9.2.1.2.1,read-only,"INTEGER { other(1), normal (2), minusGreenYellow (3) }",3
+overlapIncludedPhases,column,1.3.6.1.4.1.1206.4.2.1.9.2.1.3,1.3.6.1.4.1.1206.4.2.1.9.2.1.3.1,read-write,OCTET STRING,'ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ... (255 bytes)
+overlapModifierPhases,column,1.3.6.1.4.1.1206.4.2.1.9.2.1.4,1.3.6.1.4.1.1206.4.2.1.9.2.1.4.1,read-write,OCTET STRING,'ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ... (255 bytes)
+overlapTrailGreen,column,1.3.6.1.4.1.1206.4.2.1.9.2.1.5,1.3.6.1.4.1.1206.4.2.1.9.2.1.5.1,read-write,INTEGER (0..255),255
+overlapTrailYellow,column,1.3.6.1.4.1.1206.4.2.1.9.2.1.6,1.3.6.1.4.1.1206.4.2.1.9.2.1.6.1,read-write,INTEGER (0..255),255
+overlapTrailRed,column,1.3.6.1.4.1.1206.4.2.1.9.2.1.7,1.3.6.1.4.1.1206.4.2.1.9.2.1.7.1,read-write,INTEGER (0..255),255
+maxOverlapStatusGroups,scalar,1.3.6.1.4.1.1206.4.2.1.9.3,1.3.6.1.4.1.1206.4.2.1.9.3.0,read-only,INTEGER (1..255),255
+overlapStatusGroupTable,table,1.3.6.1.4.1.1206.4.2.1.9.4,—,not-accessible,SEQUENCE OF OverlapStatusGroupEntry,—
+overlapStatusGroupEntry,entry,1.3.6.1.4.1.1206.4.2.1.9.4.1,—,not-accessible,OverlapStatusGroupEntry,—
+overlapStatusGroupNumber,column,1.3.6.1.4.1.1206.4.2.1.9.4.1.1,1.3.6.1.4.1.1206.4.2.1.9.4.1.1.1,read-only,INTEGER (1..255),1
+overlapStatusGroupReds,column,1.3.6.1.4.1.1206.4.2.1.9.4.1.2,1.3.6.1.4.1.1206.4.2.1.9.4.1.2.1,read-only,INTEGER (0..255),255
+overlapStatusGroupYellows,column,1.3.6.1.4.1.1206.4.2.1.9.4.1.3,1.3.6.1.4.1.1206.4.2.1.9.4.1.3.1,read-only,INTEGER (0..255),255
+overlapStatusGroupGreens,column,1.3.6.1.4.1.1206.4.2.1.9.4.1.4,1.3.6.1.4.1.1206.4.2.1.9.4.1.4.1,read-only,INTEGER (0..255),255
