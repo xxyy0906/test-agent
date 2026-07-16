@@ -3,6 +3,7 @@
 | 文件 | 内容 |
 |---|---|
 | [STRUCTURE.md](STRUCTURE.md) | 项目目录与每个文件的用途 |
+| [UBUNTU.md](UBUNTU.md) | **Ubuntu 环境安装与启动** |
 | [DEFAULT_DATA.md](DEFAULT_DATA.md) | 模拟数据总索引（Trap、YAML、全局规则） |
 | [1201DEFAULT_DATA.md](1201DEFAULT_DATA.md) | NTCIP 1201 Global（`…4.2.6`）默认值 |
 | [1202DEFAULT_DATA.md](1202DEFAULT_DATA.md) | NTCIP 1202 ASC（`…4.2.1`）默认值 |

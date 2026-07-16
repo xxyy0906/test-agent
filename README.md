@@ -4,10 +4,21 @@
 
 ## 快速开始
 
+**Windows：**
+
 ```bash
 cd test-agent/snmp-agent
 py -m pip install -r requirements.txt
 py agent.py --port 1161 --dev-cap 8
+```
+
+**Ubuntu：** 见 [docs/UBUNTU.md](docs/UBUNTU.md)（`python3` + venv）。摘要：
+
+```bash
+cd test-agent/snmp-agent
+python3 -m venv .venv && source .venv/bin/activate
+python3 -m pip install -r requirements.txt
+python3 agent.py --port 1161 --dev-cap 8
 ```
 
 MIB Browser：`127.0.0.1:1161`，community `public`，Walk 起点 `1.3.6.1.4.1.1206.4.2`。
@@ -25,6 +36,7 @@ MIB Browser：`127.0.0.1:1161`，community `public`，Walk 起点 `1.3.6.1.4.1.1
 ## 文档索引
 
 - [docs/STRUCTURE.md](docs/STRUCTURE.md) — **每个目录/文件用途**
+- [docs/UBUNTU.md](docs/UBUNTU.md) — **Ubuntu 安装与启动**
 - [docs/DEFAULT_DATA.md](docs/DEFAULT_DATA.md) — 模拟数据总索引
 - [docs/1201DEFAULT_DATA.md](docs/1201DEFAULT_DATA.md) — Global (1201) 默认值
 - [docs/1202DEFAULT_DATA.md](docs/1202DEFAULT_DATA.md) — ASC (1202) 默认值

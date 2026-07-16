@@ -22,6 +22,7 @@ test-agent/
 |---|---|
 | `README.md` | 文档索引 |
 | `STRUCTURE.md` | **本文件**：目录/文件说明 |
+| `UBUNTU.md` | Ubuntu 安装依赖、venv、启动与防火墙 |
 | `DEFAULT_DATA.md` | 模拟数据总索引、Trap VarBind、YAML 覆盖 |
 | `1201DEFAULT_DATA.md` | Global (1201 + 1103) 默认值规范 |
 | `1202DEFAULT_DATA-OIDs.md` | 1202 全部对象默认值清单（Get 版） |
