@@ -110,8 +110,8 @@ test-agent/
 - [ ] Trap v1 coldStart 与 v2c enterprise Trap 可接收
 
 ### P1
-- [ ] Set 读回
-- [ ] 双索引表 index 列正确
+- [x] Set 读回（**SET 版** — 137 可写对象，`scripts/selftest_1202_set.py`，方案 A 进程内持久化）
+- [x] 双索引表 index 列正确（Set 拒绝 INDEX / not-accessible）
 
 ## 7. 交付物
 
@@ -123,6 +123,7 @@ test-agent/
 | D4 | **`docs/1201DEFAULT_DATA.md`**、**`docs/1202DEFAULT_DATA.md`**、`docs/DEFAULT_DATA.md` |
 | D5 | `default_data.yaml` |
 | D6 | 测试 / Walk 记录 |
+| D6-SET | **`reports/1202-set-selftest-report.md`**（SET 版自测） |
 | D7 | Trap 联调记录 |
 
 ## 8. 风险
@@ -135,4 +136,4 @@ test-agent/
 
 ---
 
-*文档版本：v2 | 日期：2026-07-03*
+*文档版本：v2-SET | 日期：2026-07-08*

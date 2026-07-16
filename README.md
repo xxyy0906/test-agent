@@ -28,5 +28,7 @@ MIB Browser：`127.0.0.1:1161`，community `public`，Walk 起点 `1.3.6.1.4.1.1
 - [docs/DEFAULT_DATA.md](docs/DEFAULT_DATA.md) — 模拟数据总索引
 - [docs/1201DEFAULT_DATA.md](docs/1201DEFAULT_DATA.md) — Global (1201) 默认值
 - [docs/1202DEFAULT_DATA.md](docs/1202DEFAULT_DATA.md) — ASC (1202) 默认值
+- [docs/1202DEFAULT_DATA-OIDs-SET.md](docs/1202DEFAULT_DATA-OIDs-SET.md) — **SET 版** 可写对象 Set 测试结果
+- [reports/1202-set-selftest-report.md](reports/1202-set-selftest-report.md) — **SET 版** 全量自测报告
 - [REQUIREMENTS.md](REQUIREMENTS.md) — 项目需求任务书
 - [snmp-agent/README.md](snmp-agent/README.md) — Agent 使用说明

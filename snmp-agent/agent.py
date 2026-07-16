@@ -189,8 +189,26 @@ def main() -> None:
         sys.exit(2)
 
     config.addV1System(snmp_engine, "rw-area", args.community)
+    # VACM: allow read/write on NTCIP subtree (required for UDP Set)
+    vacm_root = oid_root if oid_root else (1, 3, 6, 1, 4, 1, 1206)
+    for sec_model in (1, 2):
+        config.addRwUser(
+            snmp_engine,
+            sec_model,
+            "rw-area",
+            "noAuthNoPriv",
+            vacm_root,
+        )
     if args.community_ro:
         config.addV1System(snmp_engine, "ro-area", args.community_ro)
+        for sec_model in (1, 2):
+            config.addRoUser(
+                snmp_engine,
+                sec_model,
+                "ro-area",
+                "noAuthNoPriv",
+                vacm_root,
+            )
 
     if args.v3_user and args.v3_auth_key:
         _setup_snmp_v3(snmp_engine, args)

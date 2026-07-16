@@ -7,16 +7,39 @@ _ENUM = re.compile(r"\(\s*(-?\d+)\s*\)")
 _RANGE = re.compile(r"\(\s*(-?\d+)\s*\.\.\s*(-?\d+)\s*\)")
 _SIZE = re.compile(r"SIZE\s*\(\s*(\d+)\s*\.\.\s*(\d+)\s*\)", re.I)
 
+_INTEGER_TYPES = frozenset({"Integer32", "Gauge32", "Unsigned32"})
+
 
 def _int_val(value) -> int:
     return int(value.prettyPrint())
+
+
+def _check_integer_type(tname: str, hi: int | None = None) -> None:
+    if hi is not None and hi > 2147483647:
+        if tname not in ("Gauge32", "Unsigned32"):
+            raise ValueError(f"expected Gauge32/Unsigned32 for large INTEGER, got {tname}")
+        return
+    if tname not in _INTEGER_TYPES:
+        raise ValueError(f"expected Integer, got {tname}")
+
+
+def _type_name(value) -> str:
+    """Normalize pyasn1/pysnmp class names for validation."""
+    tname = type(value).__name__
+    if tname in ("Integer", "Integer32"):
+        return "Integer32"
+    if tname in ("Counter", "Counter32"):
+        return "Counter32"
+    if tname in ("Gauge", "Gauge32", "Unsigned32"):
+        return "Gauge32" if tname != "Unsigned32" else "Unsigned32"
+    return tname
 
 
 def validate_value(syntax: str, value) -> None:
     """Raise ValueError if value is wrong type or out of MIB range."""
     syntax_u = re.sub(r"\s+", " ", syntax.strip())
     syntax_l = syntax_u.lower()
-    tname = type(value).__name__
+    tname = _type_name(value)
 
     if syntax_l.startswith("counter"):
         if tname != "Counter32":
@@ -36,8 +59,7 @@ def validate_value(syntax: str, value) -> None:
 
     enums = [int(x.group(1)) for x in _ENUM.finditer(syntax_u)]
     if enums and ("integer" in syntax_l or syntax_u.upper().startswith("INTEGER")):
-        if tname != "Integer32":
-            raise ValueError(f"expected Integer32 for enum, got {tname}")
+        _check_integer_type(tname)
         v = _int_val(value)
         if v not in enums:
             raise ValueError(f"enum {v} not in {enums}")
@@ -46,12 +68,7 @@ def validate_value(syntax: str, value) -> None:
     rng = _RANGE.search(syntax_u)
     if rng and (syntax_l.startswith("integer") or syntax_u.upper().startswith("INTEGER")):
         lo, hi = int(rng.group(1)), int(rng.group(2))
-        if hi > 2147483647:
-            if tname != "Gauge32":
-                raise ValueError(f"expected Gauge32 for large INTEGER, got {tname}")
-        else:
-            if tname != "Integer32":
-                raise ValueError(f"expected Integer32, got {tname}")
+        _check_integer_type(tname, hi)
         v = _int_val(value)
         if not lo <= v <= hi:
             raise ValueError(f"{v} not in {lo}..{hi}")
@@ -73,6 +90,9 @@ def validate_value(syntax: str, value) -> None:
             raise ValueError(f"expected ObjectIdentifier, got {tname}")
         return
 
-    # fallback: must prettyPrint
+    if syntax_l.startswith("integer") or syntax_u.upper().startswith("INTEGER"):
+        _check_integer_type(tname)
+        return
+
     if value.prettyPrint() is None:
         raise ValueError("value has no prettyPrint")

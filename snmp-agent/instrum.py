@@ -66,13 +66,45 @@ class FlatMibInstrum(AbstractMibInstrumController):
             return under
         return None
 
+    def _verify_write_access(self, resolved: tuple[int, ...], idx: int, acInfo) -> None:
+        """Access control: registry ACCESS + optional community (unit tests).
+
+        UDP requests pass pysnmp's ``__verifyAccess`` as *acFun*; this flat
+        agent relies on ``oid_registry`` instead (same as ``readVars``).
+        """
+        if not acInfo or len(acInfo) < 2:
+            return
+        acFun, acCtx = acInfo[0], acInfo[1]
+        if callable(acFun):
+            return
+        if isinstance(acFun, int):
+            sec_name = acCtx
+            if sec_name is None:
+                return
+            if isinstance(sec_name, bytes):
+                sec_name = sec_name.decode("ascii", errors="replace")
+            if acFun in (3, "3", "usm"):
+                if not self._write_v3_users:
+                    return
+                if sec_name not in self._write_v3_users:
+                    raise error.NoAccessError(idx=idx)
+                return
+            if sec_name not in self._write_communities:
+                raise error.NoAccessError(idx=idx)
+
     def _can_write(self, acInfo) -> bool:
+        """Legacy entry point; prefer _verify_write_access per varbind."""
         if not acInfo or len(acInfo) < 2:
             return True
-        sec_model, sec_name = acInfo[0], acInfo[1]
+        acFun, acCtx = acInfo[0], acInfo[1]
+        if callable(acFun):
+            return True
+        sec_name = acCtx
         if sec_name is None:
             return True
-        if sec_model in (3, "3", "usm"):
+        if isinstance(sec_name, bytes):
+            sec_name = sec_name.decode("ascii", errors="replace")
+        if acInfo[0] in (3, "3", "usm"):
             if not self._write_v3_users:
                 return True
             return sec_name in self._write_v3_users
@@ -104,10 +136,7 @@ class FlatMibInstrum(AbstractMibInstrumController):
         return result
 
     def writeVars(self, varBinds, acInfo=(None, None)):
-        """SNMP Set with MIB ACCESS and SYNTAX validation."""
-        if not self._can_write(acInfo):
-            raise error.NoAccessError(idx=0)
-
+        """SNMP Set with MIB ACCESS and SYNTAX validation (in-memory only; scheme A)."""
         result = []
         for idx, (name, val) in enumerate(varBinds):
             key = self._parse_oid(name)
@@ -118,6 +147,8 @@ class FlatMibInstrum(AbstractMibInstrumController):
             meta = self._registry.get(resolved)
             if meta and not meta.is_writable:
                 raise error.NotWritableError(idx=idx)
+
+            self._verify_write_access(resolved, idx, acInfo)
 
             if meta:
                 try:

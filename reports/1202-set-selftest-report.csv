@@ -1,0 +1,161 @@
+phase,name,instance_oid,access,syntax,status,detail,old_value,new_value
+set-readback,ascBlockData,1.3.6.1.4.1.1206.4.2.1.11.2.0,read-write,OCTET STRING (SIZE(2..484)),PASS,invalid Set rejected,'ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ','SET'
+set-readback,ascBlockGetControl,1.3.6.1.4.1.1206.4.2.1.11.1.0,read-write,OCTET STRING (SIZE(2..12)),PASS,invalid Set rejected,'ZZZZZZZZZZZZ','SET'
+set-readback,auxIOPortDescription,1.3.6.1.4.1.1206.4.2.6.7.3.1.3.2.1,read-write,DisplayString (SIZE (0..255)),PASS,invalid Set rejected,'Analog Port 1','SET'
+set-readback,auxIOPortValue,1.3.6.1.4.1.1206.4.2.6.7.3.1.5.2.1,read-write,INTEGER (0..4294967295),PASS,invalid Set rejected,4294967295,0
+set-readback,channelControlSource,1.3.6.1.4.1.1206.4.2.1.8.2.1.2.1,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+set-readback,channelControlType,1.3.6.1.4.1.1206.4.2.1.8.2.1.3.1,read-write,"INTEGER { other (1), phaseVehicle (2), phasePedestrian (3), overlap (4) }",PASS,invalid Set rejected,4,1
+set-readback,channelDim,1.3.6.1.4.1.1206.4.2.1.8.2.1.5.1,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+set-readback,channelFlash,1.3.6.1.4.1.1206.4.2.1.8.2.1.4.1,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+set-readback,communityNameAccessMask,1.3.6.1.4.1.1206.4.2.6.5.3.1.3.1,read-write,Gauge,PASS,invalid Set rejected,4294967295,0
+set-readback,communityNameAdmin,1.3.6.1.4.1.1206.4.2.6.5.1.0,read-write,OCTET STRING (SIZE(8..16)),PASS,invalid Set rejected,'administrator','AAAAAAAA'
+set-readback,communityNameUser,1.3.6.1.4.1.1206.4.2.6.5.3.1.2.1,read-write,OCTET STRING (SIZE(6..16)),PASS,invalid Set rejected,'public','AAAAAA'
+set-readback,controllerStandardTimeZone,1.3.6.1.4.1.1206.4.2.6.3.5.0,read-write,INTEGER (-43200..43200),PASS,invalid Set rejected,43200,-43200
+set-readback,coordCorrectionMode,1.3.6.1.4.1.1206.4.2.1.4.2.0,read-write,"INTEGER { other (1), dwell (2), shortway (3), addOnly (4) }",PASS,invalid Set rejected,4,1
+set-readback,coordForceMode,1.3.6.1.4.1.1206.4.2.1.4.4.0,read-write,"INTEGER { other(1), floating (2), fixed (3) }",PASS,invalid Set rejected,3,1
+set-readback,coordMaximumMode,1.3.6.1.4.1.1206.4.2.1.4.3.0,read-write,"INTEGER { other (1), maximum1 (2), maximum2 (3), maxInhibit (4) }",PASS,invalid Set rejected,4,1
+set-readback,coordOperationalMode,1.3.6.1.4.1.1206.4.2.1.4.1.0,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+set-readback,dayPlanActionNumberOID,1.3.6.1.4.1.1206.4.2.6.3.3.5.1.5.1.1,read-write,OBJECT IDENTIFIER,PASS,invalid Set rejected,1.3.6.1.4.1.1206.4.2.1.5.2.1.1.0,1.3.6.1.4.1.1206.4.2.1.1.1.0
+set-readback,dayPlanHour,1.3.6.1.4.1.1206.4.2.6.3.3.5.1.3.1.1,read-write,INTEGER (0..23),PASS,invalid Set rejected,23,0
+set-readback,dayPlanMinute,1.3.6.1.4.1.1206.4.2.6.3.3.5.1.4.1.1,read-write,INTEGER (0..59),PASS,invalid Set rejected,59,0
+set-readback,dbCreateTransaction,1.3.6.1.4.1.1206.4.2.6.2.1.0,read-write,"INTEGER { normal (1), transaction (2), verify (3), done (6) }",PASS,invalid Set rejected,1,2
+set-readback,eventClassClearTime,1.3.6.1.4.1.1206.4.2.6.4.6.1.3.1,read-write,Counter,PASS,invalid Set rejected,0,1
+set-readback,eventClassDescription,1.3.6.1.4.1.1206.4.2.6.4.6.1.4.1,read-write,OCTET STRING,PASS,invalid Set rejected,'ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ','SET'
+set-readback,eventClassLimit,1.3.6.1.4.1.1206.4.2.6.4.6.1.2.1,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+set-readback,eventConfigAction,1.3.6.1.4.1.1206.4.2.6.4.2.1.8.1,read-write,"INTEGER { other (1), disabled (2), log (3) }",PASS,invalid Set rejected,3,1
+set-readback,eventConfigClass,1.3.6.1.4.1.1206.4.2.6.4.2.1.2.1,read-write,INTEGER (1..255),PASS,invalid Set rejected,1,2
+set-readback,eventConfigCompareOID,1.3.6.1.4.1.1206.4.2.6.4.2.1.6.1,read-write,OBJECT IDENTIFIER,PASS,invalid Set rejected,0.0,1.3.6.1.4.1.1206.4.2.1.1.1.0
+set-readback,eventConfigCompareValue,1.3.6.1.4.1.1206.4.2.6.4.2.1.4.1,read-write,INTEGER,PASS,invalid Set rejected,0,1
+set-readback,eventConfigCompareValue2,1.3.6.1.4.1.1206.4.2.6.4.2.1.5.1,read-write,INTEGER,PASS,invalid Set rejected,0,1
+set-readback,eventConfigLogOID,1.3.6.1.4.1.1206.4.2.6.4.2.1.7.1,read-write,OBJECT IDENTIFIER,PASS,invalid Set rejected,0.0,1.3.6.1.4.1.1206.4.2.1.1.1.0
+set-readback,eventConfigMode,1.3.6.1.4.1.1206.4.2.6.4.2.1.3.1,read-write,"INTEGER { other (1), onChange (2), greaterThanValue (3), smallerThanValue (4), h",PASS,invalid Set rejected,7,1
+set-readback,globalDaylightSaving,1.3.6.1.4.1.1206.4.2.6.3.2.0,read-write,"INTEGER { other (1), disableDST (2), enableUSDST (3), enableEuropeDST (4), enabl",PASS,invalid Set rejected,2,1
+set-readback,globalTime,1.3.6.1.4.1.1206.4.2.6.3.1.0,read-write,Counter,PASS,invalid Set rejected,0,1
+set-readback,overlapIncludedPhases,1.3.6.1.4.1.1206.4.2.1.9.2.1.3.1,read-write,OCTET STRING,PASS,invalid Set rejected,'ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ','SET'
+set-readback,overlapModifierPhases,1.3.6.1.4.1.1206.4.2.1.9.2.1.4.1,read-write,OCTET STRING,PASS,invalid Set rejected,'ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ','SET'
+set-readback,overlapTrailGreen,1.3.6.1.4.1.1206.4.2.1.9.2.1.5.1,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+set-readback,overlapTrailRed,1.3.6.1.4.1.1206.4.2.1.9.2.1.7.1,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+set-readback,overlapTrailYellow,1.3.6.1.4.1.1206.4.2.1.9.2.1.6.1,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+set-readback,patternCycleTime,1.3.6.1.4.1.1206.4.2.1.4.7.1.2.1,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+set-readback,patternOffsetTime,1.3.6.1.4.1.1206.4.2.1.4.7.1.3.1,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+set-readback,patternSequenceNumber,1.3.6.1.4.1.1206.4.2.1.4.7.1.5.1,read-write,INTEGER (1..255),PASS,invalid Set rejected,255,1
+set-readback,pedestrianDetectorCallPhase,1.3.6.1.4.1.1206.4.2.1.2.7.1.2.1,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+set-readback,pedestrianDetectorErraticCounts,1.3.6.1.4.1.1206.4.2.1.2.7.1.5.1,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+set-readback,pedestrianDetectorMaxPresence,1.3.6.1.4.1.1206.4.2.1.2.7.1.4.1,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+set-readback,pedestrianDetectorNoActivity,1.3.6.1.4.1.1206.4.2.1.2.7.1.3.1,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+set-readback,phaseAddedInitial,1.3.6.1.4.1.1206.4.2.1.1.2.1.11.1,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+set-readback,phaseCarsBeforeReduction,1.3.6.1.4.1.1206.4.2.1.1.2.1.14.1,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+set-readback,phaseConcurrency,1.3.6.1.4.1.1206.4.2.1.1.2.1.23.1,read-write,OCTET STRING,PASS,invalid Set rejected,'ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ','SET'
+set-readback,phaseControlGroupForceOff,1.3.6.1.4.1.1206.4.2.1.1.5.1.5.1,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+set-readback,phaseControlGroupHold,1.3.6.1.4.1.1206.4.2.1.1.5.1.4.1,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+set-readback,phaseControlGroupPedCall,1.3.6.1.4.1.1206.4.2.1.1.5.1.7.1,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+set-readback,phaseControlGroupPedOmit,1.3.6.1.4.1.1206.4.2.1.1.5.1.3.1,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+set-readback,phaseControlGroupPhaseOmit,1.3.6.1.4.1.1206.4.2.1.1.5.1.2.1,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+set-readback,phaseControlGroupVehCall,1.3.6.1.4.1.1206.4.2.1.1.5.1.6.1,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+set-readback,phaseDynamicMaxLimit,1.3.6.1.4.1.1206.4.2.1.1.2.1.18.1,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+set-readback,phaseDynamicMaxStep,1.3.6.1.4.1.1206.4.2.1.1.2.1.19.1,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+set-readback,phaseMaximum1,1.3.6.1.4.1.1206.4.2.1.1.2.1.6.1,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+set-readback,phaseMaximum2,1.3.6.1.4.1.1206.4.2.1.1.2.1.7.1,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+set-readback,phaseMaximumInitial,1.3.6.1.4.1.1206.4.2.1.1.2.1.12.1,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+set-readback,phaseMinimumGap,1.3.6.1.4.1.1206.4.2.1.1.2.1.17.1,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+set-readback,phaseMinimumGreen,1.3.6.1.4.1.1206.4.2.1.1.2.1.4.1,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+set-readback,phaseOptions,1.3.6.1.4.1.1206.4.2.1.1.2.1.21.1,read-write,INTEGER (0..65535),PASS,invalid Set rejected,65535,0
+set-readback,phasePassage,1.3.6.1.4.1.1206.4.2.1.1.2.1.5.1,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+set-readback,phasePedestrianClear,1.3.6.1.4.1.1206.4.2.1.1.2.1.3.1,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+set-readback,phaseRedClear,1.3.6.1.4.1.1206.4.2.1.1.2.1.9.1,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+set-readback,phaseRedRevert,1.3.6.1.4.1.1206.4.2.1.1.2.1.10.1,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+set-readback,phaseReduceBy,1.3.6.1.4.1.1206.4.2.1.1.2.1.16.1,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+set-readback,phaseRing,1.3.6.1.4.1.1206.4.2.1.1.2.1.22.1,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+set-readback,phaseStartup,1.3.6.1.4.1.1206.4.2.1.1.2.1.20.1,read-write,"INTEGER { other (1), phaseNotOn (2), greenWalk (3), greenNoWalk (4), yellowChang",PASS,invalid Set rejected,6,1
+set-readback,phaseTimeBeforeReduction,1.3.6.1.4.1.1206.4.2.1.1.2.1.13.1,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+set-readback,phaseTimeToReduce,1.3.6.1.4.1.1206.4.2.1.1.2.1.15.1,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+set-readback,phaseWalk,1.3.6.1.4.1.1206.4.2.1.1.2.1.2.1,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+set-readback,phaseYellowChange,1.3.6.1.4.1.1206.4.2.1.1.2.1.8.1,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+set-readback,port1DevicePresent,1.3.6.1.4.1.1206.4.2.1.10.2.1.2.1,read-write,INTEGER (0..1),PASS,invalid Set rejected,1,0
+set-readback,port1Frame40Enable,1.3.6.1.4.1.1206.4.2.1.10.2.1.3.1,read-write,INTEGER (0..1),PASS,invalid Set rejected,1,0
+set-readback,preemptControl,1.3.6.1.4.1.1206.4.2.1.6.2.1.2.1,read-write,INTEGER (0..255),PASS,invalid Set rejected,0,1
+set-readback,preemptControlState,1.3.6.1.4.1.1206.4.2.1.6.3.1.2.1,read-write,INTEGER (0..1),PASS,invalid Set rejected,1,0
+set-readback,preemptCyclingOverlap,1.3.6.1.4.1.1206.4.2.1.6.2.1.21.1,read-write,OCTET STRING,PASS,invalid Set rejected,'','SET'
+set-readback,preemptCyclingPed,1.3.6.1.4.1.1206.4.2.1.6.2.1.20.1,read-write,OCTET STRING,PASS,invalid Set rejected,'','SET'
+set-readback,preemptCyclingPhase,1.3.6.1.4.1.1206.4.2.1.6.2.1.19.1,read-write,OCTET STRING,PASS,invalid Set rejected,'','SET'
+set-readback,preemptDelay,1.3.6.1.4.1.1206.4.2.1.6.2.1.4.1,read-write,INTEGER (0..65535),PASS,invalid Set rejected,0,1
+set-readback,preemptDwellGreen,1.3.6.1.4.1.1206.4.2.1.6.2.1.10.1,read-write,INTEGER (0..255),PASS,invalid Set rejected,10,0
+set-readback,preemptDwellOverlap,1.3.6.1.4.1.1206.4.2.1.6.2.1.18.1,read-write,OCTET STRING,PASS,invalid Set rejected,'','SET'
+set-readback,preemptDwellPed,1.3.6.1.4.1.1206.4.2.1.6.2.1.14.1,read-write,OCTET STRING,PASS,invalid Set rejected,'','SET'
+set-readback,preemptDwellPhase,1.3.6.1.4.1.1206.4.2.1.6.2.1.13.1,read-write,OCTET STRING,PASS,invalid Set rejected,'','SET'
+set-readback,preemptEnterPedClear,1.3.6.1.4.1.1206.4.2.1.6.2.1.8.1,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+set-readback,preemptEnterRedClear,1.3.6.1.4.1.1206.4.2.1.6.2.1.23.1,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+set-readback,preemptEnterYellowChange,1.3.6.1.4.1.1206.4.2.1.6.2.1.22.1,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+set-readback,preemptExitPhase,1.3.6.1.4.1.1206.4.2.1.6.2.1.15.1,read-write,OCTET STRING,PASS,invalid Set rejected,'','SET'
+set-readback,preemptLink,1.3.6.1.4.1.1206.4.2.1.6.2.1.3.1,read-write,INTEGER (0..255),PASS,invalid Set rejected,0,1
+set-readback,preemptMaximumPresence,1.3.6.1.4.1.1206.4.2.1.6.2.1.11.1,read-write,INTEGER (0..65535),PASS,invalid Set rejected,0,1
+set-readback,preemptMinimumDuration,1.3.6.1.4.1.1206.4.2.1.6.2.1.5.1,read-write,INTEGER (0..65535),PASS,invalid Set rejected,0,1
+set-readback,preemptMinimumGreen,1.3.6.1.4.1.1206.4.2.1.6.2.1.6.1,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+set-readback,preemptMinimumWalk,1.3.6.1.4.1.1206.4.2.1.6.2.1.7.1,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+set-readback,preemptTrackGreen,1.3.6.1.4.1.1206.4.2.1.6.2.1.9.1,read-write,INTEGER (0..255),PASS,invalid Set rejected,0,1
+set-readback,preemptTrackOverlap,1.3.6.1.4.1.1206.4.2.1.6.2.1.17.1,read-write,OCTET STRING,PASS,invalid Set rejected,'','SET'
+set-readback,preemptTrackPhase,1.3.6.1.4.1.1206.4.2.1.6.2.1.12.1,read-write,OCTET STRING,PASS,invalid Set rejected,'','SET'
+set-readback,preemptTrackRedClear,1.3.6.1.4.1.1206.4.2.1.6.2.1.25.1,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+set-readback,preemptTrackYellowChange,1.3.6.1.4.1.1206.4.2.1.6.2.1.24.1,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+set-readback,ringControlGroupForceOff,1.3.6.1.4.1.1206.4.2.1.7.5.1.3.1,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+set-readback,ringControlGroupMax2,1.3.6.1.4.1.1206.4.2.1.7.5.1.4.1,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+set-readback,ringControlGroupMaxInhibit,1.3.6.1.4.1.1206.4.2.1.7.5.1.5.1,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+set-readback,ringControlGroupOmitRedClear,1.3.6.1.4.1.1206.4.2.1.7.5.1.8.1,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+set-readback,ringControlGroupPedRecycle,1.3.6.1.4.1.1206.4.2.1.7.5.1.6.1,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+set-readback,ringControlGroupRedRest,1.3.6.1.4.1.1206.4.2.1.7.5.1.7.1,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+set-readback,ringControlGroupStopTime,1.3.6.1.4.1.1206.4.2.1.7.5.1.2.1,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+set-readback,sequenceData,1.3.6.1.4.1.1206.4.2.1.7.3.1.3.1.1,read-write,OCTET STRING,PASS,invalid Set rejected,'ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ','SET'
+set-readback,specialFunctionOutputControl,1.3.6.1.4.1.1206.4.2.1.3.14.1.3.1,read-write,INTEGER (0..1),PASS,invalid Set rejected,1,0
+set-readback,splitCoordPhase,1.3.6.1.4.1.1206.4.2.1.4.9.1.5.1.1,read-write,INTEGER (0..1),PASS,invalid Set rejected,1,0
+set-readback,splitMode,1.3.6.1.4.1.1206.4.2.1.4.9.1.4.1.1,read-write,"INTEGER { other(1), none (2), minimumVehicleRecall (3), maximumVehicleRecall (4)",PASS,invalid Set rejected,7,1
+set-readback,splitTime,1.3.6.1.4.1.1206.4.2.1.4.9.1.3.1.1,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+set-readback,systemPatternControl,1.3.6.1.4.1.1206.4.2.1.4.14.0,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+set-readback,systemSyncControl,1.3.6.1.4.1.1206.4.2.1.4.15.0,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+set-readback,timeBaseScheduleDate,1.3.6.1.4.1.1206.4.2.6.3.3.2.1.4.1,read-write,INTEGER (0..4294967295),PASS,invalid Set rejected,4294967295,0
+set-readback,timeBaseScheduleDay,1.3.6.1.4.1.1206.4.2.6.3.3.2.1.3.1,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+set-readback,timeBaseScheduleDayPlan,1.3.6.1.4.1.1206.4.2.6.3.3.2.1.5.1,read-write,INTEGER (0..255),PASS,invalid Set rejected,1,0
+set-readback,timeBaseScheduleMonth,1.3.6.1.4.1.1206.4.2.6.3.3.2.1.2.1,read-write,INTEGER (0..65535),PASS,invalid Set rejected,65535,0
+set-readback,timebaseAscAuxillaryFunction,1.3.6.1.4.1.1206.4.2.1.5.3.1.3.1,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+set-readback,timebaseAscPattern,1.3.6.1.4.1.1206.4.2.1.5.3.1.2.1,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+set-readback,timebaseAscPatternSync,1.3.6.1.4.1.1206.4.2.1.5.1.0,read-write,INTEGER (0..65535),PASS,invalid Set rejected,65535,0
+set-readback,timebaseAscSpecialFunction,1.3.6.1.4.1.1206.4.2.1.5.3.1.4.1,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+set-readback,unitAutoPedestrianClear,1.3.6.1.4.1.1206.4.2.1.3.2.0,read-write,"INTEGER { disable(1), enable (2) }",PASS,invalid Set rejected,2,1
+set-readback,unitBackupTime,1.3.6.1.4.1.1206.4.2.1.3.3.0,read-write,INTEGER (0..65535),PASS,invalid Set rejected,65535,0
+set-readback,unitControl,1.3.6.1.4.1.1206.4.2.1.3.10.0,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+set-readback,unitRedRevert,1.3.6.1.4.1.1206.4.2.1.3.4.0,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+set-readback,unitStartUpFlash,1.3.6.1.4.1.1206.4.2.1.3.1.0,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+set-readback,vehicleDetectorCallPhase,1.3.6.1.4.1.1206.4.2.1.2.2.1.4.1,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+set-readback,vehicleDetectorDelay,1.3.6.1.4.1.1206.4.2.1.2.2.1.6.1,read-write,INTEGER (0..65535),PASS,invalid Set rejected,65535,0
+set-readback,vehicleDetectorErraticCounts,1.3.6.1.4.1.1206.4.2.1.2.2.1.11.1,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+set-readback,vehicleDetectorExtend,1.3.6.1.4.1.1206.4.2.1.2.2.1.7.1,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+set-readback,vehicleDetectorFailTime,1.3.6.1.4.1.1206.4.2.1.2.2.1.12.1,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+set-readback,vehicleDetectorMaxPresence,1.3.6.1.4.1.1206.4.2.1.2.2.1.10.1,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+set-readback,vehicleDetectorNoActivity,1.3.6.1.4.1.1206.4.2.1.2.2.1.9.1,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+set-readback,vehicleDetectorOptions,1.3.6.1.4.1.1206.4.2.1.2.2.1.2.1,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+set-readback,vehicleDetectorQueueLimit,1.3.6.1.4.1.1206.4.2.1.2.2.1.8.1,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+set-readback,vehicleDetectorReset,1.3.6.1.4.1.1206.4.2.1.2.2.1.15.1,read-write,INTEGER (0..1),PASS,invalid Set rejected,1,0
+set-readback,vehicleDetectorSwitchPhase,1.3.6.1.4.1.1206.4.2.1.2.2.1.5.1,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+set-readback,volumeOccupancyPeriod,1.3.6.1.4.1.1206.4.2.1.2.5.2.0,read-write,INTEGER (0..255),PASS,invalid Set rejected,255,0
+reject-readonly,activeVolumeOccupancyDetectors,1.3.6.1.4.1.1206.4.2.1.2.5.3.0,read-only,INTEGER (0..255),PASS,rejected,,
+reject-readonly,alarmGroupNumber,1.3.6.1.4.1.1206.4.2.1.3.12.1.1.1,read-only,INTEGER (1..255),PASS,rejected,,
+reject-readonly,alarmGroupState,1.3.6.1.4.1.1206.4.2.1.3.12.1.2.1,read-only,INTEGER (0..255),PASS,rejected,,
+reject-readonly,ascBlockErrorStatus,1.3.6.1.4.1.1206.4.2.1.11.3.0,read-only,INTEGER (0..65535),PASS,rejected,,
+reject-readonly,auxIOPortDirection,1.3.6.1.4.1.1206.4.2.6.7.3.1.6.2.1,read-only,"INTEGER { output (1), input (2), bidirectional (3)}",PASS,rejected,,
+reject-readonly,auxIOPortLastCommandedState,1.3.6.1.4.1.1206.4.2.6.7.3.1.7.2.1,read-only,INTEGER (0..4294967295),PASS,rejected,,
+reject-readonly,auxIOPortNumber,1.3.6.1.4.1.1206.4.2.6.7.3.1.2.2.1,read-only,INTEGER (1..255),PASS,rejected,,
+reject-readonly,auxIOPortResolution,1.3.6.1.4.1.1206.4.2.6.7.3.1.4.2.1,read-only,INTEGER (1..32),PASS,rejected,,
+reject-readonly,auxIOPortType,1.3.6.1.4.1.1206.4.2.6.7.3.1.1.2.1,read-only,"INTEGER{ other (1), analog (2), digital (3) }",PASS,rejected,,
+reject-readonly,auxIOTableNumAnalogPorts,1.3.6.1.4.1.1206.4.2.6.7.2.0,read-only,INTEGER (1..255),PASS,rejected,,
+reject-readonly,auxIOTableNumDigitalPorts,1.3.6.1.4.1.1206.4.2.6.7.1.0,read-only,INTEGER (1..255),PASS,rejected,,
+reject-readonly,channelNumber,1.3.6.1.4.1.1206.4.2.1.8.2.1.1.1,read-only,INTEGER (1..255),PASS,rejected,,
+reject-readonly,channelStatusGroupGreens,1.3.6.1.4.1.1206.4.2.1.8.4.1.4.1,read-only,INTEGER (0..255),PASS,rejected,,
+reject-readonly,channelStatusGroupNumber,1.3.6.1.4.1.1206.4.2.1.8.4.1.1.1,read-only,INTEGER (1..255),PASS,rejected,,
+reject-readonly,channelStatusGroupReds,1.3.6.1.4.1.1206.4.2.1.8.4.1.2.1,read-only,INTEGER (0..255),PASS,rejected,,
+reject-readonly,channelStatusGroupYellows,1.3.6.1.4.1.1206.4.2.1.8.4.1.3.1,read-only,INTEGER (0..255),PASS,rejected,,
+reject-readonly,communityNameIndex,1.3.6.1.4.1.1206.4.2.6.5.3.1.1.1,read-only,INTEGER (1..255),PASS,rejected,,
+reject-readonly,communityNamesMax,1.3.6.1.4.1.1206.4.2.6.5.2.0,read-only,INTEGER (1..255),PASS,rejected,,
+reject-readonly,controllerBaseStandards,1.3.6.1.4.1.1206.4.2.6.1.4.0,read-only,OCTET STRING (SIZE (0..256)),PASS,rejected,,
+reject-readonly,controllerLocalTime,1.3.6.1.4.1.1206.4.2.6.3.6.0,read-only,Counter,PASS,rejected,,
+reject-index,(index),1.3.6.1.4.1.1206.4.2.1.1.2.1.1.1,not-accessible,,PASS,notWritable,,
+reject-index,(index),1.3.6.1.4.1.1206.4.2.1.8.2.1.1.1,not-accessible,,PASS,notWritable,,
+reject-index,(index),1.3.6.1.4.1.1206.4.2.1.4.9.1.1.1.1,not-accessible,,PASS,notWritable,,

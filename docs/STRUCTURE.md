@@ -24,6 +24,8 @@ test-agent/
 | `STRUCTURE.md` | **本文件**：目录/文件说明 |
 | `DEFAULT_DATA.md` | 模拟数据总索引、Trap VarBind、YAML 覆盖 |
 | `1201DEFAULT_DATA.md` | Global (1201 + 1103) 默认值规范 |
+| `1202DEFAULT_DATA-OIDs.md` | 1202 全部对象默认值清单（Get 版） |
+| `1202DEFAULT_DATA-OIDs-SET.md` | **SET 版**：可写对象 Set 读回测试结果 |
 | `1202DEFAULT_DATA.md` | ASC (1202) 默认值规范 |
 
 ---
@@ -68,7 +70,9 @@ py gen_mib_tree.py 1202v0218.mib
 
 | 文件 | 用途 |
 |---|---|
-| `1202-selftest-report.md` | 1202 全覆盖自测结果（由 `scripts/selftest_1202.py` 生成） |
+| `1202-selftest-report.md` | 1202 Get/默认值自测（原版） |
+| `1202-set-selftest-report.md` | **SET 版**：137 可写对象 Set 读回 + 拒绝测试 |
+| `1202-set-selftest-report.csv` | SET 自测明细 CSV |
 
 ---
 
@@ -80,7 +84,10 @@ py gen_mib_tree.py 1202v0218.mib
 |---|---|
 | `agent.py` | **主程序**：启动 UDP SNMP Agent |
 | `scripts/trap_send.py` | 独立 CLI：发送 Trap/Inform |
-| `scripts/selftest_1202.py` | 1202 默认值自测 + 写报告 |
+| `scripts/selftest_1202.py` | 1202 Get/默认值自测 + 写报告 |
+| `scripts/selftest_1202_set.py` | **SET 版**：1202 可写对象 Set 全量自测 |
+| `scripts/snmp_get_test.py` | UDP Get 冒烟 |
+| `scripts/snmp_set_test.py` | **SET 版**：UDP Set 冒烟/全量 |
 
 ### 核心模块（根目录）
 

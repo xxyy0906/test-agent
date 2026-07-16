@@ -62,6 +62,53 @@ def test_set_read_write_and_read_back(instrum):
     assert got.prettyPrint() == "100"
 
 
+def test_set_scalar_unit_control(instrum):
+    oid = (1, 3, 6, 1, 4, 1, 1206, 4, 2, 1, 3, 10, 0)
+    col_oid = oid[:-1]
+    new_val = rfc1902.Integer32(100)
+    name, val = instrum.writeVars(
+        [(rfc1902.ObjectName(col_oid), new_val)],
+        acInfo=(1, "public"),
+    )[0]
+    assert name.prettyPrint().endswith(".3.10.0")
+    assert val.prettyPrint() == "100"
+    got = instrum.readVars([(rfc1902.ObjectName(oid), None)])[0][1]
+    assert got.prettyPrint() == "100"
+
+
+def test_set_dual_index_split_time(instrum):
+    oid = (1, 3, 6, 1, 4, 1, 1206, 4, 2, 1, 4, 9, 1, 3, 1, 1)
+    new_val = rfc1902.Integer32(50)
+    instrum.writeVars([(rfc1902.ObjectName(oid), new_val)], acInfo=(1, "public"))
+    got = instrum.readVars([(rfc1902.ObjectName(oid), None)])[0][1]
+    assert got.prettyPrint() == "50"
+
+
+def test_set_octet_scalar(instrum):
+    oid = (1, 3, 6, 1, 4, 1, 1206, 4, 2, 1, 11, 1, 0)
+    new_val = rfc1902.OctetString(b"AB")
+    instrum.writeVars([(rfc1902.ObjectName(oid), new_val)], acInfo=(1, "public"))
+    got = instrum.readVars([(rfc1902.ObjectName(oid), None)])[0][1]
+    assert bytes(got) == b"AB"
+
+
+def test_set_gauge_backup_time(instrum):
+    oid = (1, 3, 6, 1, 4, 1, 1206, 4, 2, 1, 3, 3, 0)
+    new_val = rfc1902.Integer32(1000)
+    instrum.writeVars([(rfc1902.ObjectName(oid), new_val)], acInfo=(1, "public"))
+    got = instrum.readVars([(rfc1902.ObjectName(oid), None)])[0][1]
+    assert got.prettyPrint() == "1000"
+
+
+def test_set_index_column_rejected(instrum):
+    oid = (1, 3, 6, 1, 4, 1, 1206, 4, 2, 1, 1, 2, 1, 1, 1)
+    with pytest.raises(error.NotWritableError):
+        instrum.writeVars(
+            [(rfc1902.ObjectName(oid), rfc1902.Integer32(2))],
+            acInfo=(1, "public"),
+        )
+
+
 def test_set_read_only_rejected(instrum):
     """Read-only scalar maxPhases cannot be Set."""
     oid = (1, 3, 6, 1, 4, 1, 1206, 4, 2, 1, 1, 1, 0)
@@ -94,6 +141,16 @@ def test_set_read_only_community_rejected():
             [(rfc1902.ObjectName(oid), rfc1902.Integer32(50))],
             acInfo=(1, "readonly"),
         )
+
+
+def test_set_bytes_community_accepted(instrum):
+    """UDP Set passes community as bytes — must match write_communities."""
+    oid = (1, 3, 6, 1, 4, 1, 1206, 4, 2, 1, 1, 2, 1, 3, 1)
+    _, val = instrum.writeVars(
+        [(rfc1902.ObjectName(oid), rfc1902.Integer32(77))],
+        acInfo=(1, b"public"),
+    )[0]
+    assert val.prettyPrint() == "77"
 
 
 def test_set_no_such_object(instrum):
