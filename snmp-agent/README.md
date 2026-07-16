@@ -25,13 +25,15 @@ snmp-agent/
 
 ## 安装与启动
 
-**Windows**（`py`）：
+**Windows**（`start_windows.bat` 或 `py`）：
 
 ```bash
 cd test-agent/snmp-agent
+start_windows.bat                     # 默认 1161 + --dev-cap 8
+# 或
 py -m pip install -r requirements.txt
-py agent.py --port 1161 --dev-cap 8    # 开发模式
-py agent.py --port 1161                # 满填
+py agent.py --port 1161 --dev-cap 8   # 开发模式
+py agent.py --port 1161               # 满填
 ```
 
 **Ubuntu**：完整步骤见 [../docs/UBUNTU.md](../docs/UBUNTU.md)。摘要：
@@ -41,7 +43,8 @@ cd test-agent/snmp-agent
 rm -rf .venv && python3 -m venv .venv && source .venv/bin/activate
 python3 -m pip install -U "pip>=24" setuptools wheel
 python3 -m pip install -r requirements.txt
-python3 agent.py --port 1161 --dev-cap 8
+chmod +x start_ubuntu.sh && ./start_ubuntu.sh   # 默认 1161 + --dev-cap 8
+# ./start_ubuntu.sh --port 161                  # 特权端口（自动 sudo .venv python）
 ```
 
 ## MIB Browser

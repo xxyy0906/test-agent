@@ -59,7 +59,20 @@ source .venv/bin/activate
 
 ## 4. 启动 Agent
 
-**推荐：非特权端口 1161（无需 root）**
+**推荐：用一键脚本（自动找 `.venv`，161 端口自动 `sudo .venv/bin/python`）**
+
+```bash
+cd /path/to/test-agent/snmp-agent
+chmod +x start_ubuntu.sh    # 仅首次需要
+./start_ubuntu.sh           # 默认 --port 1161 --dev-cap 8
+./start_ubuntu.sh --port 161
+./start_ubuntu.sh --full    # 满填（不加 --dev-cap）
+./start_ubuntu.sh --help
+```
+
+Windows 请用同目录下的 `start_windows.bat`。
+
+或手动启动。**推荐：非特权端口 1161（无需 root）**
 
 ```bash
 # 开发模式（表维度 cap=8，启动更快）
@@ -82,18 +95,22 @@ SNMP Agent listening on 0.0.0.0:1161
 
 ### 使用标准端口 161
 
-UDP 161 为特权端口，普通用户无法绑定：
+UDP 161 为特权端口，普通用户无法绑定。依赖装在 `.venv` 里，**不要**用 `sudo python3`（那是系统 Python，会报 `No module named 'pysnmp'`）。
 
 ```bash
-# 方式 A：以 root 运行（仅测试环境）
-sudo python3 agent.py --port 161 --dev-cap 8
+# 须先 cd 到 snmp-agent/，且已创建并安装过 .venv
 
-# 方式 B：给 python 二进制能力（需按实际路径调整）
-sudo setcap 'cap_net_bind_service=+ep' "$(readlink -f "$(which python3)")"
+# 方式 A：用 venv 里的解释器以 root 运行（仅测试环境）
+sudo .venv/bin/python agent.py --port 161 --dev-cap 8
+
+# 方式 B：给 venv 的 python 提权后，普通用户运行（推荐）
+sudo setcap 'cap_net_bind_service=+ep' "$(readlink -f .venv/bin/python)"
+source .venv/bin/activate
 python3 agent.py --port 161 --dev-cap 8
 ```
 
-> 若本机已有 `snmpd` 占用 161，先停掉：`sudo systemctl stop snmpd`。
+> 若本机已有 `snmpd` 占用 161，先停掉：`sudo systemctl stop snmpd`。  
+> 防火墙需放行：`sudo ufw allow 161/udp`。MIB Browser 端口填 **161**。
 
 ## 5. 验证
 
@@ -128,8 +145,10 @@ sudo ufw status
 
 | 用途 | Ubuntu |
 |---|---|
+| 一键启动（开发） | `./start_ubuntu.sh` |
+| 一键启动（161） | `./start_ubuntu.sh --port 161` |
 | 启动（开发） | `python3 agent.py --port 1161 --dev-cap 8` |
-| 启动（满填） | `python3 agent.py --port 1161` |
+| 启动（满填） | `./start_ubuntu.sh --full` 或 `python3 agent.py --port 1161` |
 | 发 Trap | `python3 scripts/trap_send.py --trap-host 127.0.0.1 --type enterprise` |
 | 单元测试 | `python3 -m pytest tests/ -q` |
 | Get 冒烟 | `python3 scripts/snmp_get_test.py --port 1161` |
@@ -173,14 +192,15 @@ sudo systemctl status ntcip-snmp-agent
 
 | 现象 | 处理 |
 |---|---|
-| `Cannot bind UDP ...:161` / Permission denied | 改用 `--port 1161`，或见上文特权端口说明 |
+| `Cannot bind UDP ...:161` / Permission denied | 改用 `--port 1161`，或见上文「使用标准端口 161」 |
 | 端口已被占用 | `ss -ulnp \| grep 1161`，换端口或结束占用进程 |
-| 远程 Get 超时 | 检查 `ufw`/防火墙、Agent 是否监听 `0.0.0.0`、客户端是否写对端口 |
+| 远程 Get 超时 | 检查 `ufw`/防火墙、Agent 是否监听 `0.0.0.0`、客户端是否写对端口（1161 vs 161） |
 | 本机 Wireshark 抓不到 Get | 本机访问本机 IP 不走物理网卡，抓 **lo**（loopback）；Trap 发往其他主机时可在物理网卡上看到 |
 | `No such file ... requirements.txt` / `can't open file 'agent.py'` | 当前不在 `snmp-agent/`：`cd ~/…/test-agent/snmp-agent` |
 | `Read timed out` / `files.pythonhosted.org` | 访问官方 PyPI 超时（国内常见）。用国内镜像重装，见下方「PyPI 超时」 |
 | `ResolutionImpossible` / `pysmi-lextudio`/`requests` 冲突 | 拉取最新代码（`requirements.txt` 已钉死与 Windows 一致的版本），删 `.venv` 后按第 3 节重装；并确保 `pip>=24` |
-| `ModuleNotFoundError: pyasn1` / `pysnmp` | 依赖未装成功；激活 venv 后重新 `pip install -r requirements.txt` |
+| `ModuleNotFoundError: pysnmp`（`sudo python3` 后） | `sudo` 走了系统 Python。改用 `sudo .venv/bin/python agent.py ...`，见「使用标准端口 161」 |
+| `ModuleNotFoundError: pyasn1` / `pysnmp`（未 sudo） | 依赖未装成功；激活 venv 后重新 `pip install -r requirements.txt` |
 | Python 3.8 / `python3 --version` 显示 3.8 | 本工程要求 **3.9+**。Ubuntu 20.04 请装 `python3.9`/`python3.10` 后用对应解释器建 venv |
 
 ### PyPI 超时（`Read timed out` / `files.pythonhosted.org`）
