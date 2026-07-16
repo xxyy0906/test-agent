@@ -137,9 +137,9 @@ def value_for_1201_column(table_name: str, col_name: str, indices: tuple[int, ..
 
 
 def _to_rfc1902(spec: object, name: str | None = None):
-    if isinstance(spec, rfc1902.Integer32 | rfc1902.Counter32 | rfc1902.Gauge32):
+    if isinstance(spec, (rfc1902.Integer32, rfc1902.Counter32, rfc1902.Gauge32)):
         return spec
-    if isinstance(spec, rfc1902.OctetString | rfc1902.ObjectIdentifier):
+    if isinstance(spec, (rfc1902.OctetString, rfc1902.ObjectIdentifier)):
         return spec
     if isinstance(spec, tuple) and len(spec) == 2 and spec[0] == "Counter":
         return rfc1902.Counter32(int(spec[1]))

@@ -48,6 +48,8 @@ python3 -m pip install -U "pip>=24" setuptools wheel
 python3 -m pip install -r requirements.txt
 ```
 
+若下载 `files.pythonhosted.org` 超时，见第 9 节「PyPI 超时」。
+
 之后每次新开终端，先执行：
 
 ```bash
@@ -176,8 +178,43 @@ sudo systemctl status ntcip-snmp-agent
 | 远程 Get 超时 | 检查 `ufw`/防火墙、Agent 是否监听 `0.0.0.0`、客户端是否写对端口 |
 | 本机 Wireshark 抓不到 Get | 本机访问本机 IP 不走物理网卡，抓 **lo**（loopback）；Trap 发往其他主机时可在物理网卡上看到 |
 | `No such file ... requirements.txt` / `can't open file 'agent.py'` | 当前不在 `snmp-agent/`：`cd ~/…/test-agent/snmp-agent` |
+| `Read timed out` / `files.pythonhosted.org` | 访问官方 PyPI 超时（国内常见）。用国内镜像重装，见下方「PyPI 超时」 |
 | `ResolutionImpossible` / `pysmi-lextudio`/`requests` 冲突 | 拉取最新代码（`requirements.txt` 已钉死与 Windows 一致的版本），删 `.venv` 后按第 3 节重装；并确保 `pip>=24` |
 | `ModuleNotFoundError: pyasn1` / `pysnmp` | 依赖未装成功；激活 venv 后重新 `pip install -r requirements.txt` |
+| Python 3.8 / `python3 --version` 显示 3.8 | 本工程要求 **3.9+**。Ubuntu 20.04 请装 `python3.9`/`python3.10` 后用对应解释器建 venv |
+
+### PyPI 超时（`Read timed out` / `files.pythonhosted.org`）
+
+删掉半截 venv，用国内镜像重装（清华源示例，可换成阿里云等）：
+
+```bash
+cd ~/develop/ntcip-snmp-agent/test-agent/snmp-agent
+rm -rf .venv
+python3 -m venv .venv
+source .venv/bin/activate
+
+# 先确认版本（需 3.9+）
+python3 --version
+
+export PIP_INDEX_URL=https://pypi.tuna.tsinghua.edu.cn/simple
+export PIP_TRUSTED_HOST=pypi.tuna.tsinghua.edu.cn
+export PIP_DEFAULT_TIMEOUT=120
+
+python3 -m pip install -U "pip>=24" setuptools wheel
+python3 -m pip install -r requirements.txt
+python3 agent.py --port 1161 --dev-cap 8
+```
+
+等价写法（不设环境变量）：
+
+```bash
+python3 -m pip install -U "pip>=24" setuptools wheel \
+  -i https://pypi.tuna.tsinghua.edu.cn/simple --trusted-host pypi.tuna.tsinghua.edu.cn
+python3 -m pip install -r requirements.txt \
+  -i https://pypi.tuna.tsinghua.edu.cn/simple --trusted-host pypi.tuna.tsinghua.edu.cn
+```
+
+其他常用镜像：`https://mirrors.aliyun.com/pypi/simple/`、`https://pypi.douban.com/simple/`。
 
 ## 相关文档
 
