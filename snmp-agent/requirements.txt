@@ -1,2 +1,11 @@
-pysnmp-lextudio>=6.0
+# Pinned to the known-good Windows stack (pysnmp-lextudio 6.3.0).
+# Do not loosen without re-testing Ubuntu + Windows installs.
+pysnmp-lextudio==6.3.0
+pyasn1==0.6.0
+pysmi-lextudio==1.4.3
+pysnmpcrypto==0.0.4
+pytest-cov>=4.0.0,<5.0.0
+requests>=2.26.0,<3.0.0
+Jinja2>=3.1.3,<4.0.0
+ply>=3.11,<4.0
 PyYAML>=6.0

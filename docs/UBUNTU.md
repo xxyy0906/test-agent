@@ -35,10 +35,16 @@ cd /path/to/test-agent/snmp-agent
 
 ## 3. 创建虚拟环境并安装 Python 依赖
 
+> **必须在 `snmp-agent/` 目录下操作**（`requirements.txt` 与 `agent.py` 都在这里，不在上一级 `test-agent/`）。
+
+若之前装失败过，先删掉旧 venv 再重建：
+
 ```bash
+cd /path/to/test-agent/snmp-agent
+rm -rf .venv
 python3 -m venv .venv
 source .venv/bin/activate
-python3 -m pip install -U pip
+python3 -m pip install -U "pip>=24" setuptools wheel
 python3 -m pip install -r requirements.txt
 ```
 
@@ -169,7 +175,9 @@ sudo systemctl status ntcip-snmp-agent
 | 端口已被占用 | `ss -ulnp \| grep 1161`，换端口或结束占用进程 |
 | 远程 Get 超时 | 检查 `ufw`/防火墙、Agent 是否监听 `0.0.0.0`、客户端是否写对端口 |
 | 本机 Wireshark 抓不到 Get | 本机访问本机 IP 不走物理网卡，抓 **lo**（loopback）；Trap 发往其他主机时可在物理网卡上看到 |
-| `ModuleNotFoundError: pysnmp` | 未激活 venv，或未执行 `pip install -r requirements.txt` |
+| `No such file ... requirements.txt` / `can't open file 'agent.py'` | 当前不在 `snmp-agent/`：`cd ~/…/test-agent/snmp-agent` |
+| `ResolutionImpossible` / `pysmi-lextudio`/`requests` 冲突 | 拉取最新代码（`requirements.txt` 已钉死与 Windows 一致的版本），删 `.venv` 后按第 3 节重装；并确保 `pip>=24` |
+| `ModuleNotFoundError: pyasn1` / `pysnmp` | 依赖未装成功；激活 venv 后重新 `pip install -r requirements.txt` |
 
 ## 相关文档
 

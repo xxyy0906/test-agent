@@ -10,7 +10,10 @@ import threading
 import time
 from pathlib import Path
 
-from pyasn1.compat.octets import null
+try:
+    from pyasn1.compat.octets import null
+except ImportError:  # pyasn1 >= 0.6.1 removed compat.octets
+    null = b""
 from pysnmp.carrier.asyncio.dgram import udp
 from pysnmp.entity import config, engine
 from pysnmp.entity.rfc3413 import cmdrsp, context
